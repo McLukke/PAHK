@@ -1,5 +1,5 @@
-@import "settings";
-@import "foundation";
+// @import "config/settings";
+// @import "foundation";
 
 @import url(https://fonts.googleapis.com/css?family=Signika:400,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
@@ -32,6 +32,7 @@ html {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+
 }
 
 *, *:before, *:after {
@@ -771,7 +772,6 @@ footer {
 }
 
 
-
 /* ---- .grid-item ---- */
 
 .grid-item {
@@ -790,37 +790,6 @@ footer {
   padding: 0;
 }
 
-.grid-item .name {
-  position: absolute;
-  left: 10px;
-  top: 60px;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 12px;
-  font-weight: normal;
-}
-
-.grid-item .symbol {
-  position: absolute;
-  left: 10px;
-  top: 0px;
-  font-size: 42px;
-  font-weight: bold;
-  color: white;
-}
-
-.grid-item .number {
-  position: absolute;
-  right: 8px;
-  top: 5px;
-}
-
-.grid-item .weight {
-  position: absolute;
-  left: 10px;
-  top: 76px;
-  font-size: 12px;
-}
 
 // --------- MEDIA QUERIES
 
