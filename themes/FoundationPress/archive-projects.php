@@ -48,6 +48,7 @@ $pods = pods('projects', $params);
 
 if ( $pods->total() > 0 ) {
 while ( $pods->fetch() ) {
+  $currentRow = $pods('')
   if (has_post_thumbnail( pods('projects', get_the_id()) ) {
     $image = wp_get_attachment_image_src( get_post_thumbnail_id( pods('projects', get_the_id()) ) );
     $image = $image[0];
