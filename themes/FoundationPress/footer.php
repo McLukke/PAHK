@@ -26,11 +26,11 @@
     </div>
     <div class="column large-4 medium-6 small-12">
       <h6>Executing Organization</h6>
-      <img src="./images/logo-hkac.png">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-hkac.png">
     </div>
     <div class="column large-4 medium-6 small-12">
       <h6>Partner Organization</h6>
-      <img src="./images/logo-hkas.png">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-hkas.png">
     </div>
     <div class="column large-12"><h6>Copyright 2015 Public Art Hong Kong. All rights reserved. Design by szs.io</h6></div>
   </div>

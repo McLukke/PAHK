@@ -11,17 +11,25 @@ get_header();
 
 $pods = pods('projects', get_the_id() );
 
+// grabbing tier2 images
+$tier2Array = $pods->field('tier_2_images');
+$tier2pictures = [];
+foreach ($tier2Array as $picture) {
+	array_push( $tier2pictures, pods_image_url($picture, 'full') );
+}
+
+// grab additional images
+$additionalPicsArray = $pods->field('additional_images');
+$additionalPics = [];
+foreach ($additionalPicsArray as $picture) {
+	array_push( $additionalPics, pods_image_url($picture, 'full') );
+}
+
 ?>
 
 <div id="project-detail">
 	<div class="full-width">
-	  <div class="inner-page-banner" style="background-image: url('<?php
-	  	$thumbnail = pods_image(
-	  		$pods->field('banner_image'), 'thumbnail', 0, true
-			);
-
-			echo $thumbnail;
-	  ?>')">
+	  <div class="inner-page-banner" style="background-image: url('<?php echo pods_image_url( $pods->field('banner_image'), 'full' ); ?>')">
 	    <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
 	      <h5><?php echo $pods->display('location'); ?></h5>
     		<h6><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></h6>
