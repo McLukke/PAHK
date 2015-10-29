@@ -42,23 +42,4 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
 
-function display_post ($post_id, $class) {
-  if ( has_post_thumbnail($post_id) ) {
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ) );
-    $image = $image[0];
-  }else{
-    $image = get_bloginfo('template_directory')."/assets/images/black.png";
-  } ?>
-
-  <div class="element-item <?php echo $class; ?>" data-category="transition">
-    <div>
-    	<img src="<?php echo $image; ?>" />
-    </div>
-    <?php the_title('<h5>', '</h5>'); ?>
-
-    <h6>June 2015 - July 2015</h6>
-    <h3 class="artist-name">MTR CORPORATION:</h3>
-    <h3>Tiara Sculpture Competition</h3>
-  </div>
-<?php } add_action("archive-projects", "display_post");
 ?>
