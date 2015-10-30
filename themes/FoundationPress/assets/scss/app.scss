@@ -5,11 +5,16 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
 
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+
 // --------- VARIABLES
 
 $main-turq: #3fb0ac; 
 $main-yellow: #fae596;
 $main-dark: #163f45;
+$main-yellow-lighten: #fcf1cc;
 
 $white: #fff;
 $grey-light: #ebebeb;
@@ -139,6 +144,16 @@ span.subheader {
 .font-art {
 	font-family: $font-art;
 }
+
+
+// CHINESE FONT
+
+// body:lang(zh-Hant) {
+// https://www.google.com/fonts/earlyaccess#Noto+Sans+SC
+body:lang(zh) {
+	font-family: "cwTeXMing", "cwTeXHei", "cwTeXKai", "Microsoft Yahei", "微软雅黑", sans-serif;
+}
+
 
 h4.subheader-strike {
 	text-align: center;
@@ -313,7 +328,7 @@ span.letter-list {
     		transition: background-color 0.4s;
   			-webkit-transition: background-color 0.4s;    	
     	&:hover {
-    		background-color: $main-dark;
+    		background-color: $main-yellow-lighten;
     		transition: background-color 0.4s;
   			-webkit-transition: background-color 0.4s;
     	}
@@ -749,7 +764,7 @@ footer {
 .filter-button {
   display: inline-block;
   padding: 0.4rem 1.2rem;
-  background: $grey-light;
+  background: transparent;
   color: $main-turq;
   font-family: $font-header;
   font-size: 0.8rem;
@@ -758,6 +773,9 @@ footer {
   font-weight: bold;
   border: 1px solid $main-turq;
   border-radius: 15px;
+  &:focus {
+  	background-color: $main-yellow;
+  }
 }
 
 .filter-button:hover {
