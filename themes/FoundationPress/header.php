@@ -33,6 +33,7 @@
 
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
+
 	<?php endif; ?>
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
@@ -45,38 +46,7 @@
 	?>
 
 
-
-
-
-<!-- sherin's custom header bar -->
-<div class="fixed">
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-pahk-transparent.png">
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a class="font-art" href="#">About</a></li>
-        <li><a href="#">For Corporates</a></li>
-        <li><a href="#">For Artists</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Join & Support</a></li>
-        <li><a href="#">中文</a></li>
-        <li><a href="#"><img class="icon-search" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></a></li>
-      </ul>
-    </section>
-  </nav>
-</div>
-
-
-
-
-
-	<?php // get_template_part( 'parts/top-bar' ); ?>
+	<?php get_template_part( 'parts/top-bar' ); ?>
 
 <section class="container" role="document">
 	<?php do_action( 'foundationpress_after_header' ); ?>

@@ -12,7 +12,7 @@
 ?>
 
 </section>
-<div id="footer-container">
+<div>
 
 <footer id="footer">
   <div class="row">
