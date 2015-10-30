@@ -6,14 +6,19 @@ get_header();
 
 $params = array ('limit' => -1);
 $aboutpod = pods('aboutsettings', $params);
-$pods = pods('projects', $params);
 
 $chosenID = $aboutpod->display('post_id');
 
+// if ( is_array( $chosenID) || is_object($chosenID) ) {
+//   $this -> find($chosenID);
+// }
+
+
+$chosenPost = pods('projects', array( 'where' => 't.id = '.$chosenID ) );
+
 echo "<pre>";
-var_dump($pods);
+var_dump($chosenPost);
 echo "</pre>";
-// $chosenRow = 
 
 ?>
 
