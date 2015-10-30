@@ -14,15 +14,20 @@ $pods = pods('projects', get_the_id() );
 // grabbing tier2 images
 $tier2Array = $pods->field('tier_2_images');
 $tier2pictures = [];
+$tier2captions = [];
+
 foreach ($tier2Array as $picture) {
 	array_push( $tier2pictures, pods_image_url($picture, 'full') );
+	array_push( $tier2captions, $picture["post_excerpt"]);
 }
 
 // grab additional images
 $additionalPicsArray = $pods->field('additional_images');
 $additionalPics = [];
+$additionalPicsCaption = [];
 foreach ($additionalPicsArray as $picture) {
 	array_push( $additionalPics, pods_image_url($picture, 'full') );
+	array_push( $additionalPicsCaption, $picture["post_excerpt"]);
 }
 
 ?>
@@ -39,7 +44,7 @@ foreach ($additionalPicsArray as $picture) {
 	    <div class="project-controls">
 	      <span class="ui-text-overlay">Next project</span>
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',false)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-left.png" title="Previous project"></a>
-	      <a href="#"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-grid.png" title="All projects"></a>
+	      <a href="<?php echo get_home_url(); ?>/projects"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-grid.png" title="All projects"></a>
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',true)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-right.png" title="Next project"></a>
 	    </div>
 	  </div>
@@ -128,62 +133,41 @@ foreach ($additionalPicsArray as $picture) {
 
 	    <div class="row project-images-column">
 	      <div class="column tier-2-image-column large-offset-0 large-12 medium-10 medium-offset-1">
-	        <div class="tier-2-image">
-	          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-2-img-1.jpg">
-	          <p class="image-caption">Title piece No. 1  •  Detailed look</p>
-	        </div>
-	        <div class="tier-2-image">
-	          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-2-img-2.jpg">
-	          <p class="image-caption">Title piece No. 1  •  Detailed look</p>
-	        </div>
-	        <div class="tier-2-image">
-	          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-2-img-3.jpg">
-	          <p class="image-caption">Title piece No. 1  •  Detailed look</p>
-	        </div>
+	      	<?php
+      		$counter = 0;
+      		foreach ($tier2pictures as $picture) { ?>
+		        <div class="tier-2-image">
+		          <img src="<?php echo $picture; ?>">
+		          <?php if ( $tier2captions[$counter] !== undefined || $tier2captions[$counter] !== "" ) { ?>
+			          <p class="image-caption">Title piece No. <?php echo $counter; ?>  • <?php echo $tier2captions[$counter]; ?></p>
+			        <?php } ?>
+		        </div>
+    			<?php $counter++; } ?>
 	      </div>
 	    </div>
 
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row">
-	          <div class="column tier-3-image-column small-6">
-	            <div class="tier-3-image">
-	              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-3-img.jpg">
-	            </div>
-	          </div>
-	          <div class="column tier-3-image-column small-6">
-	            <div class="tier-3-image">
-	              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-3-img.jpg">
-	            </div>
-	          </div>
-	          <div class="column tier-3-image-column small-6">
-	            <div class="tier-3-image">
-	              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-3-img.jpg">
-	            </div>
-	          </div>
-	          <div class="column tier-3-image-column small-6">
-	            <div class="tier-3-image">
-	              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-3-img.jpg">
-	            </div>
-	          </div>
-	          <div class="column tier-3-image-column small-6">
-	            <div class="tier-3-image">
-	              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-3-img.jpg">
-	            </div>
-	          </div>
-	          <div class="column tier-3-image-column small-6">
-	            <div class="tier-3-image">
-	              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tier-3-img.jpg">
-	            </div>
-	          </div>
+
+	        	<?php
+        		$counter = 0;
+        		foreach ($additionalPics as $picture) { ?>
+        			<div class="column tier-3-image-column small-6">
+		            <div class="tier-3-image">
+		              <img src="<?php echo $picture; ?>">
+		            </div>
+		          </div>
+        		<?php $counter++; } ?>
+
 	        </div>
 	      </div>
 	    </div>
 
 	    <div class="project-controls">
-	      <a href="#"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-left.png" title="Previous project"></a>
-	      <a href="#"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-grid.png" title="All projects"></a>
-	      <a href="#"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-right.png" title="Next project"></a>
+	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',false)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-left.png" title="Previous project"></a>
+	      <a href="<?php echo get_home_url(); ?>/projects"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-grid.png" title="All projects"></a>
+	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',true)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-right.png" title="Next project"></a>
 	      <span class="ui-text">Next project</span>
 	    </div>
 
