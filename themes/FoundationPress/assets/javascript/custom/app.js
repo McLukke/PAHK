@@ -1,4 +1,8 @@
-$(document).foundation();
+$(document).foundation({
+  offcanvas : {
+    close_on_click : true
+  }
+});
 
 $(".grid-item").append("<span class='frame-line'>_</span>");
 
@@ -22,6 +26,18 @@ $( document ).ready( function() {
   });
 
   // filter functions
+  var filterFns = {
+    // show if number is greater than 50
+    numberGreaterThan50: function() {
+      var number = $(this).find('.number').text();
+      return parseInt( number, 10 ) > 50;
+    },
+    // show if name ends with -ium
+    ium: function() {
+      var name = $(this).find('.name').text();
+      return name.match( /ium$/ );
+    }
+  };
 
   // bind filter button click
   $('#filters').on( 'click', 'button', function() {
