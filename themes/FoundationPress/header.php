@@ -65,7 +65,12 @@
         <li><a href="#">For Artists</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Join & Support</a></li>
-        <li><a href="#">中文</a></li>
+		<?php if ( qtranxf_getLanguage() === "zh" ) { ?>
+        	<li><a href="<?php echo str_replace("/zh/", "/en/", get_permalink() ); ?>" hreflang="en" title="English">English</a></li>
+        <?php } else { ?>
+        	<?php //if has /en/ or not ?>
+    		<li><a href="<?php  ?>" hreflang="zh" title="Chinese">中文</a></li>
+        <?php } ?>
         <li><a href="#"><img class="icon-search" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></a></li>
       </ul>
     </section>
