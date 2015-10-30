@@ -2,7 +2,20 @@
 /*
 Template Name: About
 */
-get_header(); ?>
+get_header();
+
+$params = array ('limit' => -1);
+$aboutpod = pods('aboutsettings', $params);
+$pods = pods('projects', $params);
+
+$chosenID = $aboutpod->display('post_id');
+
+echo "<pre>";
+var_dump($pods);
+echo "</pre>";
+// $chosenRow = 
+
+?>
 
 <?php get_template_part( 'parts/featured-image' ); ?>
 
@@ -13,12 +26,11 @@ get_header(); ?>
 
   <div class="row">
     <div class="inner-page-banner">
-    
       <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-        <h5>Admiralty</h5>
-        <h6>June 2015 - July 2015</h6>
-        <h3 class="artist-name">Man Fung-Yi<span>:</span></h3>
-        <h3 class="artwork-name">Sisters on Belcher's Street</h3>
+        <h5><?php  ?></h5>
+        <h6><?php //echo $pods->display('display_from'); ?> - <?php //echo $pods->display('display_until'); ?></h6>
+        <h3 class="artist-name"><?php  ?></h3>
+        <h3 class="artwork-name"><?php //the_title(); ?></h3>
       </div>
     </div>
   </div>
@@ -32,11 +44,11 @@ get_header(); ?>
     </div>
     <div class="column medium-6">
       <h4 class="subheader-strike"><span>Corporate projects</span></h4>
-      <a href="#" class="button cta">Partner with PAHK</a>
+      <a href="<?php echo get_home_url(); ?>/corporates" class="button cta">Partner with PAHK</a>
     </div>
     <div class="column medium-6">
       <h4 class="subheader-strike"><span>Call for artists</span></h4>
-      <a href="#" class="button cta">Proposal Submissions</a>
+      <a href="<?php echo get_home_url(); ?>/artists" class="button cta">Proposal Submissions</a>
     </div>
   </div>
 
@@ -46,16 +58,7 @@ get_header(); ?>
       <span class="frame-line">_</span>
       <div class="row">
         <div class="column large-6 large-centered text-center">
-          <p>Ms. Cissy Pao, BBS (Chairperson) <br>
-          Ms. Candy Chuang <br> 
-          The Hon Christopher Chung Shu-kun, BBS, MH, JP <br> Ms. Jennifer Dong <br>
-          Mr. Andre Fu <br>
-          Mr. Keith Kerr, SBS, JP <br>
-          Mr. Y.S. Daniel Lai <br> 
-          Ms. Shelley Lee Lai-kuen, GBS, OBE, JP<br> 
-          Dr. Michael W T Ng <br> 
-          Dr. Dennis Sun, BBS, JP <br> 
-          Ms. Angela Tam</p>
+          <p><?php echo $aboutpod->display('councillors'); ?></p>
         </div>
       </div>
     </div>
