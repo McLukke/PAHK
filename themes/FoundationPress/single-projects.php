@@ -46,14 +46,14 @@ foreach ($additionalPicsArray as $picture) {
 	      		echo $pods->display('location');
 	      	}
 	      ?></h5>
-    		<h6><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></h6>
-    		<h3 class="artist-name"><?php
+			<h6><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></h6>
+			<h3 class="artist-name"><?php
 			if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
-    			echo $pods->display('artist_name_zh');
-    		} else {
-    			echo $pods->display('artist_name');
-    		}
-    		?></h3>
+				echo $pods->display('artist_name_zh');
+			} else {
+				echo $pods->display('artist_name');
+			}
+			?></h3>
 	      <h3 class="artwork-name"><?php the_title(); ?></h3>
 	    </div>
 	    <div class="project-controls">

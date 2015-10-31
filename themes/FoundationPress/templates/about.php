@@ -2,11 +2,13 @@
 /*
 Template Name: About
 */
+
 get_header();
 
 $params = array ('limit' => -1);
 $aboutpod = pods('aboutsettings', $params);
 $chosenID = $aboutpod->display('post_id');
+
 ?>
 
 <?php get_template_part( 'parts/featured-image' ); ?>
@@ -17,32 +19,41 @@ $chosenID = $aboutpod->display('post_id');
   </div>
 
   <div class="row">
-    <div class="inner-page-banner">
-      <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-      <?php // WP_Query arguments
-      $args = array (
-        'p'                      => $chosenID,
-        'post_type'              => array( 'projects' ),
-      );
+    <?php // WP_Query arguments
+    $args = array (
+      'p' => $chosenID,
+      'post_type' => array( 'projects' ),
+    );
 
-      // The Query
-      $query = new WP_Query( $args );
+    // The Query
+    $query = new WP_Query( $args );
 
-      // The Loop
-      if ( $query->have_posts() ) {
-        while ( $query->have_posts() ) {
-          $query->the_post(); ?>
-
-        <h5><?php  ?></h5>
-        <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
-        <h3 class="artist-name"><?php  ?></h3>
-        <h3 class="artwork-name"><?php //the_title(); ?></h3>
-        <?php } // endwhile
-      } else {
-        echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
-      } ?>
-      </div>
-    </div>
+    // The Loop
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();
+        $about_banner_image = $aboutpod->display('banner_image') ? $aboutpod->display('banner_image') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
+        <div class="inner-page-banner" style="background-image:url(<?php echo $about_banner_image; ?>)">
+          <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+            <h5><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'location_zh') != '' ) {
+                echo pods_field_display ('projects', get_the_ID(), 'location_zh');
+              } else {
+                echo pods_field_display ('projects', get_the_ID(), 'location');
+              } ?></h5>
+            <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+            <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
+              } else {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name');
+              }
+            ?></h3>
+            <h3 class="artwork-name"><?php the_title(); ?></h3>
+          </a>
+        </div>
+      <?php } // endwhile
+    } else {
+      echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+    } ?>
   </div>
 
   <div class="card row">

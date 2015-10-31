@@ -59,7 +59,7 @@ while ( have_posts() ) : the_post();
 
   <a href="<?php the_permalink(); ?>" class="grid-item <?php echo $class ?>" data-category="transition">
     <div><img src="<?php echo $image; ?>" /></div>
-    <?php the_title('<h5>', '</h5>'); ?>
+    <?php echo pods_field_display ('projects', get_the_ID(), 'location'); ?>
 
     <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from');    ?> -
     <?php echo pods_field_display ('projects', get_the_ID(), 'display_until');    ?></h6>
