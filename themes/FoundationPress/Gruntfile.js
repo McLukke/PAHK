@@ -119,12 +119,13 @@ module.exports = function (grunt) {
 					'assets/components/foundation/js/foundation/foundation.topbar.js',
 
 					// Include your own custom scripts (located in the custom folder)
-					'assets/javascript/custom/*.js'
+					'assets/javascript/custom/*.js',
+					'assets/javascript/vendor/*.js'
 
 				],
 
 				// Finally, concatinate all the files above into one single file
-				dest: 'assets/javascript/foundation.js'
+				dest: 'assets/javascript/app.js'
 
 			}
 
@@ -135,7 +136,7 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					// Shrink the file size by removing spaces
-					'assets/javascript/foundation.js': ['assets/javascript/foundation.js']
+					'assets/javascript/app.js': ['assets/javascript/app.js']
 				}
 			}
 
