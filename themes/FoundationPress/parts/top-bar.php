@@ -25,11 +25,15 @@
                 <li><a href="#">For Artists</a></li>
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Join & Support</a></li>
-                <?php if ( qtranxf_getLanguage() === "zh" ) { ?>
-                    <li><a href="<?php echo str_replace("/zh/", "/en/", get_permalink() ); ?>" hreflang="en" title="English">English</a></li>
+                <?php $my_current_url = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+                if ( qtranxf_getLanguage() === "zh" ) { ?>
+                    <li><a href="<?php echo str_replace("/zh", "/en", $my_current_url ); ?>" hreflang="en" title="English">English</a></li>
                 <?php } else { ?>
-                    <?php //if has /en/ or not ?>
-                    <li><a href="<?php  ?>" hreflang="zh" title="Chinese">中文</a></li>
+                    <?php if ( strpos($my_current_url,'/en/') !== false ) { ?>
+                        <li><a href="<?php echo str_replace("/en", "/zh", $my_current_url ); ?>" hreflang="zh" title="Chinese">中文</a></li>
+                    <?php } else { ?>
+                        <li><a href="<?php echo str_replace(home_url(), home_url() . "/zh", $my_current_url ); ?>" hreflang="zh" title="Chinese">中文</a></li>
+                    <?php } ?>
                 <?php } ?>
                 <li><a href="#"><img class="icon-search" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></a></li>
             </ul>

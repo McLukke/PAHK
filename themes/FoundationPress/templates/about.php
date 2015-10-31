@@ -6,20 +6,7 @@ get_header();
 
 $params = array ('limit' => -1);
 $aboutpod = pods('aboutsettings', $params);
-
 $chosenID = $aboutpod->display('post_id');
-
-// if ( is_array( $chosenID) || is_object($chosenID) ) {
-//   $this -> find($chosenID);
-// }
-
-
-$chosenPost = pods('projects', array( 'where' => 't.id = '.$chosenID ) );
-
-echo "<pre>";
-var_dump($chosenPost);
-echo "</pre>";
-
 ?>
 
 <?php get_template_part( 'parts/featured-image' ); ?>
@@ -32,10 +19,28 @@ echo "</pre>";
   <div class="row">
     <div class="inner-page-banner">
       <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+      <?php // WP_Query arguments
+      $args = array (
+        'p'                      => $chosenID,
+        'post_type'              => array( 'projects' ),
+      );
+
+      // The Query
+      $query = new WP_Query( $args );
+
+      // The Loop
+      if ( $query->have_posts() ) {
+        while ( $query->have_posts() ) {
+          $query->the_post(); ?>
+
         <h5><?php  ?></h5>
-        <h6><?php //echo $pods->display('display_from'); ?> - <?php //echo $pods->display('display_until'); ?></h6>
+        <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
         <h3 class="artist-name"><?php  ?></h3>
         <h3 class="artwork-name"><?php //the_title(); ?></h3>
+        <?php } // endwhile
+      } else {
+        echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+      } ?>
       </div>
     </div>
   </div>
@@ -125,4 +130,7 @@ echo "</pre>";
   </div>
 </div>
 
-<?php get_footer(); ?>
+<?php // Restore original Post Data
+wp_reset_postdata();
+
+get_footer(); ?>
