@@ -3,13 +3,7 @@
 Template Name: About
 */
 
-get_header();
-
-$params = array ('limit' => -1);
-$aboutpod = pods('aboutsettings', $params);
-$chosenID = $aboutpod->display('post_id');
-
-?>
+get_header(); ?>
 
 <?php get_template_part( 'parts/featured-image' ); ?>
 
@@ -18,8 +12,12 @@ $chosenID = $aboutpod->display('post_id');
     <h1 class="strike"><span>ABOUT PAHK</span></h1>
   </div>
 
-  <div class="row">
-    <?php // WP_Query arguments
+  <div class="row"><?php
+    $params = array ('limit' => -1);
+    $aboutpod = pods('aboutsettings', $params);
+    $chosenID = $aboutpod->display('post_id');
+
+    // WP_Query arguments
     $args = array (
       'p' => $chosenID,
       'post_type' => array( 'projects' ),
@@ -32,6 +30,7 @@ $chosenID = $aboutpod->display('post_id');
     if ( $query->have_posts() ) {
       while ( $query->have_posts() ) {
         $query->the_post();
+
         $about_banner_image = $aboutpod->display('banner_image') ? $aboutpod->display('banner_image') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
         <div class="inner-page-banner" style="background-image:url(<?php echo $about_banner_image; ?>)">
           <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">

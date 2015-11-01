@@ -48,20 +48,5 @@ require_once( 'library/custom-nav.php' );
 /** Add protocol relative theme assets */
 require_once( 'library/protocol-relative-theme-assets.php' );
 
-add_action("archive-projects", "list_post_details");
-function list_post_details ($post_id, $class) {
-  if (has_post_thumbnail( $post_id ) ) {
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id($post_id) );
-    $image = $image[0];
-  }else{
-    $image = get_bloginfo('template_directory')."/assets/images/black.png";
-  } ?>
+?>
 
-	<div class="element-item <?php echo $class; ?>" data-category="transition">
-    <div><img src="<?php echo $image; ?>" /></div>
-    <?php the_title('<h5>', '</h5>'); ?>
-    <h6><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></h6>
-    <h3 class="artist-name"><?php echo $pods->display('artist_name'); ?></h3>
-  </div>
-
-<?php } ?>

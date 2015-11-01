@@ -9,15 +9,45 @@ get_header(); ?>
   <span class="subheader">TO THE ARTISTICALLY INCLINED. <br> Why PAHK and the partnership process.</span>
 </div>
 
-<div class="row">
-  <div class="inner-page-banner">
-    <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-      <p class="artwork-quote">“A starting point for an interdisciplinary dialogue”</p>
-      <h6 class="artwork-duration">June 2015 - July 2015</h6>
-      <h3 class="artist-name">Man Fung-Yi<span>:</span></h3>
-      <h3 class="artwork-name">Sisters on Belcher's Street</h3>
-    </div>
-  </div>
+<div class="row"><?php
+  $params = array ('limit' => -1);
+  $corp_pod = pods('corporatessettings', $params);
+  $chosenTopID = $corp_pod->display('top_project_id');
+  $chosenJVID = $corp_pod->display('jv_project_id');
+  $chosenSupportID = $corp_pod->display('support_id');
+
+  // WP_Query arguments
+  $args = array (
+    'p' => $chosenTopID,
+    'post_type' => array( 'projects' ),
+  );
+
+  // The Query
+  $query = new WP_Query( $args );
+
+  // The Loop
+  if ( $query->have_posts() ) {
+    while ( $query->have_posts() ) {
+      $query->the_post();
+
+      $top_banner_image = $corp_pod->display('top_banner') ? $corp_pod->display('top_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
+      <div class="inner-page-banner" style="background-image:url(<?php echo $top_banner_image; ?>)">
+        <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+          <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+          <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+          <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
+              echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
+            } else {
+              echo pods_field_display ('projects', get_the_ID(), 'artist_name');
+            }
+          ?></h3>
+          <h3 class="artwork-name"><?php the_title(); ?></h3>
+        </a>
+      </div>
+    <?php } // endwhile
+  } else {
+    echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+  } ?>
 </div>
 
 <div class="card row">
@@ -47,30 +77,76 @@ get_header(); ?>
       </div>
     </div>
   </div>
-  <div class="text-section column large-6 show-for-large-up">
-    <div class="featured-project-vertical">
-      <img src="./images/corporate-1.jpg">    
-      <div class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-        <p class="artwork-quote">“A starting point for an interdisciplinary dialogue”</p>
-        <h6 class="artwork-duration">June 2015 - July 2015</h6>
-        <h3 class="artist-name">Man Fung-Yi<span>:</span></h3>
-        <h3 class="artwork-name">Sisters on Belcher's Street</h3>
-      </div>
-    </div>
+  <div class="text-section column large-6 show-for-large-up"><?php
+    // WP_Query arguments
+    $args = array (
+      'p' => $chosenJVID,
+      'post_type' => array( 'projects' ),
+    );
+
+    // The Query
+    $query = new WP_Query( $args );
+
+    // The Loop
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();
+        $jv_banner_image = $corp_pod->display('jv_banner') ? $corp_pod->display('jv_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
+        <div class="featured-project-vertical">
+          <img src="<?php echo $jv_banner_image; ?>" />    
+          <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+            <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+            <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+            <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
+              } else {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name');
+              }
+            ?></h3>
+            <h3 class="artwork-name"><?php the_title(); ?></h3>
+          </a>
+        </div>
+      <?php } // endwhile
+    } else {
+      echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+    } ?>
   </div>
 </div>
 
 <div class="card row">
-  <div class="text-section column large-6 show-for-large-up">
-    <div class="featured-project-vertical">
-      <img src="./images/corporate-2.jpg">    
-      <div class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-        <p class="artwork-quote">“A starting point for an interdisciplinary dialogue”</p>
-        <h6 class="artwork-duration">June 2015 - July 2015</h6>
-        <h3 class="artist-name">Man Fung-Yi<span>:</span></h3>
-        <h3 class="artwork-name">Sisters on Belcher's Street</h3>
-      </div>
-    </div>
+  <div class="text-section column large-6 show-for-large-up"><?php
+    // WP_Query arguments
+    $args = array (
+      'p' => $chosenSupportID,
+      'post_type' => array( 'projects' ),
+    );
+
+    // The Query
+    $query = new WP_Query( $args );
+
+    // The Loop
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();
+        $support_banner_image = $corp_pod->display('support_banner') ? $corp_pod->display('support_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
+        <div class="featured-project-vertical">
+          <img src="<?php echo $support_banner_image; ?>" />    
+          <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+            <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+            <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+            <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
+              } else {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name');
+              }
+            ?></h3>
+            <h3 class="artwork-name"><?php the_title(); ?></h3>
+          </a>
+        </div>
+      <?php } // endwhile
+    } else {
+      echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+    } ?>
   </div>
   <div class="text-section column large-6">
     <h2>Support the art</h2>
