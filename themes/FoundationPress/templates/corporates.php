@@ -163,7 +163,7 @@ get_header(); ?>
         <p class="secondary-desc column large-8 medium-10 text-center small-centered">Support us by donating money*, artwork or volunteering <br>*Donations are tax deductible.</p>
       </div>
       <div class="column corporate-cta">
-        <a href="#" class="button cta">Find out how</a>
+        <a href="<?php echo get_home_url() . "/corporates"; ?>" class="button cta">Find out how</a>
       </div>
     </div>
   </div>
@@ -194,15 +194,14 @@ get_header(); ?>
   <div class="text-section">
     <h2>Client list</h2>
     <span class="frame-line">_</span>
-    <div class="client-logos column large-8 large-offset-2">
-      <img src="./images/client-logo-1.png">
-      <img src="./images/client-logo-2.png">
-      <img src="./images/client-logo-3.png">
-      <img src="./images/client-logo-4.png">
-      <img src="./images/client-logo-5.png">
-      <img src="./images/client-logo-6.png">
-      <img src="./images/client-logo-7.png">
-      <img src="./images/client-logo-8.png">
+    <div class="client-logos column large-8 large-offset-2"><?php
+      $clientLogoArray = $corp_pod->field('client_logos');
+      $numOfLogos = count($clientLogoArray);
+      $logosArray = [];
+
+      foreach ($clientLogoArray as $logo) { ?>
+        <img src="<?php echo pods_image_url($logo, 'full') ?>" />
+      <?php } ?>
     </div>
   </div>
 </div>
