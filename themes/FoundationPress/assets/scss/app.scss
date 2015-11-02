@@ -747,6 +747,39 @@ footer {
 	}
 }
 
+.partner-card.card.row {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	.partner-card-project-right {
+		height: 100%;
+		width: 52.5%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		&.column {
+			margin-right: -15px;
+		}
+	}
+	.partner-card-project-left {
+		height: 100%;
+		width: 52.5%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		&.column {
+			margin-left: -15px;
+		}
+	}
+	.featured-project-vertical {
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+}
+
 .client-logos { 
 	img {
 		display: inline-block;
@@ -754,9 +787,6 @@ footer {
 		margin: 0 auto;
 		padding: 10px;
 	}
-}
-
-.featured-project-vertical {
 }
 
 
