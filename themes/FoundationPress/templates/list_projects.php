@@ -28,6 +28,13 @@ while ( have_posts() ) : the_post();
     $image = $image[0];
   }else{
     $image = get_bloginfo('template_directory')."/assets/images/black.png";
+  }
+
+  $class = "";
+
+  $project_terms = wp_get_post_terms (get_the_ID(), 'projectcategory');
+  foreach ($project_terms as $abc) {
+    $class = $class . " " . $abc->slug;
   } ?>
 
   <a href="<?php the_permalink(); ?>" class="grid-item <?php echo $class ?>" data-category="transition">
