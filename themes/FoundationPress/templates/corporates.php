@@ -92,8 +92,7 @@ get_header(); ?>
       while ( $query->have_posts() ) {
         $query->the_post();
         $jv_banner_image = $corp_pod->display('jv_banner') ? $corp_pod->display('jv_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
-        <div class="featured-project-vertical">
-          <img src="<?php echo $jv_banner_image; ?>" />    
+        <div class="featured-project-vertical" style="background-image:url(<?php echo $jv_banner_image; ?>); ">
           <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
             <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
             <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
@@ -129,8 +128,7 @@ get_header(); ?>
       while ( $query->have_posts() ) {
         $query->the_post();
         $support_banner_image = $corp_pod->display('support_banner') ? $corp_pod->display('support_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
-        <div class="featured-project-vertical">
-          <img src="<?php echo $support_banner_image; ?>" />    
+        <div class="featured-project-vertical" style="background-image:url(<?php echo $support_banner_image; ?>); ">
           <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
             <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
             <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
@@ -196,11 +194,16 @@ get_header(); ?>
     <span class="frame-line">_</span>
     <div class="client-logos column large-8 large-offset-2"><?php
       $clientLogoArray = $corp_pod->field('client_logos');
-      $numOfLogos = count($clientLogoArray);
-      $logosArray = [];
-
-      foreach ($clientLogoArray as $logo) { ?>
-        <img src="<?php echo pods_image_url($logo, 'full') ?>" />
+      foreach ($clientLogoArray as $logo) { 
+        $alt_text = get_post_meta($logo["ID"], '_wp_attachment_image_alt', true); ?>
+        <a href="<?php
+        if ($alt_text !== "") {
+          echo "http://" . $alt_text;
+        } else {
+          echo "#";
+        }?>">
+          <img src="<?php echo pods_image_url($logo, 'full') ?>" />
+        </a>
       <?php } ?>
     </div>
   </div>

@@ -33,8 +33,8 @@ while ( have_posts() ) : the_post();
   $class = "";
 
   $project_terms = wp_get_post_terms (get_the_ID(), 'projectcategory');
-  foreach ($project_terms as $abc) {
-    $class = $class . " " . $abc->slug;
+  foreach ($project_terms as $category_term) {
+    $class = $class . " " . $category_term->slug;
   } ?>
 
   <a href="<?php the_permalink(); ?>" class="grid-item <?php echo $class ?>" data-category="transition">

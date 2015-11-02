@@ -31,14 +31,21 @@ if ( count($additionalPicsArray) > 0 ) {
 foreach ($additionalPicsArray as $picture) {
 	array_push( $additionalPics, pods_image_url($picture, 'full') );
 	array_push( $additionalPicsCaption, $picture["post_excerpt"]);
-}} ?>
+}}
+
+// grab project categories
+$project_categories = [];
+$project_terms = wp_get_post_terms (get_the_ID(), 'projectcategory');
+foreach ($project_terms as $category_term) {
+	array_push( $project_categories, $category_term->slug );
+} ?>
 
 <div id="project-detail">
 	<div class="full-width">
 	  <div class="inner-page-banner" style="background-image: url('<?php echo pods_image_url( $pods->field('banner_image'), 'full' ); ?>')">
 	    <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
 	      <h5><?php
-			if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
+					if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
 	      		echo $pods->display('location_zh');
 	      	} else {
 	      		echo $pods->display('location');
@@ -143,8 +150,12 @@ foreach ($additionalPicsArray as $picture) {
 		        } else {
 		        	echo $pods->field('about_artist');
 		        }
-			?></p>
+					?></p>
 	      </div>
+	    </div>
+
+	    <div class="project_video">
+	    	<?php echo $pods->field('embed_video_link'); ?>
 	    </div>
 
 	    <div class="row project-metadata project-metadata-footer">
@@ -177,6 +188,9 @@ foreach ($additionalPicsArray as $picture) {
 	          </tbody>
 	        </table>
 	        <span class="frame-line">_</span>
+	        <?php foreach ($project_categories as $category) {
+	        	echo '<div class="project_tags">' . $category . "</div>";
+	        } ?>
 	      </div>
 	    </div>
 	  </div>
@@ -184,8 +198,7 @@ foreach ($additionalPicsArray as $picture) {
 	  <div class="column large-6 medium-12">
 	    <div class="row project-images-column">
 	      <div class="column tier-2-image-column large-offset-0 large-12 medium-10 medium-offset-1">
-	      	<?php
-      		$counter = 0;
+	      	<?php $counter = 0;
       		foreach ($tier2pictures as $picture) { ?>
 		        <div class="tier-2-image">
 		          <img src="<?php echo $picture; ?>">
@@ -201,8 +214,7 @@ foreach ($additionalPicsArray as $picture) {
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row">
 
-	        	<?php
-        		$counter = 0;
+	        	<?php $counter = 0;
         		foreach ($additionalPics as $picture) { ?>
         			<div class="column tier-3-image-column small-6">
 		            <div class="tier-3-image">
