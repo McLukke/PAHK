@@ -31,9 +31,7 @@ if ( count($additionalPicsArray) > 0 ) {
 foreach ($additionalPicsArray as $picture) {
 	array_push( $additionalPics, pods_image_url($picture, 'full') );
 	array_push( $additionalPicsCaption, $picture["post_excerpt"]);
-}}
-
-?>
+}} ?>
 
 <div id="project-detail">
 	<div class="full-width">
@@ -153,26 +151,29 @@ foreach ($additionalPicsArray as $picture) {
 	      <div class="column large-12 large-offset-0 medium-8 medium-offset-2">
 	        <table>
 	          <tbody>
-	            <tr>
-	              <td class="metadata-key">Co-presenters</td>
-	              <td class="metadata-value"><?php
-	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != '' ) {
-	              		echo $pods->field('copresenters_zh');
-	              	} else {
-	              		echo $pods->field('copresenters');
-	              	}
-	              ?></td>
-	            </tr>
-	            <tr>
-	              <td class="metadata-key">Acknowledgments</td>
-	              <td class="metadata-value"><?php
-	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != '' ) {
-	              		echo $pods->field('acknowledge_zh');
-	              	} else {
-	              		echo $pods->field('acknowledge');
-	              	}
-	              ?></td>
-	            </tr>
+              <?php $i = 0;
+              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
+              $copresenters = explode(";", $temp_string);
+              foreach ($copresenters as $copresenter) {
+              	echo "<tr>";
+              	if ($i == 0) {
+              		echo '<td class="metadata-key">Co-presenters</td>';
+              	}
+              	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
+              	$i++;
+              } ?>
+
+              <?php $i = 0;
+              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge'));
+              $acknowledgements = explode(";", $temp_string);
+              foreach ($acknowledgements as $acknowledge) {
+              	echo "<tr>";
+              	if ($i == 0) {
+              		echo '<td class="metadata-key">Acknowledgments</td>';
+              	}
+              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
+              	$i++;
+              } ?>
 	          </tbody>
 	        </table>
 	        <span class="frame-line">_</span>
@@ -181,7 +182,6 @@ foreach ($additionalPicsArray as $picture) {
 	  </div>
 
 	  <div class="column large-6 medium-12">
-
 	    <div class="row project-images-column">
 	      <div class="column tier-2-image-column large-offset-0 large-12 medium-10 medium-offset-1">
 	      	<?php
@@ -226,4 +226,4 @@ foreach ($additionalPicsArray as $picture) {
 	</div>
 </div>
 
-<?php get_footer(); ?>
+get_footer(); ?>

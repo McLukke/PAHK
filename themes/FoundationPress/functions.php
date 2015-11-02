@@ -48,20 +48,27 @@ require_once( 'library/custom-nav.php' );
 /** Add protocol relative theme assets */
 require_once( 'library/protocol-relative-theme-assets.php' );
 
-add_action("archive-projects", "list_post_details");
-function list_post_details ($post_id, $class) {
-  if (has_post_thumbnail( $post_id ) ) {
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id($post_id) );
-    $image = $image[0];
-  }else{
-    $image = get_bloginfo('template_directory')."/assets/images/black.png";
-  } ?>
+add_action("pre_get_posts", "custom_front_page");
+function custom_front_page($wp_query){
+    //Ensure this filter isn't applied to the admin area
+    if(is_admin()) {
+        return;
+    }
 
-	<div class="element-item <?php echo $class; ?>" data-category="transition">
-    <div><img src="<?php echo $image; ?>" /></div>
-    <?php the_title('<h5>', '</h5>'); ?>
-    <h6><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></h6>
-    <h3 class="artist-name"><?php echo $pods->display('artist_name'); ?></h3>
-  </div>
+    if($wp_query->get('page_id') == get_option('page_on_front')):
 
-<?php } ?>
+        $wp_query->set('post_type', 'projects');
+        $wp_query->set('page_id', ''); //Empty
+
+        //Set properties that describe the page to reflect that
+        //we aren't really displaying a static page
+        $wp_query->is_page = 0;
+        $wp_query->is_singular = 0;
+        $wp_query->is_post_type_archive = 1;
+        $wp_query->is_archive = 1;
+
+    endif;
+
+}
+
+?>
