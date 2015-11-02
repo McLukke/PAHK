@@ -747,6 +747,25 @@ footer {
 	}
 }
 
+#artists {
+	.text-section {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.custom-counter {
+		margin-bottom: 30px;
+		li {
+			font-weight: bold;
+			font-size: 0.9rem;
+		}
+	}
+	.inner-page-banner {
+		margin-top: 35px;
+		height: 350px;
+	}
+
+}
+
 .partner-card.card.row {
 	overflow: hidden;
 	position: relative;
