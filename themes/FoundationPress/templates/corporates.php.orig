@@ -52,8 +52,7 @@ get_header(); ?>
     } ?>
   </div>
 
-
-  <div class="card row">
+  <div class="card row partner-card">
     <div class="text-section column large-6">
       <h2>Joint Ventures</h2>
       <span class="frame-line">_</span>
@@ -80,7 +79,7 @@ get_header(); ?>
         </div>
       </div>
     </div>
-    <div class="text-section column large-6 show-for-large-up"><?php
+    <div class="partner-card-project-right text-section column large-6 show-for-large-up"><?php
       // WP_Query arguments
       $args = array (
         'p' => $chosenJVID,
@@ -95,8 +94,7 @@ get_header(); ?>
         while ( $query->have_posts() ) {
           $query->the_post();
           $jv_banner_image = $corp_pod->display('jv_banner') ? $corp_pod->display('jv_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
-          <div class="featured-project-vertical">
-            <img src="<?php echo $jv_banner_image; ?>" />    
+          <div class="featured-project-vertical" style="background-image:url(<?php echo $jv_banner_image; ?>); ">
             <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
               <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
               <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
@@ -116,42 +114,9 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="card row">
-    <div class="text-section column large-6 show-for-large-up"><?php
-      // WP_Query arguments
-      $args = array (
-        'p' => $chosenSupportID,
-        'post_type' => array( 'projects' ),
-      );
+  <div class="card row partner-card">
 
-      // The Query
-      $query = new WP_Query( $args );
-
-      // The Loop
-      if ( $query->have_posts() ) {
-        while ( $query->have_posts() ) {
-          $query->the_post();
-          $support_banner_image = $corp_pod->display('support_banner') ? $corp_pod->display('support_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
-          <div class="featured-project-vertical">
-            <img src="<?php echo $support_banner_image; ?>" />    
-            <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-              <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
-              <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
-              <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
-                  echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
-                } else {
-                  echo pods_field_display ('projects', get_the_ID(), 'artist_name');
-                }
-              ?></h3>
-              <h3 class="artwork-name"><?php the_title(); ?></h3>
-            </a>
-          </div>
-        <?php } // endwhile
-      } else {
-        echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
-      } ?>
-    </div>
-    <div class="text-section column large-6">
+    <div class="text-section column large-6 large-push-6">
       <h2>Support the art</h2>
       <span class="frame-line">_</span>
       <div class="row partner-info">
@@ -170,6 +135,42 @@ get_header(); ?>
         </div>
       </div>
     </div>
+
+    <div class="large-pull-6 partner-card-project-left text-section column large-6 show-for-large-up"><?php
+      // WP_Query arguments
+      $args = array (
+        'p' => $chosenSupportID,
+        'post_type' => array( 'projects' ),
+      );
+
+      // The Query
+      $query = new WP_Query( $args );
+
+      // The Loop
+      if ( $query->have_posts() ) {
+        while ( $query->have_posts() ) {
+          $query->the_post();
+          $support_banner_image = $corp_pod->display('support_banner') ? $corp_pod->display('support_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
+          <div class="featured-project-vertical" style="background-image:url(<?php echo $support_banner_image; ?>); ">
+            <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+              <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+              <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+              <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
+                  echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
+                } else {
+                  echo pods_field_display ('projects', get_the_ID(), 'artist_name');
+                }
+              ?></h3>
+              <h3 class="artwork-name"><?php the_title(); ?></h3>
+            </a>
+          </div>
+        <?php } // endwhile
+      } else {
+        echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+      } ?>
+    </div>
+
+
   </div>
 
   <div class="card row">
@@ -193,26 +194,27 @@ get_header(); ?>
     </div>
   </div>
 
-
-<div class="card row">
-  <div class="text-section">
-    <h2>Client list</h2>
-    <span class="frame-line">_</span>
-    <div class="client-logos column large-8 large-offset-2"><?php
-      $clientLogoArray = $corp_pod->field('client_logos');
-      foreach ($clientLogoArray as $logo) { 
-        $alt_text = get_post_meta($logo["ID"], '_wp_attachment_image_alt', true); ?>
-        <a href="<?php
-        if ($alt_text !== "") {
-          echo "http://" . $alt_text;
-        } else {
-          echo "#";
-        }?>">
-          <img src="<?php echo pods_image_url($logo, 'full') ?>" />
-        </a>
-      <?php } ?>
+  <div class="card row">
+    <div class="text-section">
+      <h2>Client list</h2>
+      <span class="frame-line">_</span>
+      <div class="client-logos column large-8 large-offset-2"><?php
+        $clientLogoArray = $corp_pod->field('client_logos');
+        foreach ($clientLogoArray as $logo) { 
+          $alt_text = get_post_meta($logo["ID"], '_wp_attachment_image_alt', true); ?>
+          <a href="<?php
+          if ($alt_text !== "") {
+            echo "http://" . $alt_text;
+          } else {
+            echo "#";
+          }?>">
+            <img src="<?php echo pods_image_url($logo, 'full') ?>" />
+          </a>
+        <?php } ?>
+      </div>
     </div>
   </div>
 
 </div>
+
 <?php get_footer(); ?>

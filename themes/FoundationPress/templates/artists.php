@@ -5,20 +5,20 @@ Template Name: Artists
 get_header(); ?>
 
 <div class="row page-title">
-  <h1 class="strike"><span>For Corporates</span></h1>
-  <span class="subheader">TO THE ARTISTICALLY INCLINED. <br> Why PAHK and the partnership process.</span>
+  <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "藝術家徵集" : "For Artists" ; ?></span></h1>
+  <span class="subheader"><?php echo qtranxf_getLanguage() === "zh" ? "PAHK提供機會讓本地及國際藝術家在更大的空間發揮創造力" : "TO THE ARTISTICALLY INCLINDED.<br />Why PAHK and the partnership process." ; ?></span>
 </div>
 
 <div class="row"><?php
   $params = array ('limit' => -1);
   $artist_pod = pods('artistsettings', $params);
-  $chosenTopID = $artist_pod->display('top_project_id');
+  $topArtistID = $artist_pod->display('top_project_id');
   $chosenJoinNetworkID = $artist_pod->display('join_network_id');
   $chosenCallArtistsID = $artist_pod->display('call_artists_id');
 
   // WP_Query arguments
   $args = array (
-    'p' => $chosenTopID,
+    'p' => $topArtistID,
     'post_type' => array( 'projects' ),
   );
 
@@ -52,7 +52,7 @@ get_header(); ?>
 
 <div class="card row">
   <div class="text-section column large-6">
-    <h2>Joint Ventures</h2>
+    <h2><?php echo qtranxf_getLanguage() === "zh" ? "加入我們" : "JOIN OUR NETWORK" ; ?></h2>
     <span class="frame-line">_</span>
     <div class="row partner-info">
       <div class="column">
@@ -92,8 +92,7 @@ get_header(); ?>
       while ( $query->have_posts() ) {
         $query->the_post();
         $join_network_banner = $artist_pod->display('join_network_banner') ? $artist_pod->display('join_network_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
-        <div class="featured-project-vertical">
-          <img src="<?php echo $join_network_banner; ?>" />    
+        <div class="featured-project-vertical" style="background-image: url(<?php echo $join_network_banner; ?>);">
           <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
             <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
             <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>

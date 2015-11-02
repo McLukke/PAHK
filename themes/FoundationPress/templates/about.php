@@ -9,7 +9,7 @@ get_header(); ?>
 
 <div id="about">
   <div class="row page-title">
-    <h1 class="strike"><span>ABOUT PAHK</span></h1>
+    <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "關於PAHK" : "ABOUT PAHK" ; ?></span></h1>
   </div>
 
   <div class="row"><?php
@@ -63,18 +63,18 @@ get_header(); ?>
       <p class="text-block column large-6 medium-8 text-center small-centered">Public Art Hong Kong (PAHK) is a non-profit organization funded by the Y.K.Pao Foundation with an aim to nurture and promote public art in Hong Kong. It was incorporated in 2005 with the Hong Kong Arts Centre as its executing organization. PAHK wishes to create an interactive relationship among the artwork, site and audience and intends to reflect public interests while featuring Hong Kong as a vibrant cultural city.</p>
     </div>
     <div class="column medium-6">
-      <h4 class="subheader-strike"><span>Corporate projects</span></h4>
-      <a href="<?php echo get_home_url(); ?>/corporates" class="button cta">Partner with PAHK</a>
+      <h4 class="subheader-strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "企業項目" : "Corporate projects" ; ?></span></h4>
+      <a href="<?php echo get_home_url(); ?>/corporates" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "與PAHK合作" : "Partner with PAHK" ; ?></a>
     </div>
     <div class="column medium-6">
-      <h4 class="subheader-strike"><span>Call for artists</span></h4>
-      <a href="<?php echo get_home_url(); ?>/artists" class="button cta">Proposal Submissions</a>
+      <h4 class="subheader-strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "徵集藝術家" : "Call for artists" ; ?></span></h4>
+      <a href="<?php echo get_home_url(); ?>/artists" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "提交項目意向" : "Proposal Submissions" ; ?></a>
     </div>
   </div>
 
   <div class="card row">
     <div class="text-section column">
-      <h2>Board of Councillors</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "董事会会议员" : "Board of Councillors" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row">
         <div class="column large-6 large-centered text-center">
@@ -105,32 +105,32 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section how-it-works column large-10 large-offset-1">
-      <h2>How it works</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "PAHK如何運作" : "How it works" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row explanatory-blocks">
         <div class="column large-4 medium-6 text-center">
-          <h4>Art Consultancy</h4>
-          <p>Our consultants are experts in creating distinctive projects with you from start to finish, bringing art into your space, promoting public art in a diversified form. </p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "藝術顧問諮詢" : "Art Consultancy" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "PAHK顧問為合作機構提供一站式項目管理服務。建立獨特的項目，將藝術帶到你的空間。透過給予政府和商業機構諮詢服務，配以合適的藝術作品或委約方案，於特定的公共場地實踐公共藝術計劃。" : "Our consultants are experts in creating distinctive projects with you from start to finish, bringing art into your space, promoting public art in a diversified form." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Artwork Acquisition</h4>
-          <p>We work closely with emerging artists in Hong Kong. Our  consultants select original artworks based on your preference, coordinating the selection, acquisition, and installation of the artwork.</p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "藝術收藏" : "Artwork Acquisition" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "PAHK與許多本地新興藝術家共同合作。我們的顧問會依據你的概念選擇合適的藝術品，並負責探索、管理以及安裝的過程。" : "We work closely with emerging artists in Hong Kong. Our  consultants select original artworks based on your preference, coordinating the selection, acquisition, and installation of the artwork." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Artwork Commission</h4>
-          <p>We enable you to experience the excitement of bringing an art concept to life. Our consultants work with you to commission artists to create an artwork that interact visually with the environment of your space as well as your vision.</p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "藝術品委託" : "Artwork Commission" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "與PAHK一同經歷將一個藝術概念實現的過程。我們的顧問與你一同委託藝術家創作配合你的空間及概念的藝術品。諮詢各方技術專家，以保障作品裝置的安全、穩固和維修事宜。" : "We enable you to experience the excitement of bringing an art concept to life. Our consultants work with you to commission artists to create an artwork that interact visually with the environment of your space as well as your vision." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Docent Tours</h4>
-          <p>Art education is important to us. Together with our partner we offer specially designed free docent tours for you to enjoy the artistic journey and behind-the-scene stories at the Hong Kong Arts Centre.</p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "導賞團" : "Docent Tours" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "為了讓公眾可從多角度瞭解公共藝術，香港藝術中心的導賞員帶領參加者探索公共藝術製作過程以及香港藝術中心一些不為人知的故事。" : "Art education is important to us. Together with our partner we offer specially designed free docent tours for you to enjoy the artistic journey and behind-the-scene stories at the Hong Kong Arts Centre." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Playing with Space</h4>
-          <p>We enjoy breathing life to public space and bring people of the community together; proactively, we commission talented artist to create new art for our space and interesting spaces in Hong Kong.</p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "享受公共空間" : "Playing with Space" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "我們樂於為公共空間注入生氣，鏈接不同社區，建立社群精神及賦予社區身分。" : "We enjoy breathing life to public space and bring people of the community together; proactively, we commission talented artist to create new art for our space and interesting spaces in Hong Kong." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Tailor Made</h4>
-          <p>It’s the insight, knowledge together with experience that give us the expertise in curating public art project that speak to the people and resonate with the contemporary.</p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "度身訂造" : "Tailor Made" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "PAHK是公共藝術的宣傳者及中介者，提供策劃方針、專業藝術知識和技術團隊，以及定期更新的公共藝術資料庫。我們的洞察力，知識與經驗，成就了我們專業的水平，策劃與社區產生對話、與當代產生共鳴的公共藝術項目。" : "It’s the insight, knowledge together with experience that give us the expertise in curating public art project that speak to the people and resonate with the contemporary." ; ?></p>
         </div>
       </div>
     </div>
@@ -138,9 +138,9 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section">
-      <h2>Executing Organization</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "執行機構" : "Executing Organization" ; ?></h2>
       <span class="frame-line">_</span>
-      <h4 class="text-center">Hong Kong Arts Center</h4>
+      <h4 class="text-center"><?php echo qtranxf_getLanguage() === "zh" ? "香港艺术中心" : "Hong Kong Arts Center" ; ?></h4>
     </div>
   </div>
 </div>

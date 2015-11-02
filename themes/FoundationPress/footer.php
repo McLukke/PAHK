@@ -25,11 +25,11 @@
       info@publicart.org.hk</p>
     </div>
     <div class="column large-4 medium-6 small-12">
-      <h6>Executing Organization</h6>
+      <h6><?php echo qtranxf_getLanguage() === "zh" ? "執行機構" : "Executing Organization" ;?></h6>
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-hkac.png">
     </div>
     <div class="column large-4 medium-6 small-12">
-      <h6>Partner Organization</h6>
+      <h6><?php echo qtranxf_getLanguage() === "zh" ? "合作機構" : "Partner Organization" ;?></h6>
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-hkas.png">
     </div>
     <div class="column large-12"><h6>Copyright 2015 Public Art Hong Kong. All rights reserved. Design by szs.io</h6></div>
