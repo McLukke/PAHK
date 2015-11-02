@@ -238,4 +238,4 @@ foreach ($project_terms as $category_term) {
 	</div>
 </div>
 
-get_footer(); ?>
+<?php get_footer(); ?>
