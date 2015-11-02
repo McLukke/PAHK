@@ -2,6 +2,7 @@
 /*
 Template Name: About
 */
+
 get_header(); ?>
 
 <?php get_template_part( 'parts/featured-image' ); ?>
@@ -11,16 +12,47 @@ get_header(); ?>
     <h1 class="strike"><span>ABOUT PAHK</span></h1>
   </div>
 
-  <div class="row">
-    <div class="inner-page-banner">
-    
-      <div class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-        <h5>Admiralty</h5>
-        <h6>June 2015 - July 2015</h6>
-        <h3 class="artist-name">Man Fung-Yi<span>:</span></h3>
-        <h3 class="artwork-name">Sisters on Belcher's Street</h3>
-      </div>
-    </div>
+  <div class="row"><?php
+    $params = array ('limit' => -1);
+    $aboutpod = pods('aboutsettings', $params);
+    $chosenID = $aboutpod->display('post_id');
+
+    // WP_Query arguments
+    $args = array (
+      'p' => $chosenID,
+      'post_type' => array( 'projects' ),
+    );
+
+    // The Query
+    $query = new WP_Query( $args );
+
+    // The Loop
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();
+
+        $about_banner_image = $aboutpod->display('banner_image') ? $aboutpod->display('banner_image') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
+        <div class="inner-page-banner" style="background-image:url(<?php echo $about_banner_image; ?>)">
+          <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
+            <h5><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'location_zh') != '' ) {
+                echo pods_field_display ('projects', get_the_ID(), 'location_zh');
+              } else {
+                echo pods_field_display ('projects', get_the_ID(), 'location');
+              } ?></h5>
+            <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+            <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
+              } else {
+                echo pods_field_display ('projects', get_the_ID(), 'artist_name');
+              }
+            ?></h3>
+            <h3 class="artwork-name"><?php the_title(); ?></h3>
+          </a>
+        </div>
+      <?php } // endwhile
+    } else {
+      echo "We were not able to find your desired display post. Please login to add the ID number of the post you would like to display.";
+    } ?>
   </div>
 
   <div class="card row">
@@ -32,11 +64,11 @@ get_header(); ?>
     </div>
     <div class="column medium-6">
       <h4 class="subheader-strike"><span>Corporate projects</span></h4>
-      <a href="#" class="button cta">Partner with PAHK</a>
+      <a href="<?php echo get_home_url(); ?>/corporates" class="button cta">Partner with PAHK</a>
     </div>
     <div class="column medium-6">
       <h4 class="subheader-strike"><span>Call for artists</span></h4>
-      <a href="#" class="button cta">Proposal Submissions</a>
+      <a href="<?php echo get_home_url(); ?>/artists" class="button cta">Proposal Submissions</a>
     </div>
   </div>
 
@@ -46,16 +78,12 @@ get_header(); ?>
       <span class="frame-line">_</span>
       <div class="row">
         <div class="column large-6 large-centered text-center">
-          <p>Ms. Cissy Pao, BBS (Chairperson) <br>
-          Ms. Candy Chuang <br> 
-          The Hon Christopher Chung Shu-kun, BBS, MH, JP <br> Ms. Jennifer Dong <br>
-          Mr. Andre Fu <br>
-          Mr. Keith Kerr, SBS, JP <br>
-          Mr. Y.S. Daniel Lai <br> 
-          Ms. Shelley Lee Lai-kuen, GBS, OBE, JP<br> 
-          Dr. Michael W T Ng <br> 
-          Dr. Dennis Sun, BBS, JP <br> 
-          Ms. Angela Tam</p>
+          <p><?php
+          $board_string = $aboutpod->display('councillors');
+          $board = explode(";", $board_string);
+          foreach ($board as $member) {
+            echo $member;
+          } ?></p>
         </div>
       </div>
     </div>
@@ -117,4 +145,7 @@ get_header(); ?>
   </div>
 </div>
 
-<?php get_footer(); ?>
+<?php // Restore original Post Data
+wp_reset_postdata();
+
+get_footer(); ?>
