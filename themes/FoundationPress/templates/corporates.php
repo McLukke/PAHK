@@ -193,19 +193,24 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="card row">
-    <div class="text-section">
-      <h2>Client list</h2>
-      <span class="frame-line">_</span>
-      <div class="client-logos column large-8 large-offset-2"><?php
-        $clientLogoArray = $corp_pod->field('client_logos');
-        $numOfLogos = count($clientLogoArray);
-        $logosArray = [];
 
-        foreach ($clientLogoArray as $logo) { ?>
+<div class="card row">
+  <div class="text-section">
+    <h2>Client list</h2>
+    <span class="frame-line">_</span>
+    <div class="client-logos column large-8 large-offset-2"><?php
+      $clientLogoArray = $corp_pod->field('client_logos');
+      foreach ($clientLogoArray as $logo) { 
+        $alt_text = get_post_meta($logo["ID"], '_wp_attachment_image_alt', true); ?>
+        <a href="<?php
+        if ($alt_text !== "") {
+          echo "http://" . $alt_text;
+        } else {
+          echo "#";
+        }?>">
           <img src="<?php echo pods_image_url($logo, 'full') ?>" />
-        <?php } ?>
-      </div>
+        </a>
+      <?php } ?>
     </div>
   </div>
 
