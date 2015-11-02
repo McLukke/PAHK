@@ -78,7 +78,12 @@ get_header(); ?>
       <span class="frame-line">_</span>
       <div class="row">
         <div class="column large-6 large-centered text-center">
-          <p><?php echo $aboutpod->display('councillors'); ?></p>
+          <p><?php
+          $board_string = $aboutpod->display('councillors');
+          $board = explode(";", $board_string);
+          foreach ($board as $member) {
+            echo $member;
+          } ?></p>
         </div>
       </div>
     </div>
