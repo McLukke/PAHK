@@ -72,8 +72,8 @@ get_header(); ?>
         <p class="secondary-desc column large-8 medium-10 text-center small-centered">Celebrating artwork via our wide network.</p>
       </div>
       <div class="column corporate-cta">
-        <a href="#" class="button cta">Start conversation</a>
-        <a href="#" class="button cta">Learn more</a>
+        <a href="<?php echo get_home_url(); ?>/support" class="button cta">Start conversation</a>
+        <a href="<?php echo get_home_url(); ?>/projects" class="button cta">Learn more</a>
       </div>
     </div>
   </div>
