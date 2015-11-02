@@ -31,12 +31,12 @@ while ( have_posts() ) : the_post();
   } ?>
 
   <a href="<?php the_permalink(); ?>" class="grid-item <?php echo $class ?>" data-category="transition">
-    <div><img src="<?php echo $image; ?>" /></div>
-    <?php if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
+    <div class="project-thumbnail-container"><img src="<?php echo $image; ?>" /></div>
+    <h5 class="district-name"><?php if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
       echo pods_field_display ('projects', get_the_ID(), 'location_zh');
     } else {
       echo pods_field_display ('projects', get_the_ID(), 'location');
-    } ?>
+    } ?></h5>
 
     <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> -
     <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
