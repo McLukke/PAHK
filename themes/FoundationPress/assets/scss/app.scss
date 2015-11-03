@@ -120,7 +120,7 @@ h2 {
 h3 {
 	font-family: $font-art !important;
 	font-weight: 600;
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	line-height: 1.7rem;
 }
 
@@ -173,6 +173,10 @@ body:lang(zh) {
 
 h3.artist-name {
 	text-transform: uppercase;
+}
+
+h3.artwork-name {
+	font-size: 1.1rem;
 }
 
 h4.subheader-strike {
@@ -487,10 +491,12 @@ a.cta.inner-button {
 }
 
 div.project-thumbnail-container {
-	max-height: 250px;
-	overflow: hidden;
+	height: 250px;
 	margin-bottom: 20px;
 	background-color: $main-turq;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 .ui-text-overlay {
@@ -703,13 +709,12 @@ p.image-caption {
 	}
 	h3.artist-name {
 		color: $white;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		padding-bottom: 0px;
 		letter-spacing: 1px;
 	}
 	h3.artwork-name {
 		color: white;
-		font-size: 1.6rem;
 		margin-bottom: 0;
 		color: $white;
 	}
