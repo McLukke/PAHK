@@ -426,6 +426,11 @@ span.frame-line {
 	}
 }
 
+.tier-2-image {
+	margin-bottom: 15px;
+}
+
+
 a.button.cta {
 	background-color: $main-yellow;
 	border-left: 7px solid $main-dark;
@@ -625,12 +630,20 @@ footer {
 	.tier-2-image {
 		background-color: $white;
 		p.image-caption {
-			font-family: $font-header;
 			color: $grey-text;
 			font-size: 0.8rem;
 			padding: 5px 10px 15px;
+			margin-bottom: 0;
+			font-family: $font-body;
+			&:empty {
+				display: none;
+			}	
 		}
 	}
+}
+
+p.image-caption {
+
 }
 
 #project-detail .project-images-column.tier-3 {
