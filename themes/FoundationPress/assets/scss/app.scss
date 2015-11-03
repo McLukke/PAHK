@@ -5,11 +5,16 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
 
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+
 // --------- VARIABLES
 
 $main-turq: #3fb0ac; 
 $main-yellow: #fae596;
 $main-dark: #163f45;
+$main-yellow-lighten: #fcf1cc;
 
 $white: #fff;
 $grey-light: #ebebeb;
@@ -140,6 +145,19 @@ span.subheader {
 	font-family: $font-art;
 }
 
+
+// CHINESE FONT
+
+// body:lang(zh-Hant) {
+// https://www.google.com/fonts/earlyaccess#Noto+Sans+SC
+body:lang(zh) {
+	font-family: "cwTeXMing", "cwTeXHei", "cwTeXKai", "Microsoft Yahei", "微软雅黑", sans-serif;
+}
+
+h3.artist-name {
+	text-transform: uppercase;
+}
+
 h4.subheader-strike {
 	text-align: center;
 	margin: 30px 30px 40px 30px;
@@ -175,8 +193,8 @@ h4.blue-header {
 	max-width: 80%;
 }
 
-h3.artist-name {
-	text-transform: uppercase;
+h5.district-name {
+	padding-top: 5px
 }
 
 .text-section p.primary-desc {
@@ -313,7 +331,7 @@ span.letter-list {
     		transition: background-color 0.4s;
   			-webkit-transition: background-color 0.4s;    	
     	&:hover {
-    		background-color: $main-dark;
+    		background-color: $main-yellow-lighten;
     		transition: background-color 0.4s;
   			-webkit-transition: background-color 0.4s;
     	}
@@ -366,11 +384,11 @@ span.letter-list {
 
 span.frame-line {
 	display: inline-block;
-	margin-top: 40px;
+	margin-top: 30px;
 	margin-bottom: 20px;
 	margin-left: 10px;
 	border-bottom: 2px solid $main-turq;
-	width: 60px;
+	width: 50px;
 	color: $white;
 }
 
@@ -434,6 +452,13 @@ a.cta.inner-button {
 	margin-top: 60px; 
 }
 
+div.project-thumbnail-container {
+	max-height: 250px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	background-color: $main-turq;
+}
+
 .ui-text-overlay {
 	color: white;
 	font-family: $font-header;
@@ -467,7 +492,7 @@ a.cta.inner-button {
 }
 
 .block-icon {
-	max-height: 50px;
+	max-height: 70px;
 }
 
 .corporate-cta {
@@ -515,7 +540,6 @@ footer {
 #project-detail {
 	.inner-page-banner {
 		height: 75vh;
-		background-image: url(../images/tier-1-img.jpg);
 		position: relative;
 		.project-controls {
 			position: absolute;
@@ -609,7 +633,7 @@ footer {
 .inner-page-banner {
 	border: 6px solid $main-turq;
 	height: 280px;
-	background-image: url(../images/banner-inner-1.jpg);
+	background-color: $main-turq;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -723,6 +747,59 @@ footer {
 	}
 }
 
+#artists {
+	.text-section {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.custom-counter {
+		margin-bottom: 30px;
+		li {
+			font-weight: bold;
+			font-size: 0.9rem;
+		}
+	}
+	.inner-page-banner {
+		margin-top: 35px;
+		height: 350px;
+	}
+
+}
+
+.partner-card.card.row {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	.partner-card-project-right {
+		height: 100%;
+		width: 52.5%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		&.column {
+			margin-right: -15px;
+		}
+	}
+	.partner-card-project-left {
+		height: 100%;
+		width: 52.5%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		&.column {
+			margin-left: -15px;
+		}
+	}
+	.featured-project-vertical {
+		width: 100%;
+		height: 100%;
+		background-color: $main-turq;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+}
+
 .client-logos { 
 	img {
 		display: inline-block;
@@ -730,9 +807,6 @@ footer {
 		margin: 0 auto;
 		padding: 10px;
 	}
-}
-
-.featured-project-vertical {
 }
 
 
@@ -748,8 +822,9 @@ footer {
 
 .filter-button {
   display: inline-block;
-  padding: 0.4rem 1.2rem;
-  background: $grey-light;
+  line-height: 0.9rem;
+  padding: 0.5rem 1.2rem 0.4rem;
+  background: transparent;
   color: $main-turq;
   font-family: $font-header;
   font-size: 0.8rem;
@@ -758,13 +833,19 @@ footer {
   font-weight: bold;
   border: 1px solid $main-turq;
   border-radius: 15px;
+  transition: padding 0.4s;
+  -webkit-transition: padding 0.4s;
+  &:focus {
+  	background-color: $main-yellow;	
+  }
 }
 
 .filter-button:hover {
-  background-color: $main-yellow;
   color: $main-turq;
-  transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
+  background-color: $main-yellow;
+  padding: 0.5rem 2rem 0.4rem;
+  transition: padding 0.4s;
+  -webkit-transition: padding 0.4s;
 }
 
 .filter-button:active,
@@ -774,10 +855,28 @@ footer {
   font-weight: 700;
 }
 
-
 .filter-button:active {
   box-shadow: inset 0 1px 5px $main-yellow;
 }
+
+
+.project-tags {
+  display: inline-block;
+  line-height: 0.9rem;
+  padding: 0.4rem 1.2rem 0.3rem;
+  font-family: $font-header;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+  border: 1px solid $main-turq;
+  border-radius: 15px;
+}
+
+div.project-tags {
+	margin-right: 5px;
+	margin-top: 15px;
+}
+
 
 /* ---- button-group ---- */
 
@@ -803,7 +902,7 @@ footer {
 }
 
 .isotope {
-	border: 1px solid $main-turq;
+	// border: 1px solid $main-turq;
 	img {
 		width: 100%;
 	}
@@ -838,6 +937,10 @@ footer {
   background: $white;
   color: #262524;
   overflow: auto;
+  &:hover {
+  	border: 10px solid $main-yellow;
+  	padding: 0px;
+  }
 }
 
 .grid-item > * {
@@ -879,8 +982,8 @@ footer {
 		background-color: white;
 		transition: background-color 0.4s;
   		-webkit-transition: background-color 0.4s;
-		transition: padding 0.4s;
-  		-webkit-transition: padding 0.4s;
+		transition: padding 0.5s;
+  		-webkit-transition: padding 0.5s;
 	}		
 	.top-bar-section li:not(.has-form) a:not(.button):hover {
 		background-color: $main-yellow;
@@ -888,8 +991,8 @@ footer {
 		padding: 0.45rem 40px;
 		transition: background-color 0.4s;
   		-webkit-transition: background-color 0.4s;
-		transition: padding 0.4s;
-  		-webkit-transition: padding 0.4s;
+		transition: padding 0.5s;
+  		-webkit-transition: padding 0.5s;
 	}
 }
 
