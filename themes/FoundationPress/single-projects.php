@@ -154,7 +154,7 @@ foreach ($project_terms as $category_term) {
 	      </div>
 	    </div>
 
-	    <?php if ( $pods->field('embed_video_link') != '' || $pods->field('embed_video_link') != undefined ) { ?>
+	    <?php if ( $pods->field('embed_video_link') != '' || $pods->field('embed_video_link') != 'undefined' ) { ?>
 		    <div class="project_video">
 		    	<?php echo $pods->field('embed_video_link'); ?>
 		    </div>
@@ -208,10 +208,12 @@ foreach ($project_terms as $category_term) {
 	      	<?php $counter = 0;
       		foreach ($tier2pictures as $picture) { ?>
 		        <div class="tier-2-image">
-		          <img src="<?php echo $picture; ?>">
-		          <?php if ( $tier2captions[$counter] !== undefined || $tier2captions[$counter] !== "" ) { ?>
+		        <a href="<?php echo $picture; ?>" rel="lightbox">
+		          <img src="<?php echo $picture; ?>" />
+		          <?php if ( $tier2captions[$counter] !== 'undefined' || $tier2captions[$counter] !== "" ) { ?>
 			          <p class="image-caption"><?php echo $tier2captions[$counter]; ?></p>
 			        <?php } ?>
+		        </a>
 		        </div>
     			<?php $counter++; } ?>
 	      </div>
