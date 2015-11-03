@@ -58,20 +58,21 @@ get_header(); ?>
       <span class="frame-line">_</span>
       <div class="row partner-info">
         <div class="column">
-            <h4 class="blue-header">Join by submitting your portfolio</h4>
+            <h4 class="blue-header"><?php echo qtranxf_getLanguage() === "zh" ? "提交作品集及項目意向" : "Join by submitting your portfolio" ; ?></h4>
         </div>
         <div class="column">
-          <p class="primary-desc">With the following information in PDF:</p><br>
+          <p class="primary-desc"><?php echo qtranxf_getLanguage() === "zh" ? "使用PDF格式遞交以下資料:" : "With the following information in PDF:" ; ?></p><br>
           <ol class="text-block column large-10 medium-8 small-centered custom-counter">
-            <li>At least 3 high-rest images of artworks (150 dpi, over 2mb)</li>
-            <li>Artist statement</li>
-            <li>Contact info</li>
+            <li><?php echo qtranxf_getLanguage() === "zh" ? "三張清晰作品圖片" : "At least 3 high-rest images of artworks (150 dpi, over 2mb)" ; ?></li>
+            <li><?php echo qtranxf_getLanguage() === "zh" ? "藝術家簡介" : "Artist statement" ; ?></li>
+            <li><?php echo qtranxf_getLanguage() === "zh" ? "項目意向" : "Project ideas" ; ?></li>
+            <li><?php echo qtranxf_getLanguage() === "zh" ? "聯絡資料 (電話,電郵)" : "Contact info" ; ?></li>
           </ol>
         </div>
 
         <div class="column corporate-cta">
-          <a href="#" class="button cta">Sign up now</a>
-          <a href="#" class="button cta">Learn more</a>
+          <a href="#" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "立刻加入" : "Sign up now" ; ?></a>
+          <a href="#" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "了解更多" : "Learn more" ; ?></a>
         </div>
       </div>
     </div>
@@ -113,24 +114,24 @@ get_header(); ?>
   <div class="card row partner-card">
     
     <div class="text-section column large-6 large-push-6">
-      <h2>Call for Artists</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "誠徵藝術家" : "Call for Artists" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row partner-info">
         <div class="column">
-            <h4 class="blue-header">Timeline</h4>
+            <h4 class="blue-header"><?php echo qtranxf_getLanguage() === "zh" ? "合作流程" : "Timeline" ; ?></h4>
         </div>
         <div class="column">
-          <p class="primary-desc">The Proposal</p>
-          <p class="secondary-desc column large-8 medium-10 text-center small-centered">The start of achieving your goal</p>
+          <p class="primary-desc"><?php echo qtranxf_getLanguage() === "zh" ? "提案" : "The Proposal" ; ?></p>
+          <p class="secondary-desc column large-8 medium-10 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "發揮創意,將你的想像帶進公共空間" : "The start of achieving your goal" ; ?></p>
           <span class="text-pipe"></span>
-          <p class="primary-desc">The Match</p>
-          <p class="secondary-desc column large-8 medium-10 text-center small-centered">Searching for a partner</p>
+          <p class="primary-desc"><?php echo qtranxf_getLanguage() === "zh" ? "資源配對" : "The Match" ; ?></p>
+          <p class="secondary-desc column large-8 medium-10 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "尋找合適空間及相應贊助夥伴" : "Searching for a partner" ; ?></p>
           <span class="text-pipe"></span>
-          <p class="primary-desc">The Meet</p>
-          <p class="secondary-desc column large-8 medium-10 text-center small-centered">Artwork discussion</p>
+          <p class="primary-desc"><?php echo qtranxf_getLanguage() === "zh" ? "會面" : "The Meet" ; ?></p>
+          <p class="secondary-desc column large-8 medium-10 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "深化提案" : "Artwork discussion" ; ?></p>
           <span class="text-pipe"></span>
-          <p class="primary-desc">The Work</p>
-          <p class="secondary-desc column large-8 medium-10 text-center small-centered">Artwork production</p>
+          <p class="primary-desc"><?php echo qtranxf_getLanguage() === "zh" ? "藝術品" : "The Work" ; ?></p>
+          <p class="secondary-desc column large-8 medium-10 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "創作過程" : "Artwork production" ; ?></p>
         </div>
         <!-- <div class="column corporate-cta">
           <a href="#" class="button cta">Learn More</a>
@@ -182,15 +183,15 @@ get_header(); ?>
       <div class="row explanatory-blocks">
         <div class="column large-4 medium-6 text-center">
           <h4>With full support</h4>
-          <p>From design concept, budgeting, legal issues and marketing. We engage with sponsors, partners and vendors to carve out a new artwork with you!</p>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "從創作概念開始, 預算, 批文到項目宣傳, 我們會諮詢各方專家、贊助夥伴與你一同見證藝術品的誕生。" : "From design concept, budgeting, legal issues and marketing. We engage with sponsors, partners and vendors to carve out a new artwork with you!" ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
           <h4>Live your passion</h4>
-          <p>Fan your passion into flames, we provide a platform where you can earn an income with your talent.</p>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "燃點你的創意及才能，讓我們將為你的創意增加收入。" : "Fan your passion into flames, we provide a platform where you can earn an income with your talent." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Visibility</h4>
-          <p>We have presented more than a 100 artists since 2005, join our mission to bring art into the city space!</p>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "增加曝光率" : "Visibility" ; ?></h4>
+          <p><?php echo qtranxf_getLanguage() === "zh" ? "從2005年開始, 我們已與多達100位藝術家合作，與我們攜手將藝術帶到香港不同的角落!" : "We have presented more than a 100 artists since 2005, join our mission to bring art into the city space!" ; ?></p>
         </div>
       </div>
     </div>

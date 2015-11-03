@@ -91,14 +91,14 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section column">
-      <h2>Mission</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "使命" : "Mission" ; ?></h2>
       <span class="frame-line">_</span>
       <ol class="text-block column large-6 medium-8 small-centered custom-counter">
-        <li>Art should be accessible to everyone rather than being confined within the walls of museums, galleries and private collections;</li>
-        <li>To breathe life to public space and bring people of the community together, creating communal spirit and identity;</li>
-        <li>To reflect the value of the society and its conscience of cultural development;</li>
-        <li>PAHK gives opportunities to Hong Kong artists to think and create in terms of large space which otherwise is not feasible within their own small and confined studio; </li>
-        <li>To showcase to the world that Hong Kong is not only thriving economically but also throbbing with artistic pursuits. </li>
+        <li><?php echo qtranxf_getLanguage() === "zh" ? "藝術應為每一個人所能觸及，而非受局限於博物館、畫廊及私人收藏；" : "Art should be accessible to everyone rather than being confined within the walls of museums, galleries and private collections;" ; ?></li>
+        <li><?php echo qtranxf_getLanguage() === "zh" ? "為公共空間注入生氣，鏈接不同社區，建立社群精神及賦予社區身分；" : "To breathe life to public space and bring people of the community together, creating communal spirit and identity;" ; ?></li>
+        <li><?php echo qtranxf_getLanguage() === "zh" ? "反映社會價值及文化發展觀念；" : "To reflect the value of the society and its conscience of cultural development;" ; ?></li>
+        <li><?php echo qtranxf_getLanguage() === "zh" ? "基於香港可用於藝術發展的空間有限，香港公共藝術提供機會讓本地藝術家在更大的空間發揮創造力；" : "PAHK gives opportunities to Hong Kong artists to think and create in terms of large space which otherwise is not feasible within their own small and confined studio;" ; ?></li>
+        <li><?php echo qtranxf_getLanguage() === "zh" ? "向外界展示香港不僅是一個經濟繁榮的城市，也充斥著對藝術和文化的追求。" : "To showcase to the world that Hong Kong is not only thriving economically but also throbbing with artistic pursuits." ; ?></li>
       </ol>
     </div>
   </div>
