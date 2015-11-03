@@ -154,9 +154,11 @@ foreach ($project_terms as $category_term) {
 	      </div>
 	    </div>
 
-	    <div class="project_video">
-	    	<?php echo $pods->field('embed_video_link'); ?>
-	    </div>
+	    <?php if ( $pods->field('embed_video_link') != '' || $pods->field('embed_video_link') != undefined ) { ?>
+		    <div class="project_video">
+		    	<?php echo $pods->field('embed_video_link'); ?>
+		    </div>
+		  <?php } ?>
 
 	    <div class="row project-metadata project-metadata-footer">
 	      <div class="column large-12 large-offset-0 medium-8 medium-offset-2">
@@ -220,9 +222,7 @@ foreach ($project_terms as $category_term) {
 	        <div class="row"><?php $counter = 0;
         		foreach ($additionalPics as $picture) { ?>
         			<div class="column tier-3-image-column small-6">
-		            <div class="tier-3-image">
-		              <img src="<?php echo $picture; ?>">
-		            </div>
+		            <div class="tier-3-image" style="background-image:url(<?php echo $picture; ?>)"></div>
 		          </div>
         		<?php $counter++; } ?>
 	        </div>
