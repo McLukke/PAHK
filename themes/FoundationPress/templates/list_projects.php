@@ -5,13 +5,13 @@
 <div class="row">
   <h4>Filter projects by</h4>
   <div id="filters" class="filter-button-group">
-    <a href="#" class="filter-button is-checked" data-filter="*"><?php if (qtranxf_getLanguage() === "zh") {echo "全部";}else{echo "ALL";} ?></a>
-    <a href="#" class="filter-button" data-filter=".metal"><?php if (qtranxf_getLanguage() === "zh") {echo "香港";}else{echo "LOCAL";} ?></a>
-    <a href="#" class="filter-button" data-filter=".transition"><?php if (qtranxf_getLanguage() === "zh") {echo "國際";}else{echo "INTERNATIONAL";} ?></a>
-    <a href="#" class="filter-button" data-filter=".alkali, .alkaline-earth"><?php if (qtranxf_getLanguage() === "zh") {echo "室內";}else{echo "INDOOR";} ?></a>
-    <a href="#" class="filter-button" data-filter=":not(.transition)"><?php if (qtranxf_getLanguage() === "zh") {echo "室外";}else{echo "OUTDOOR";} ?></a>
-    <a href="#" class="filter-button" data-filter=".metal:not(.transition)"><?php if (qtranxf_getLanguage() === "zh") {echo "掛牆";}else{echo "WALL-MOUNTED";} ?></a>
-    <a href="#" class="filter-button" data-filter="numberGreaterThan50"><?php if (qtranxf_getLanguage() === "zh") {echo "立體";}else{echo "FREE-STANDING";} ?></a>
+    <button class="filter-button is-checked" data-filter="*"><?php if (qtranxf_getLanguage() === "zh") {echo "全部";}else{echo "ALL";} ?></button>
+    <button class="filter-button" data-filter=".local"><?php if (qtranxf_getLanguage() === "zh") {echo "香港";}else{echo "LOCAL";} ?></button>
+    <button class="filter-button" data-filter=".international"><?php if (qtranxf_getLanguage() === "zh") {echo "國際";}else{echo "INTERNATIONAL";} ?></button>
+    <button class="filter-button" data-filter=".indoor"><?php if (qtranxf_getLanguage() === "zh") {echo "室內";}else{echo "INDOOR";} ?></button>
+    <button class="filter-button" data-filter=".outdoor"><?php if (qtranxf_getLanguage() === "zh") {echo "室外";}else{echo "OUTDOOR";} ?></button>
+    <button class="filter-button" data-filter=".wall-mounted"><?php if (qtranxf_getLanguage() === "zh") {echo "掛牆";}else{echo "WALL-MOUNTED";} ?></button>
+    <button class="filter-button" data-filter="free-standing"><?php if (qtranxf_getLanguage() === "zh") {echo "立體";}else{echo "FREE-STANDING";} ?></button>
   </div>
 </div>
 

@@ -187,10 +187,11 @@ foreach ($project_terms as $category_term) {
               } ?>
 	          </tbody>
 	        </table>
-	        <span class="frame-line">_</span>
 	        <?php foreach ($project_categories as $category) {
-	        	echo '<div class="project_tags">' . $category . "</div>";
+	        	echo '<div class="project_tags filter-button">' . $category . "</div>";
 	        } ?>
+	        <br>
+	        <span class="frame-line">_</span>
 	      </div>
 	    </div>
 	  </div>
