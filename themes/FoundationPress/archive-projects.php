@@ -20,7 +20,8 @@ get_header();
 
 if ( "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == get_home_url() || "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == get_home_url()."/" ) {
 	// paste carousel here
-	echo "CAROUSEL";
+	// echo "CAROUSEL";
+	putRevSlider("slider1", "homepage");
 }
 
 require_once('templates/list_projects.php');

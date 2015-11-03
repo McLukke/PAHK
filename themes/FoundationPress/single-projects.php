@@ -62,7 +62,7 @@ foreach ($project_terms as $category_term) {
 	      <h3 class="artwork-name"><?php the_title(); ?></h3>
 	    </div>
 	    <div class="project-controls">
-	      <span class="ui-text-overlay">Next project</span>
+	      <span class="ui-text-overlay"><?php echo qtranxf_getLanguage() === "zh" ? "更多" : "Next project" ; ?></span>
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',true)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-left.png" title="Previous project"></a>
 	      <a href="<?php echo get_home_url(); ?>/projects"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-grid.png" title="All projects"></a>
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',false)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-right.png" title="Next project"></a>
@@ -75,12 +75,12 @@ foreach ($project_terms as $category_term) {
 
 	    <div class="row project-action-bar">
 	      <div class="column large-6">
-	        <a href="#" class="button cta button-single">INQUIRE</a>
+	        <a href="#" class="button cta button-single"><?php echo qtranxf_getLanguage() === "zh" ? "諮詢" : "INQUIRE" ; ?></a>
 	      </div>
 	      <div class="column large-6">
 	        <a href="#"><img class="social-icons" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-email.png"></a>
 	        <a href="#"><img class="social-icons" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-facebook.png"></a>
-	        <span class="ui-text">SHARE</span>
+	        <span class="ui-text"><?php echo qtranxf_getLanguage() === "zh" ? "分享" : "SHARE" ; ?></span>
 	      </div>
 	    </div>
 
@@ -89,7 +89,7 @@ foreach ($project_terms as $category_term) {
 	        <table>
 	          <tbody>
 	            <tr>
-	              <td class="metadata-key">Artist</td>
+	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "藝術家" : "Artist" ; ?></td>
 	              <td class="metadata-value"><?php
 	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
 		              	echo $pods->display('artist_name_zh');
@@ -99,11 +99,11 @@ foreach ($project_terms as $category_term) {
 	              	?></td>
 	            </tr>
 	            <tr>
-	              <td class="metadata-key">On Display</td>
+	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "展期" : "On Display" ; ?></td>
 	              <td class="metadata-value"><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></td>
 	            </tr>
 	            <tr>
-	              <td class="metadata-key">Materials</td>
+	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "媒介" : "Materials" ; ?></td>
 	              <td class="metadata-value"><?php
 	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('materials_zh') != '' ) {
 	              		echo $pods->display('materials_zh');
@@ -112,11 +112,11 @@ foreach ($project_terms as $category_term) {
 	              	} ?></td>
 	            </tr>
 	            <tr>
-	              <td class="metadata-key">Dimensions</td>
+	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "尺寸" : "Dimensions" ; ?></td>
 	              <td class="metadata-value"><?php echo $pods->display('dimensions'); ?></td>
 	            </tr>
 	            <tr>
-	              <td class="metadata-key">Location</td>
+	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "地點" : "Location" ; ?></td>
 	              <td class="metadata-value"><?php
 	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
 	              		echo $pods->display('location_zh');
@@ -131,7 +131,7 @@ foreach ($project_terms as $category_term) {
 
 	    <div class="row project-description">
 	      <div class="column">
-	        <h4>About the project</h4>
+	        <h4><?php echo qtranxf_getLanguage() === "zh" ? "關於項目" : "About the project" ; ?></h4>
 	        <span class="frame-line">_</span>
 	        <p class="project-description-text"><?php
 		      	if ( qtranxf_getLanguage() === "zh" ) {
@@ -142,7 +142,7 @@ foreach ($project_terms as $category_term) {
 	        ?></p>
 	      </div>          
 	      <div class="column">
-	        <h4>About the artist</h4>
+	        <h4><?php echo qtranxf_getLanguage() === "zh" ? "關於藝術家" : "About the artist" ; ?></h4>
 	        <span class="frame-line">_</span>
 	        <p class="project-description-text"><?php
 		      	if ( qtranxf_getLanguage() === "zh" ) {
@@ -168,7 +168,9 @@ foreach ($project_terms as $category_term) {
               foreach ($copresenters as $copresenter) {
               	echo "<tr>";
               	if ($i == 0) {
-              		echo '<td class="metadata-key">Co-presenters</td>';
+              		echo '<td class="metadata-key">';
+              		echo qtranxf_getLanguage() === "zh" ? "委約機構" : "Co-presenters" ;
+              		echo '</td>';
               	}
               	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
               	$i++;
@@ -180,7 +182,9 @@ foreach ($project_terms as $category_term) {
               foreach ($acknowledgements as $acknowledge) {
               	echo "<tr>";
               	if ($i == 0) {
-              		echo '<td class="metadata-key">Acknowledgments</td>';
+              		echo '<td class="metadata-key">';
+              		echo qtranxf_getLanguage() === "zh" ? "鳴謝" : "Acknowledge" ;
+              		echo '</td>';
               	}
               	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
               	$i++;
@@ -212,9 +216,7 @@ foreach ($project_terms as $category_term) {
 
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
-	        <div class="row">
-
-	        	<?php $counter = 0;
+	        <div class="row"><?php $counter = 0;
         		foreach ($additionalPics as $picture) { ?>
         			<div class="column tier-3-image-column small-6">
 		            <div class="tier-3-image">
@@ -222,7 +224,6 @@ foreach ($project_terms as $category_term) {
 		            </div>
 		          </div>
         		<?php $counter++; } ?>
-
 	        </div>
 	      </div>
 	    </div>
@@ -231,7 +232,7 @@ foreach ($project_terms as $category_term) {
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',true)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-left.png" title="Previous project"></a>
 	      <a href="<?php echo get_home_url(); ?>/projects"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-grid.png" title="All projects"></a>
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',false)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-right.png" title="Next project"></a>
-	      <span class="ui-text">Next project</span>
+	      <span class="ui-text"><?php echo qtranxf_getLanguage() === "zh" ? "更多" : "Next project" ; ?></span>
 	    </div>
 
 	  </div>
