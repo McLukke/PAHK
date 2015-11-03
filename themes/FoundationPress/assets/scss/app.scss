@@ -833,16 +833,19 @@ footer {
   font-weight: bold;
   border: 1px solid $main-turq;
   border-radius: 15px;
+  transition: padding 0.4s;
+  -webkit-transition: padding 0.4s;
   &:focus {
-  	background-color: $main-yellow;
+  	background-color: $main-yellow;	
   }
 }
 
 .filter-button:hover {
-  background-color: $main-yellow;
   color: $main-turq;
-  transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
+  background-color: $main-yellow;
+  padding: 0.5rem 2rem 0.4rem;
+  transition: padding 0.4s;
+  -webkit-transition: padding 0.4s;
 }
 
 .filter-button:active,
@@ -916,6 +919,10 @@ footer {
   background: $white;
   color: #262524;
   overflow: auto;
+  &:hover {
+  	border: 10px solid $main-yellow;
+  	padding: 0px;
+  }
 }
 
 .grid-item > * {
@@ -957,8 +964,8 @@ footer {
 		background-color: white;
 		transition: background-color 0.4s;
   		-webkit-transition: background-color 0.4s;
-		transition: padding 0.4s;
-  		-webkit-transition: padding 0.4s;
+		transition: padding 0.5s;
+  		-webkit-transition: padding 0.5s;
 	}		
 	.top-bar-section li:not(.has-form) a:not(.button):hover {
 		background-color: $main-yellow;
@@ -966,8 +973,8 @@ footer {
 		padding: 0.45rem 40px;
 		transition: background-color 0.4s;
   		-webkit-transition: background-color 0.4s;
-		transition: padding 0.4s;
-  		-webkit-transition: padding 0.4s;
+		transition: padding 0.5s;
+  		-webkit-transition: padding 0.5s;
 	}
 }
 
