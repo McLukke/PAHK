@@ -79,7 +79,11 @@ foreach ($project_terms as $category_term) {
 	      </div>
 	      <div class="column large-6">
 	        <a href="#"><img class="social-icons" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-email.png"></a>
-	        <a href="#"><img class="social-icons" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-facebook.png"></a>
+
+
+	        <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+            <img class="social-icons" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-facebook.png">
+          </a>
 	        <span class="ui-text"><?php echo qtranxf_getLanguage() === "zh" ? "分享" : "SHARE" ; ?></span>
 	      </div>
 	    </div>
