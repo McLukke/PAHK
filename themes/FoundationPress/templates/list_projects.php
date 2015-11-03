@@ -24,7 +24,7 @@ if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 
 
   if (has_post_thumbnail()) {
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id());
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
     $image = $image[0];
   }else{
     $image = get_bloginfo('template_directory')."/assets/images/black.png";
@@ -38,7 +38,7 @@ while ( have_posts() ) : the_post();
   } ?>
 
   <a href="<?php the_permalink(); ?>" class="grid-item <?php echo $class ?>" data-category="transition">
-    <div class="project-thumbnail-container"><img src="<?php echo $image; ?>" /></div>
+    <div class="project-thumbnail-container" style="background-image:url(<?php echo $image; ?>)"></div>
     <h5 class="district-name"><?php if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
       echo pods_field_display ('projects', get_the_ID(), 'location_zh');
     } else {
