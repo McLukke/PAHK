@@ -855,10 +855,28 @@ footer {
   font-weight: 700;
 }
 
-
 .filter-button:active {
   box-shadow: inset 0 1px 5px $main-yellow;
 }
+
+
+.project-tags {
+  display: inline-block;
+  line-height: 0.9rem;
+  padding: 0.4rem 1.2rem 0.3rem;
+  font-family: $font-header;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+  border: 1px solid $main-turq;
+  border-radius: 15px;
+}
+
+div.project-tags {
+	margin-right: 5px;
+	margin-top: 15px;
+}
+
 
 /* ---- button-group ---- */
 
