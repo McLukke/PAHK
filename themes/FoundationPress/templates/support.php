@@ -21,21 +21,21 @@ get_header(); ?>
 
       <div class="row explanatory-block">
         <div class="column large-4 medium-4 text-center">
-          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-sculpture.png">
+          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-fund.png">
           <div class="explanatory-text">
             <h4><span class="letter-list">A.</span>Annual fund</h4>
             <p>Your tax-deductible gift supports all of PAHK’s activities.</p>
           </div>
         </div>
         <div class="column large-4 medium-4 text-center">
-          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-sculpture.png">
+          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-gift.png">
           <div class="explanatory-text">
             <h4><span class="letter-list">B.</span>Send a gift</h4>
             <p>Your generous donation make it possible for PAHK to continue presenting the very best public art to the world.</p>
           </div>
         </div>
         <div class="column large-4 medium-4 text-center">
-          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-sculpture.png">
+          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-volunteer.png">
           <div class="explanatory-text">
             <h4><span class="letter-list">C.</span>Volunteer</h4>
             <p>PAHK relies on the skills and expertise of committed and energetic volunteers, thank you so much for walking this journey with us.</p>
@@ -53,7 +53,7 @@ get_header(); ?>
     <div class="text-section column large-10 large-offset-1">
       <div class="row explanatory-block explanatory-block-2">
         <div class="column large-4 large-offset-0 medium-8 medium-offset-2 text-center">
-          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-sculpture.png">
+          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-corporates.png">
           <div class="explanatory-text">
             <h4>Corporates</h4>
             <p>We are excited to kick-start our project with you, let us know your thoughts, we will be in touch very soon.</p>
@@ -63,7 +63,7 @@ get_header(); ?>
           </div>
         </div>
         <div class="column large-4 large-offset-0 medium-8 medium-offset-2 text-center">
-          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-sculpture.png">
+          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-artists.png">
           <div class="explanatory-text">
             <h4>Artists</h4>
             <p>We can’t wait to see your work! Send us your ideas and portfolio and we will contact you when an opportunity arise!</p>
@@ -73,7 +73,7 @@ get_header(); ?>
           </div>
         </div>       
         <div class="column large-4 large-offset-0 medium-8 medium-offset-2 text-center">
-          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-sculpture.png">
+          <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-inquire.png">
           <div class="explanatory-text">
             <h4>Inquiries</h4>
             <p>Got questions? <br> Let us know.</p>
