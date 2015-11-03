@@ -32,7 +32,7 @@
       <h6><?php echo qtranxf_getLanguage() === "zh" ? "合作機構" : "Partner Organization" ;?></h6>
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-hkas.png">
     </div>
-    <div class="column large-12"><h6>Copyright 2015 Public Art Hong Kong. All rights reserved. Design by szs.io</h6></div>
+    <div class="column large-12"><h6>Copyright 2015 Public Art Hong Kong. All rights reserved. Design by <a href="http://szs.io">szs.io</a></h6></div>
   </div>
 	<?php do_action( 'foundationpress_before_footer' ); ?>
 	<?php dynamic_sidebar( 'footer-widgets' ); ?>

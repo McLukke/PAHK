@@ -1,10 +1,6 @@
 // @import "config/settings";
 // @import "foundation";
 
-.fixed {
-	top: 30px;
-}
-
 @import url(https://fonts.googleapis.com/css?family=Signika:400,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
@@ -22,8 +18,7 @@
 
 $main-turq: #3fb0ac; 
 $main-yellow: #fae596;
-// $main-dark: #163f45;
-$main-dark: #1A4B52;
+$main-dark: #163f45;
 $main-yellow-lighten: #fcf1cc;
 
 $white: #fff;
@@ -61,13 +56,13 @@ html {
 }
 
 body {
-  background-image: url('../images/bg-ticks.png');
+  background-image: url('../images/bg-white-wall.png');
   font-family: $font-body, sans-serif;
   color: $main-turq;
 }
 
 h1.strike span {
-  	background-image: url('../images/bg-ticks.png');
+  	background-image: url('../images/bg-white-wall.png');
 	padding: 0 60px;
 	position: relative;
 	z-index: 5;
@@ -88,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h4, h5, {
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: bold;
 }
 
 h1 {
@@ -96,13 +91,12 @@ h1 {
 	text-align: center;
 	margin: 60px 0 40px 0;
 	position: relative;
-	color: $main-dark;
 }
 
 h1.strike:before {
    	content: "";
     display: block;
-    border-top: solid 2px $main-dark;
+    border-top: solid 1px $main-turq;
     width: 100%;
     height: 1px;
     position: absolute;
@@ -114,22 +108,21 @@ h1.strike:before {
 h2 {
 	font-size: 1.25rem;
 	text-align: center;
-	color: $main-dark;
 }
 
 h3 {
 	font-family: $font-art !important;
 	font-weight: 600;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	line-height: 1.7rem;
 }
 
 h4 {
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
 
 h5 {
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 }
 
 h6 {
@@ -139,12 +132,12 @@ h6 {
 }
 
 p {
-	font-size: 1rem;
+	font-size: 0.9rem;
 	line-height: 1.2rem;
 }
 
 p.text-block, li {
-	font-size: 1rem;
+	font-size: 0.9rem;
 	line-height: 1.7rem;
 }
 
@@ -152,7 +145,7 @@ span.subheader {
 	font-family: $font-header;
 	max-width: 500px;
 	margin: 0 auto;
-	color: $main-turq;
+	color: $main-dark;
 	display: block;
 	text-align: center;
 	font-weight: bold;
@@ -173,10 +166,6 @@ body:lang(zh) {
 
 h3.artist-name {
 	text-transform: uppercase;
-}
-
-h3.artwork-name {
-	font-size: 1.1rem;
 }
 
 h4.subheader-strike {
@@ -228,7 +217,7 @@ h5.district-name {
 
 .text-section p.primary-desc {
 	font-weight: bold;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	text-align: center;
 	line-height: 1rem;
 	margin-bottom: 0.5rem;
@@ -239,7 +228,6 @@ h5.district-name {
 	font-style: italic;
 	line-height: 1.25rem;
 	margin-bottom: 5px;
-	font-size: 1rem;
 }
 
 .partner-info p.secondary-desc:last-child {
@@ -276,7 +264,6 @@ span.text-pipe::before {
 	font-style: italic;
 	color: $white;
 	font-weight: 700;
-	font-size: 1.1rem;
 }
 
 ol.custom-counter {
@@ -325,7 +312,6 @@ span.letter-list {
 	border-top-style: double;
 	background-color: $white;
 	border-bottom-style: double;
-	border-color: $main-dark;
 	.name {
 		margin-top: -2px;
 	}
@@ -333,13 +319,13 @@ span.letter-list {
 
 .logo {
 	height: calc(3.8rem - 2px);
-	background-color: $main-dark;
+	background-color: $main-turq;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
 	height: calc(3.8rem - 6px);
 	padding: 0.45rem 0.9rem;
-	border-right: 1px solid $main-dark;
+	border-right: 1px solid $main-turq;
 	background-color: $white;
 	color: $main-turq;
 }
@@ -431,7 +417,6 @@ span.frame-line {
 	padding-bottom: 40px;
 	padding-top: 40px;
 	border-style: double;
-	border-color: $main-dark;
 }
 
 .text-section {
@@ -470,7 +455,7 @@ a.button.cta {
 	color: $main-dark;
 	font-family: $font-header;
 	font-weight: bold;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	border-radius: 15px;
 	&:hover {
 		background-color: $main-turq;
@@ -491,12 +476,10 @@ a.cta.inner-button {
 }
 
 div.project-thumbnail-container {
-	height: 250px;
+	max-height: 250px;
+	overflow: hidden;
 	margin-bottom: 20px;
 	background-color: $main-turq;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 }
 
 .ui-text-overlay {
@@ -709,12 +692,13 @@ p.image-caption {
 	}
 	h3.artist-name {
 		color: $white;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		padding-bottom: 0px;
 		letter-spacing: 1px;
 	}
 	h3.artwork-name {
 		color: white;
+		font-size: 1.6rem;
 		margin-bottom: 0;
 		color: $white;
 	}

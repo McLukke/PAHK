@@ -31,7 +31,7 @@ get_header(); ?>
           <img class="block-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-support-gift.png">
           <div class="explanatory-text">
             <h4><span class="letter-list">B.</span>Send a gift</h4>
-            <p>Your generous donation make it possible for PAHK to continue presenting the very best public art to the world.</p>
+            <p>Your generous donations make it possible for PAHK to continue presenting the very best public art to the world.</p>
           </div>
         </div>
         <div class="column large-4 medium-4 text-center">

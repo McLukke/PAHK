@@ -193,10 +193,10 @@ get_header(); ?>
   </div>
 
   <div class="card row">
-    <div class="text-section">
+    <div class="text-section column">
       <h2>Client list</h2>
       <span class="frame-line">_</span>
-      <div class="client-logos column large-8 large-offset-2"><?php
+      <div class="client-logos column large-8 large-offset-2 medium-10 small-centered text-center"><?php
         $clientLogoArray = $corp_pod->field('client_logos');
         foreach ($clientLogoArray as $logo) { 
           $alt_text = get_post_meta($logo["ID"], '_wp_attachment_image_alt', true); ?>
