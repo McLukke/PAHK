@@ -187,10 +187,18 @@ h4.blue-header {
 	color: $white;
 	margin: 0 auto;
 	display: block;
-	padding: 2px 40px;
 	text-align: center;
-	margin-bottom: 40px;
-	max-width: 80%;
+	margin-bottom: 35px;
+	max-width: 75%;
+	font-size: 0.9rem;
+}
+
+#corporates h4.blue-header {
+	padding: 5px 40px 6px;
+}
+
+#artists h4.blue-header {
+	padding: 7px 40px 4px;
 }
 
 h5.district-name {
@@ -801,6 +809,7 @@ footer {
 }
 
 .client-logos { 
+	margin-bottom: 30px;
 	img {
 		display: inline-block;
 		max-width: 160px;
