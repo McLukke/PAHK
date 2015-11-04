@@ -240,7 +240,7 @@ foreach ($project_terms as $category_term) {
 	  	} ?>
 	  </div><?php //column for entire left side of page ?>
 
-	  <?php if ( count($tier2pictures) != 0) { ?>
+	  <?php if ( $tier2Array != "") { ?>
 	  <div class="column large-6 medium-12">
 	    <div class="row project-images-column">
 	      <div class="column tier-2-image-column large-offset-0 large-12 medium-10 medium-offset-1">
@@ -259,7 +259,7 @@ foreach ($project_terms as $category_term) {
 	    </div>
 	    <?php } ?>
 
-	    <?php if ( count($additionalPics) != 0) { ?>
+	    <?php if ( $additionalPicsArray != "" ) { ?>
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row"><?php $counter = 0;
