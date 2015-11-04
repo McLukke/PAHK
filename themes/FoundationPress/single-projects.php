@@ -190,17 +190,16 @@ foreach ($project_terms as $category_term) {
               					qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
+	              $temp_var = "";
 	              if (qtranxf_getLanguage() === "zh") {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters_zh'));
 		            } else {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
 		            }
-		            echo "<pre>";
-		            var_dump($temp_string);
-		            echo "hello<br />";
-		            print_r($temp_string);
-		            echo "</pre>";
-	              $copresenters = explode(";", $temp_string);
+		            foreach ($temp_string as $value) {
+		            	$temp_var = $temp_var . $value;
+		            }
+	              $copresenters = explode(";", $temp_var);
 	              foreach ($copresenters as $copresenter) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
@@ -217,12 +216,16 @@ foreach ($project_terms as $category_term) {
               					qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
+	              $temp_var = "";
 	              if (qtranxf_getLanguage() === "zh") {
 	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge_zh'));
 	              } else {
 	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge'));
 	              }
-	              $acknowledgements = explode(";", $temp_string);
+	              foreach ($temp_string as $value) {
+	              	$temp_var = $temp_var . $value;
+	              }
+	              $acknowledgements = explode(";", $temp_var);
 	              foreach ($acknowledgements as $acknowledge) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
