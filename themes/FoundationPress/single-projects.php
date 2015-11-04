@@ -189,6 +189,7 @@ foreach ($project_terms as $category_term) {
               <?php if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
               					qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "") {
 	              $i = 0;
+	              $temp_string = "";
 	              if (qtranxf_getLanguage() === "zh") {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters_zh'));
 		            } else {
@@ -210,6 +211,7 @@ foreach ($project_terms as $category_term) {
               <?php if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
               					qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") {
 	              $i = 0;
+	              $temp_string = "";
 	              if (qtranxf_getLanguage() === "zh") {
 	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge_zh'));
 	              } else {
