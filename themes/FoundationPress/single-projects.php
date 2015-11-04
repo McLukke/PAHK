@@ -196,6 +196,9 @@ foreach ($project_terms as $category_term) {
 		            } else {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
 		            }
+		            echo "<pre>";
+		            var_dump($temp_string);
+		            echo "</pre>";
 		            foreach ($temp_string as $value) {
 		            	$temp_var = $temp_var . $value;
 		            }
