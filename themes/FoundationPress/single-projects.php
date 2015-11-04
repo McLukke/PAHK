@@ -27,6 +27,10 @@ $additionalPicsArray = $pods->field('additional_images');
 $additionalPics = [];
 $additionalPicsCaption = [];
 
+echo "<pre>";
+var_dump($additionalPics);
+echo "</pre>";
+
 if ( count($additionalPicsArray) > 0 ) {
 foreach ($additionalPicsArray as $picture) {
 	array_push( $additionalPics, pods_image_url($picture, 'full') );
