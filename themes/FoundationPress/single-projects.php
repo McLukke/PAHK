@@ -190,13 +190,15 @@ foreach ($project_terms as $category_term) {
               					qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
-	              if (qtranxf_getLanguage() === "zh") {
+	              if (qtranxf_getLanguage() === "zh" && ) {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters_zh'));
 		            } else {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
 		            }
 		            echo "<pre>";
 		            var_dump($temp_string);
+		            echo "hello<br />";
+		            print_r($temp_string);
 		            echo "</pre>";
 	              $copresenters = explode(";", $temp_string);
 	              foreach ($copresenters as $copresenter) {
