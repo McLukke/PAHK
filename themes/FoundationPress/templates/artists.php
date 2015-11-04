@@ -154,8 +154,7 @@ get_header(); ?>
         while ( $query->have_posts() ) {
           $query->the_post();
           $call_artists_banner = $artist_pod->display('call_artists_banner') ? $artist_pod->display('call_artists_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
-          <div class="featured-project-vertical">
-            <img src="<?php echo $call_artists_banner; ?>" />    
+          <div class="featured-project-vertical" style="background-image:url(<?php echo $call_artists_banner; ?>)">
             <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
               <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
               <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>

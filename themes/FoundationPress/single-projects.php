@@ -95,30 +95,36 @@ foreach ($project_terms as $category_term) {
 	            <tr>
 	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "藝術家" : "Artist" ; ?></td>
 	              <td class="metadata-value"><?php
-	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
-		              	echo $pods->display('artist_name_zh');
-		            } else {
-		              	echo $pods->display('artist_name');
-		            }
-	              	?></td>
+		      				if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
+			              	echo $pods->display('artist_name_zh');
+			            } else {
+			              	echo $pods->display('artist_name');
+			            } ?></td>
 	            </tr>
 	            <tr>
 	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "展期" : "On Display" ; ?></td>
 	              <td class="metadata-value"><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></td>
 	            </tr>
-	            <tr>
-	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "媒介" : "Materials" ; ?></td>
-	              <td class="metadata-value"><?php
-	      			if ( qtranxf_getLanguage() === "zh" && $pods->field('materials_zh') != '' ) {
-	              		echo $pods->display('materials_zh');
-	              	} else {
-		              	echo $pods->display('materials');
-	              	} ?></td>
-	            </tr>
-	            <tr>
-	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "尺寸" : "Dimensions" ; ?></td>
-	              <td class="metadata-value"><?php echo $pods->display('dimensions'); ?></td>
-	            </tr>
+
+	            <?php if (qtranxf_getLanguage() === "zh" && $pods->field('materials_zh') != "" ) { ?>
+            		<tr>
+	            		<td class="metadata-key">媒介</td>
+	            		<td class="metadata-value"><?php echo $pods->display('materials_zh'); ?></td>
+            		</tr>
+	            <?php } else if (qtranxf_getLanguage() != "zh" && $pods->field('materials') != "") { ?>
+            		<tr>
+	            		<td class="metadata-key">Materials</td>
+	            		<td class="metadata-value"><?php echo $pods->display('materials'); ?></td>
+            		</tr>
+	            <?php } ?>
+
+	            <?php //if ($pods->field('dimensions') != "") { ?>
+	            <!-- <tr> -->
+	              <!-- <td class="metadata-key"><?php //echo qtranxf_getLanguage() === "zh" ? "尺寸" : "Dimensions" ; ?></td> -->
+	              <!-- <td class="metadata-value"><?php //echo $pods->display('dimensions'); ?></td> -->
+	            <!-- </tr> -->
+	            <?php //} ?>
+
 	            <tr>
 	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "地點" : "Location" ; ?></td>
 	              <td class="metadata-value"><?php
@@ -164,48 +170,69 @@ foreach ($project_terms as $category_term) {
 		    </div>
 		  <?php } ?>
 
+		  <?php if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
+              	qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "" || 
+              	qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
+              	qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") { ?>
 	    <div class="row project-metadata project-metadata-footer">
 	      <div class="column large-12 large-offset-0 medium-8 medium-offset-2">
 	        <table>
 	          <tbody>
-              <?php $i = 0;
-              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
-              $copresenters = explode(";", $temp_string);
-              foreach ($copresenters as $copresenter) {
-              	echo "<tr>";
-              	if ($i == 0) {
-              		echo '<td class="metadata-key">';
-              		echo qtranxf_getLanguage() === "zh" ? "委約機構" : "Co-presenters" ;
-              		echo '</td>';
-              	}
-              	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
-              	$i++;
-              } ?>
+              <?php if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
+              					qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "") {
+	              $i = 0;
+	              if (qtranxf_getLanguage() === "zh") {
+		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters_zh'));
+		            } else {
+		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
+		            }
+	              $copresenters = explode(";", $temp_string);
+	              foreach ($copresenters as $copresenter) {
+	              	echo "<tr>";
+	              	if ($i == 0) {
+	              		echo '<td class="metadata-key">';
+	              		echo qtranxf_getLanguage() === "zh" ? "委約機構" : "Co-presenters" ;
+	              		echo '</td>';
+	              	}
+	              	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
+	              	$i++;
+	              } // foreach
+	            } // endif ?>
 
-              <?php $i = 0;
-              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge'));
-              $acknowledgements = explode(";", $temp_string);
-              foreach ($acknowledgements as $acknowledge) {
-              	echo "<tr>";
-              	if ($i == 0) {
-              		echo '<td class="metadata-key">';
-              		echo qtranxf_getLanguage() === "zh" ? "鳴謝" : "Acknowledge" ;
-              		echo '</td>';
-              	}
-              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
-              	$i++;
-              } ?>
+              <?php if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
+              					qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") {
+	              $i = 0;
+	              if (qtranxf_getLanguage() === "zh") {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge_zh'));
+	              } else {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge'));
+	              }
+	              $acknowledgements = explode(";", $temp_string);
+	              foreach ($acknowledgements as $acknowledge) {
+	              	echo "<tr>";
+	              	if ($i == 0) {
+	              		echo '<td class="metadata-key">';
+	              		echo qtranxf_getLanguage() === "zh" ? "鳴謝" : "Acknowledge" ;
+	              		echo '</td>';
+	              	}
+	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
+	              	$i++;
+	              } // foreach
+              } // endif ?>
+
 	          </tbody>
 	        </table>
-	      	<span class="frame-line">_</span>
-			<br>	
-	        <?php foreach ($project_categories as $category) {
-	        	echo '<div class="project-tags">' . $category . "</div>";
-	        } ?>
 	      </div>
 	    </div>
-	  </div>
+	    <?php } ?>
+	  	<span class="frame-line">_</span>
+			<br>	
+		  <?php foreach ($project_categories as $category) {
+		  	echo '<div class="project-tags">' . $category . "</div>";
+	  	} ?>
+	  </div><?php //column for entire left side of page ?>
 
+	  <?php if ( count($tier2pictures) != 0) { ?>
 	  <div class="column large-6 medium-12">
 	    <div class="row project-images-column">
 	      <div class="column tier-2-image-column large-offset-0 large-12 medium-10 medium-offset-1">
@@ -222,7 +249,9 @@ foreach ($project_terms as $category_term) {
     			<?php $counter++; } ?>
 	      </div>
 	    </div>
+	    <?php } ?>
 
+	    <?php if ( count($additionalPics) != 0) { ?>
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row"><?php $counter = 0;
@@ -234,6 +263,7 @@ foreach ($project_terms as $category_term) {
 	        </div>
 	      </div>
 	    </div>
+	    <?php } ?>
 
 	    <div class="project-controls">
 	      <a href="<?php echo get_permalink(get_adjacent_post(false,'',true)); ?>"><img class="project-controls-button" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-left.png" title="Previous project"></a>
