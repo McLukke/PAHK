@@ -196,12 +196,12 @@ foreach ($project_terms as $category_term) {
 		            } else {
 		              $temp_string = preg_replace( "/\r|\n/", "", $pods->field('copresenters'));
 		            }
-		            echo "<pre>";
-		            var_dump($temp_string);
-		            echo "</pre>";
-		            foreach ($temp_string as $value) {
-		            	$temp_var = $temp_var . $value;
-		            }
+		            // echo "<pre>";
+		            // var_dump($temp_string);
+		            // echo "</pre>";
+		            // foreach ($temp_string as $value) {
+		            // 	$temp_var = $temp_var . $value;
+		            // }
 	              $copresenters = explode(";", $temp_var);
 	              foreach ($copresenters as $copresenter) {
 	              	echo "<tr>";
@@ -225,9 +225,9 @@ foreach ($project_terms as $category_term) {
 	              } else {
 	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledge'));
 	              }
-	              foreach ($temp_string as $value) {
-	              	$temp_var = $temp_var . $value;
-	              }
+	              // foreach ($temp_string as $value) {
+	              // 	$temp_var = $temp_var . $value;
+	              // }
 	              $acknowledgements = explode(";", $temp_var);
 	              foreach ($acknowledgements as $acknowledge) {
 	              	echo "<tr>";
