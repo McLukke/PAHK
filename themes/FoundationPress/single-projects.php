@@ -12,26 +12,30 @@ get_header();
 $pods = pods('projects', get_the_id() );
 
 // grabbing tier2 images
-$tier2Array = $pods->field('tier_2_images');
+if ($pods->field('tier_2_images') != "") {
+	$tier2Array = $pods->field('tier_2_images');
+} else {
+	$tier2Array = "";
+}
 $tier2pictures = [];
 $tier2captions = [];
 
-if ( count($tier2Array) > 0 ) {
+if ( $tier2Array != "" ) {
 foreach ($tier2Array as $picture) {
 	array_push( $tier2pictures, pods_image_url($picture, 'full') );
 	array_push( $tier2captions, $picture["post_excerpt"]);
 }}
 
 // grab additional images
-$additionalPicsArray = $pods->field('additional_images');
+if ($pods->field('additional_images') != "") {
+	$additionalPicsArray = $pods->field('additional_images');
+} else {
+	$additionalPicsArray = "";
+}
 $additionalPics = [];
 $additionalPicsCaption = [];
 
-echo "<pre>";
-var_dump($additionalPicsArray);
-echo "</pre>";
-
-if ( count($additionalPicsArray) > 0 ) {
+if ( $additionalPicsArray != "" ) {
 foreach ($additionalPicsArray as $picture) {
 	array_push( $additionalPics, pods_image_url($picture, 'full') );
 	array_push( $additionalPicsCaption, $picture["post_excerpt"]);
