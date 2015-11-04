@@ -28,7 +28,7 @@ $additionalPics = [];
 $additionalPicsCaption = [];
 
 echo "<pre>";
-var_dump($additionalPics);
+var_dump($additionalPicsArray);
 echo "</pre>";
 
 if ( count($additionalPicsArray) > 0 ) {
