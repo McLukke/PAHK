@@ -10,11 +10,17 @@
 get_header(); ?>
 
 <div class="row page-title">
-  <h1 class="strike"><span><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</span></h1>
+  <h1 class="strike"><span><?php if (qtranxf_getLanguage() === "zh") {
+  		_e( '搜索结果:', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"
+  	<?php } else {
+  		_e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"
+  	<?php } ?>
+  </span></h1>
 </div>
 
-<?php //do_action( 'foundationpress_before_content' ); 
-	if ( have_posts() ) : ?>
+<?php if ( have_posts() ) : 
+		$params = array ('limit' => -1);
+		$pods = pods('projects', $params); ?>
 		<div class="row">
 		<div class="isotope" role="main"><?php
 		while ( have_posts() ) : the_post(); 
