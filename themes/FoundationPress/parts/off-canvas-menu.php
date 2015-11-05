@@ -42,6 +42,6 @@
                 <li><a href="<?php echo str_replace(home_url(), home_url() . "/zh", $my_current_url ); ?>" hreflang="zh" title="Chinese">中文</a></li>
             <?php } ?>
         <?php } ?>
-        <li><a href="#"><img class="icon-search" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></a></li>
+        <li><a href="<?php echo get_home_url()."/search"; ?>"><img class="icon-search" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></a></li>
     </ul>
 </aside>
