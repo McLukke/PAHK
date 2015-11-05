@@ -36,7 +36,11 @@ get_header(); ?>
         <div class="inner-page-banner" style="background-image:url(<?php echo $top_banner_image; ?>)">
           <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
             <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
-            <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+            <h6><?php 
+              echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+            ?> - <?php
+              echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+            ?></h6>
             <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                 echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
               } else {
@@ -97,7 +101,11 @@ get_header(); ?>
           <div class="featured-project-vertical" style="background-image:url(<?php echo $jv_banner_image; ?>); ">
             <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
               <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
-              <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+              <h6><?php 
+                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              ?> - <?php
+                echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+              ?></h6>
               <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                   echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
                 } else {
@@ -154,7 +162,11 @@ get_header(); ?>
           <div class="featured-project-vertical" style="background-image:url(<?php echo $support_banner_image; ?>); ">
             <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
               <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
-              <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+              <h6><?php 
+                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              ?> - <?php
+                echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+              ?></h6>
               <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                   echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
                 } else {

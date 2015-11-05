@@ -39,7 +39,11 @@ get_header(); ?>
               } else {
                 echo pods_field_display ('projects', get_the_ID(), 'location');
               } ?></h5>
-            <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> - <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
+            <h6><?php 
+              echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+            ?> - <?php
+              echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+            ?></h6>
             <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                 echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
               } else {

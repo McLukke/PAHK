@@ -59,7 +59,11 @@ foreach ($project_terms as $category_term) {
 	      		echo $pods->display('location');
 	      	}
 	      ?></h5>
-			<h6><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></h6>
+			<h6><?php 
+	      echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+	    ?> - <?php
+	      echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+	    ?></h6>
 			<h3 class="artist-name"><?php
 			if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
 				echo $pods->display('artist_name_zh');
@@ -111,7 +115,11 @@ foreach ($project_terms as $category_term) {
 	            </tr>
 	            <tr>
 	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "展期" : "On Display" ; ?></td>
-	              <td class="metadata-value"><?php echo $pods->display('display_from'); ?> - <?php echo $pods->display('display_until'); ?></td>
+	              <td class="metadata-value"><?php 
+						      echo date_i18n( 'F j Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+						    ?> - <?php
+						      echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+						    ?></td>
 	            </tr>
 
 	            <?php if (qtranxf_getLanguage() === "zh" && $pods->field('materials_zh') != "" ) { ?>
