@@ -80,7 +80,7 @@ endwhile;
  ?>
 </div>
 </div>
- <?php    echo do_shortcode('[ajax_load_more post_type="projects" offset="9" posts_per_page="9" pause="true" transition="fade" container_type="div" css_classes="isotope"]');
+ <?php    echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
 ?>
 
  
