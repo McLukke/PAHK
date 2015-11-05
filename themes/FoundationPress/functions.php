@@ -76,8 +76,8 @@ function display_chinese_year ($input_year) {
     $year_array = str_split($input_year);
     $year_zh = "";
     $temp = "";
-    foreach ($year_array as $number) {
-        switch ($number) {
+    foreach ($year_array as $numbr) {
+        switch ($numbr) {
             case "0":
                 $year_zh = $year_zh."零";
                 break;

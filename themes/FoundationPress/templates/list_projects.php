@@ -46,15 +46,23 @@ while ( have_posts() ) : the_post();
     } ?></h5>
     <h6><?php 
       if (qtranxf_getLanguage() === "zh") {
-        echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月 ".date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+        echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月.";
+        $temp = date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+        echo display_chinese_year( $temp );
       } else {
         echo date_i18n( 'M Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
       } ?> - <?php
-      if (qtranxf_getLanguage() === "zh") {
-        echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) )."月 ".date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+      if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+        echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
       } else {
-        echo date_i18n( 'M Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
-      } 
+        if (qtranxf_getLanguage() === "zh") {
+          echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) )."月.";
+          $temp = date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+          echo display_chinese_year($temp);
+        } else {
+          echo date_i18n( 'M Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+        }
+      }
     ?></h6>
     <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
       echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');

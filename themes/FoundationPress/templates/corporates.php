@@ -38,8 +38,18 @@ get_header(); ?>
             <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
             <h6><?php 
               echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-            ?> - <?php
-              echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+            ?> - <?php 
+              if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+                echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+              } else {
+                if (qtranxf_getLanguage() === "zh") {
+                  echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+                  $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                  echo display_chinese_year( $temp );
+                } else {
+                  echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+                }
+              }
             ?></h6>
             <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                 echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
@@ -103,8 +113,18 @@ get_header(); ?>
               <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
               <h6><?php 
                 echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-              ?> - <?php
-                echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+              ?> - <?php 
+                if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+                  echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+                } else {
+                  if (qtranxf_getLanguage() === "zh") {
+                    echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+                    $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                    echo display_chinese_year( $temp );
+                  } else {
+                    echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+                  }
+                }
               ?></h6>
               <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                   echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
@@ -164,8 +184,18 @@ get_header(); ?>
               <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
               <h6><?php 
                 echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-              ?> - <?php
-                echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+              ?> - <?php 
+                if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+                  echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+                } else {
+                  if (qtranxf_getLanguage() === "zh") {
+                    echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+                    $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                    echo display_chinese_year( $temp );
+                  } else {
+                    echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+                  }
+                }
               ?></h6>
               <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && pods_field_display ('projects', get_the_ID(), 'artist_name_zh') != '' ) {
                   echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
