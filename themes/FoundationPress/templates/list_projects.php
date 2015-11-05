@@ -46,7 +46,9 @@ while ( have_posts() ) : the_post();
     } ?></h5>
     <h6><?php 
       if (qtranxf_getLanguage() === "zh") {
-        echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月 ".date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+        // echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月 "
+        //.display_chinese_date(date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) ));
+        // .date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
       } else {
         echo date_i18n( 'M Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) ); 
       } ?> - <?php 

@@ -48,5 +48,47 @@ require_once( 'library/custom-nav.php' );
 /** Add protocol relative theme assets */
 require_once( 'library/protocol-relative-theme-assets.php' );
 
+// function display_chinese_year ($input_year) {
+//     $year_array = str_split($input_year);
+//     $year_zh = "";
+//     $temp = "";
+//     foreach ($year_array as $number) {
+//         switch ($number) {
+//             case "0":
+//                 $year_zh = $year_zh."零";
+//                 break;
+//             case "1":
+//                 $year_zh = $year_zh."一";
+//                 break;
+//             case "2":
+//                 $year_zh = $year_zh."二";
+//                 break;
+//             case "3":
+//                 $year_zh = $year_zh."三";
+//                 break;
+//             case "4":
+//                 $year_zh = $year_zh."四";
+//                 break;
+//             case "5":
+//                 $year_zh = $year_zh."五";
+//                 break;
+//             case "6":
+//                 $year_zh = $year_zh."六";
+//                 break;
+//             case "7":
+//                 $year_zh = $year_zh."七";
+//                 break;
+//             case "8":
+//                 $year_zh = $year_zh."八";
+//                 break;
+//             case "9":
+//                 $year_zh = $year_zh."九";
+//                 break;
+//         }
+//     }
+//     return $year_zh;
+// }
+
+
 
 ?>
