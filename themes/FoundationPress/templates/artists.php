@@ -223,11 +223,11 @@ get_header(); ?>
       <span class="frame-line">_</span>
       <div class="row explanatory-blocks">
         <div class="column large-4 medium-6 text-center">
-          <h4>With full support</h4>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "全力支持" : "With full support" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "從創作概念開始, 預算, 批文到項目宣傳, 我們會諮詢各方專家、贊助夥伴與你一同見證藝術品的誕生。" : "From design concept, budgeting, legal issues and marketing. We engage with sponsors, partners and vendors to carve out a new artwork with you!" ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">
-          <h4>Live your passion</h4>
+          <h4><?php echo qtranxf_getLanguage() === "zh" ? "燃點創意" : "Live your passion" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "燃點你的創意及才能，讓我們將為你的創意增加收入。" : "Fan your passion into flames, we provide a platform where you can earn an income with your talent." ; ?></p>
         </div>
         <div class="column large-4 medium-6 text-center">

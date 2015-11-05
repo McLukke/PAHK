@@ -71,10 +71,10 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section column">
-      <h2>Welcome to PAHK</h2>
-      <span class="subheader">The leading public art promoting organization in Hong Kong</span>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "歡迎" : "Welcome to PAHK" ; ?></h2>
+      <span class="subheader"><?php echo qtranxf_getLanguage() === "zh" ? "推廣公共藝術在香港的發展" : "The leading public art promoting organization in Hong Kong" ; ?></span>
       <span class="frame-line">_</span>
-      <p class="text-block column large-6 medium-8 text-center small-centered">Public Art Hong Kong (PAHK) is a non-profit organization funded by the Y.K.Pao Foundation with an aim to nurture and promote public art in Hong Kong. It was incorporated in 2005 with the Hong Kong Arts Centre as its executing organization. PAHK wishes to create an interactive relationship among the artwork, site and audience and intends to reflect public interests while featuring Hong Kong as a vibrant cultural city.</p>
+      <p class="text-block column large-6 medium-8 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "香港公共藝術是一個非牟利組織，旨於推廣公共藝術在香港的發展，於二零零五年成立並由香港藝術中心擔任執行機構。透過推行公共藝術計劃，香港公共藝術希望令香港成為富有文化色彩的動感都會。" : "Public Art Hong Kong (PAHK) is a non-profit organization funded by the Y.K.Pao Foundation with an aim to nurture and promote public art in Hong Kong. It was incorporated in 2005 with the Hong Kong Arts Centre as its executing organization. PAHK wishes to create an interactive relationship among the artwork, site and audience and intends to reflect public interests while featuring Hong Kong as a vibrant cultural city." ; ?></p>
     </div>
     <div class="column medium-6">
       <h4 class="subheader-strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "企業項目" : "Corporate projects" ; ?></span></h4>
@@ -92,12 +92,24 @@ get_header(); ?>
       <span class="frame-line">_</span>
       <div class="row">
         <div class="column large-6 large-centered text-center">
-          <p><?php
-          $board_string = $aboutpod->display('councillors');
-          $board = explode(";", $board_string);
-          foreach ($board as $member) {
-            echo $member;
-          } ?></p>
+          <p><?php 
+            if (qtranxf_getLanguage() != "zh" && $aboutpod->field('councillors') != "" || qtranxf_getLanguage() === "zh" && $aboutpod->field('councillors_zh') != "") {
+              $temp_string = "";
+              $temp_var = "";
+              if (qtranxf_getLanguage() === "zh") {
+                $temp_string = preg_replace( "/\r|\n/", "", $aboutpod->field('councillors_zh'));
+              } else {
+                $temp_string = preg_replace( "/\r|\n/", "", $aboutpod->field('councillors'));
+              }
+              // $board_string = implode("", $temp_string);
+              $board = explode(";", $temp_string);
+              foreach ($board as $member) {
+                echo $member."<br />";
+              }
+            } else {
+              echo qtranxf_getLanguage() == "zh" ? "暂时空" : "Currently None" ;
+            }
+          ?></p>
         </div>
       </div>
     </div>
@@ -154,7 +166,7 @@ get_header(); ?>
     <div class="text-section">
       <h2><?php echo qtranxf_getLanguage() === "zh" ? "執行機構" : "Executing Organization" ; ?></h2>
       <span class="frame-line">_</span>
-      <h4 class="text-center"><?php echo qtranxf_getLanguage() === "zh" ? "香港艺术中心" : "Hong Kong Arts Center" ; ?></h4>
+      <h4 class="text-center"><?php echo qtranxf_getLanguage() === "zh" ? "香港藝術中心" : "Hong Kong Arts Center" ; ?></h4>
     </div>
   </div>
 </div>

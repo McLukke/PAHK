@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <h4>Filter projects by</h4>
+  <h4><?php echo qtranxf_getLanguage() === "zh" ? "篩選" : "Filter projects by" ; ?></h4>
   <div id="filters" class="filter-button-group">
     <button class="filter-button is-checked" data-filter="*"><?php if (qtranxf_getLanguage() === "zh") {echo "全部";}else{echo "ALL";} ?></button>
     <button class="filter-button" data-filter=".local"><?php if (qtranxf_getLanguage() === "zh") {echo "香港";}else{echo "LOCAL";} ?></button>

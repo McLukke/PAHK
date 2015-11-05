@@ -236,7 +236,7 @@ foreach ($project_terms as $category_term) {
 		            // foreach ($temp_string as $value) {
 		            // 	$temp_var = $temp_var . $value;
 		            // }
-	              $copresenters = explode(";", $temp_var);
+	              $copresenters = explode(";", $temp_string);
 	              foreach ($copresenters as $copresenter) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
@@ -262,7 +262,7 @@ foreach ($project_terms as $category_term) {
 	              // foreach ($temp_string as $value) {
 	              // 	$temp_var = $temp_var . $value;
 	              // }
-	              $acknowledgements = explode(";", $temp_var);
+	              $acknowledgements = explode(";", $temp_string);
 	              foreach ($acknowledgements as $acknowledge) {
 	              	echo "<tr>";
 	              	if ($i == 0) {

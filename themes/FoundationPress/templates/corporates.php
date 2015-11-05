@@ -145,7 +145,7 @@ get_header(); ?>
   <div class="card row partner-card">
 
     <div class="text-section column large-6 large-push-6">
-      <h2>Support the art</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "支持藝術" : "Support the art" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row partner-info">
         <div class="column">
@@ -236,7 +236,7 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section column">
-      <h2>Client list</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "合作機構" : "Client list" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="client-logos column large-8 large-offset-2 medium-10 small-centered text-center"><?php
         $clientLogoArray = $corp_pod->field('client_logos');

@@ -12,8 +12,8 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section column large-10 large-offset-1">
-      <h2>Public Art Hong Kong</h2>
-      <span class="subheader">is a nonprofit organization that relies on various funding sources for public art programmes</span>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "香港公共藝術" : "Public Art Hong Kong" ; ?></h2>
+      <span class="subheader"><?php echo qtranxf_getLanguage() === "zh" ? "一個非牟利組織，旨於推廣公共藝術在香港的發展" : "is a nonprofit organization that relies on various funding sources for public art programmes" ; ?></span>
       <span class="frame-line">_</span>
       <p class="text-block column large-6 medium-8 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "支持香港公共藝術!是你的支持讓我們持續將公共藝術帶到不同的地方。你可以從以下四種方式支持我們:" : "YES for supporting Public Arts Hong Kong! Your great help ensures that we have the resources needed to present outstanding programmes and enriching educational projects. To support us through any of the four ways below,  please email:" ; ?></p>
       <a href="#" class="button cta button-single">support@pahk.org.hk</a>

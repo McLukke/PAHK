@@ -17,12 +17,18 @@
 <footer id="footer">
   <div class="row">
     <div class="column large-3 medium-12">
-      <h6>Contact Us</h6>
-      <p>Public Art Hong Kong <br>
+      <h6><?php echo qtranxf_getLanguage() === "zh" ? "聯絡我們" : "Contact Us" ; ?></h6>
+      <p><?php echo qtranxf_getLanguage() === "zh" ? "香港公共藝術
+      <br />
+      香港灣仔港灣道2號
+      <br />
+      (852) 2582 0280 
+      <br />
+      info@publicart.org.hk" : "Public Art Hong Kong <br>
       2 Harbour Road, Wanchai,  <br>
       Hong Kong <br>
       (852) 2582 0280 <br>
-      info@publicart.org.hk</p>
+      info@publicart.org.hk" ; ?></p>
     </div>
     <div class="column large-4 medium-6 small-12">
       <h6><?php echo qtranxf_getLanguage() === "zh" ? "執行機構" : "Executing Organization" ;?></h6>
