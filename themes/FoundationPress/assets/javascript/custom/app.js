@@ -63,6 +63,6 @@ $( document ).ready( function() {
   });
   
   window.scroll(function () {
-    // $('.alm-reveal')
+    $('.alm-reveal a').appendTo('.isotope');
   });
 });
