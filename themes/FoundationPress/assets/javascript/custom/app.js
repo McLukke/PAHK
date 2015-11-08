@@ -61,13 +61,5 @@ $( document ).ready( function() {
       $( this ).addClass('is-checked');
     });
   });
-  
-  window.scroll(function () {
-    $('.alm-reveal a').each(function () {
-      console.log(this);
-      
-      $('.isotope').append( $(this) );
-      $(this).remove();
-    });
-  });
+
 });
