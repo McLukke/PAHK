@@ -84,6 +84,22 @@ get_header(); ?>
 		// echo '</div>';
 	endif; 
 
-	echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
+
+$my_query = new WP_Query('artist_name='.$s);
+if (!empty($my_query->posts)) :
+while ($my_query->have_posts()) : $my_query->the_post();
+	echo "found name";
+endwhile;
+endif;
+
+$my_query = new WP_Query('artist_name_zh='.$s);
+if (!empty($my_query->posts)) :
+while ($my_query->have_posts()) : $my_query->the_post();
+	echo "found Chinese name";
+endwhile;
+endif;
+
+
+	// echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
 	get_footer(); 
 ?>
