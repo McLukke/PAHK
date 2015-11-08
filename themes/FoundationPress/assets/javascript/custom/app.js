@@ -64,7 +64,10 @@ $( document ).ready( function() {
   
   window.scroll(function () {
     $('.alm-reveal a').each(function () {
-      $(this).appendTo('.isotope');
+      console.log(this);
+      
+      $('.isotope').append( $(this) );
+      $(this).remove();
     });
   });
 });
