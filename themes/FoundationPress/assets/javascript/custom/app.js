@@ -62,4 +62,7 @@ $( document ).ready( function() {
     });
   });
   
+  window.scroll(function () {
+    // $('.alm-reveal')
+  });
 });

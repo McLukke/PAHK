@@ -1,5 +1,5 @@
 <div class="row page-title">
-  <h1 class="strike"><span>Projects</span></h1>
+  <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "項目" : "Projects" ; ?></span></h1>
 </div>
 
 <div class="row">
@@ -46,9 +46,9 @@ while ( have_posts() ) : the_post();
     } ?></h5>
     <h6><?php 
       if (qtranxf_getLanguage() === "zh") {
-        echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月.";
         $temp = date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
         echo display_chinese_year( $temp );
+        echo "." . date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月";
       } else {
         echo date_i18n( 'M Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
       } ?> - <?php
@@ -56,9 +56,9 @@ while ( have_posts() ) : the_post();
         echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
       } else {
         if (qtranxf_getLanguage() === "zh") {
-          echo date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) )."月.";
           $temp = date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
           echo display_chinese_year($temp);
+          echo "." . date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) )."月";
         } else {
           echo date_i18n( 'M Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
         }

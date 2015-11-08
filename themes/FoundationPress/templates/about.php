@@ -40,15 +40,35 @@ get_header(); ?>
                 echo pods_field_display ('projects', get_the_ID(), 'location');
               } ?></h5>
             <h6><?php 
-              echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-            ?> - <?php 
+              // old display format Month - Month Year
+
+              // echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              // echo " - "; 
+              // if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+              //   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+              // } else {
+              //   if (qtranxf_getLanguage() === "zh") {
+              //     echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+              //     $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+              //     echo display_chinese_year( $temp );
+              //   } else {
+              //     echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+              //   }
+              // }
+
+              if (qtranxf_getLanguage() === "zh") {
+                $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                echo display_chinese_year( $temp );
+                echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              } else {
+                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              }
+              echo " - ";
               if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
                 echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
               } else {
                 if (qtranxf_getLanguage() === "zh") {
-                  echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
-                  $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
-                  echo display_chinese_year( $temp );
+                  echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                 } else {
                   echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                 }
@@ -88,7 +108,7 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section column">
-      <h2><?php echo qtranxf_getLanguage() === "zh" ? "董事会会议员" : "Board of Councillors" ; ?></h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "董事會成員" : "Board of Councillors" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row">
         <div class="column large-6 large-centered text-center">
