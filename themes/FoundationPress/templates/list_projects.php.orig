@@ -18,6 +18,9 @@
 <div class="row">
 <div class="isotope">
 <?php 
+// $mycustomquery = (get_query_var('paged')) ? get_query_var('paged') : 1;
+// query_posts('posts_per_page=6&paged=' . $paged);
+
 $params = array ('limit' => -1);
 $pods = pods('projects', $params);
 
@@ -96,12 +99,22 @@ while ( $myCompleteSearch->have_posts() ) : $myCompleteSearch->the_post();
     <h3 class="artwork-name"><?php the_title(); ?></h3>
   </a>
 
+<<<<<<< Updated upstream
+<?php 
+
+endwhile;
+endif;  ?>
+</div>
+</div>
+ <?php    //echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
+=======
 <?php endwhile;
 endif; ?>
 </div>
 </div>
 <?php 
   // echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
+>>>>>>> Stashed changes
 ?>
 
 <?php /* Display navigation to next/previous pages when applicable */ ?>
