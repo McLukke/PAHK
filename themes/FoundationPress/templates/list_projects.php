@@ -16,35 +16,12 @@
 </div>
 
 <div class="row">
-<div class="isotope">
-<?php 
+<div class="isotope"><?php 
 $params = array ('limit' => -1);
 $pods = pods('projects', $params);
 
-$myCompleteSearch = new WP_Query(array(
-  'post_type' => 'Projects',
-  'posts_per_page'=>6,
-  's'=>$s,
-  'meta_key'=>'display_from',
-  'orderby'=>'meta_value_num',
-  'order'=>'desc',
-  'meta_query'=>array(
-    'relation'=>'OR',
-    array(
-        'key'=>'artist_name',
-        'value'=>$s,
-        'compare' => '=='
-    ),
-    array(
-        'key'=>'artist_name_zh',
-        'value'=>$s,
-        'compare' => '=='
-    )
-  )
-));
-
-if ( $myCompleteSearch->have_posts() ) :
-while ( $myCompleteSearch->have_posts() ) : $myCompleteSearch->the_post(); 
+if ( have_posts() ) :
+while ( have_posts() ) : the_post(); 
 
   if (has_post_thumbnail()) {
     $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
@@ -95,10 +72,8 @@ while ( $myCompleteSearch->have_posts() ) : $myCompleteSearch->the_post();
 
     <h3 class="artwork-name"><?php the_title(); ?></h3>
   </a>
-
 <?php endwhile;
-endif; 
-wp_reset_query(); ?>
+endif; ?>
 </div>
 </div>
 <?php 
