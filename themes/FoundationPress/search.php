@@ -18,7 +18,8 @@ get_header(); ?>
   </span></h1>
 </div>
 
-<?php if ( have_posts() ) : 
+<?php
+if ( have_posts() ) : 
 		$params = array ('limit' => -1);
 		$pods = pods('projects', $params); ?>
 		<div class="row">

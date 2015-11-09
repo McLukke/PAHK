@@ -18,8 +18,8 @@
 <div class="row">
 <div class="isotope">
 <?php 
-$mycustomquery = (get_query_var('paged')) ? get_query_var('paged') : 1;
-query_posts('posts_per_page=6&paged=' . $paged);
+// $mycustomquery = (get_query_var('paged')) ? get_query_var('paged') : 1;
+// query_posts('posts_per_page=6&paged=' . $paged);
 
 $params = array ('limit' => -1);
 $pods = pods('projects', $params);
@@ -80,8 +80,7 @@ while ( have_posts() ) : the_post();
 <?php 
 
 endwhile;
-      endif; 
- ?>
+endif;  ?>
 </div>
 </div>
  <?php    //echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
