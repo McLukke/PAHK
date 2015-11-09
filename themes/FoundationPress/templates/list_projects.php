@@ -97,7 +97,8 @@ while ( $myCompleteSearch->have_posts() ) : $myCompleteSearch->the_post();
   </a>
 
 <?php endwhile;
-endif; ?>
+endif; 
+wp_reset_query(); ?>
 </div>
 </div>
 <?php 
