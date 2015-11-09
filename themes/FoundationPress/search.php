@@ -150,12 +150,14 @@ wp_reset_query();?>
 </div>
 <?php
 // echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
-?>
-<?php /* Display navigation to next/previous pages when applicable */ ?>
-<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
+/* Display navigation to next/previous pages when applicable */
+if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
   <nav id="post-nav">
     <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
     <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
   </nav>
 <?php }
+// Restore original Post Data
+wp_reset_postdata();
+wp_reset_query();
 get_footer(); ?>

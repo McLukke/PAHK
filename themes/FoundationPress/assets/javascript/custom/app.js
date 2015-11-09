@@ -62,4 +62,8 @@ $( document ).ready( function() {
     });
   });
 
+  window.scroll(function() {
+    $('.isotope').isotope('layout');
+  });
+
 });

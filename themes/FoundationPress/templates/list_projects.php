@@ -20,6 +20,15 @@
 $params = array ('limit' => -1);
 $pods = pods('projects', $params);
 
+if ( get_query_var('paged') ) {
+    $paged = get_query_var('paged');
+} else if ( get_query_var('page') ) {
+    $paged = get_query_var('page');
+} else {
+    $paged = 1;
+}
+query_posts( array( 'post_type' => 'post', 'paged' => $paged ) );
+
 if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 
 
@@ -80,8 +89,8 @@ endif; ?>
   // echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
 ?>
 
-<?php /* Display navigation to next/previous pages when applicable */ ?>
-<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
+<?php /* Display navigation to next/previous pages when applicable */
+if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
   <nav id="post-nav">
     <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
     <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
