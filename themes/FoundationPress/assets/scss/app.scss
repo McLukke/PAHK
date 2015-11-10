@@ -1,15 +1,30 @@
 // @import "config/settings";
 // @import "foundation";
 
+.fixed {
+	top: 30px;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Signika:400,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Sintony:400,700);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700,600italic,700italic,400italic);
+
+
+// Chinese fonts
+
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
 
 // --------- VARIABLES
 
 $main-turq: #3fb0ac; 
 $main-yellow: #fae596;
-$main-dark: #163f45;
+// $main-dark: #163f45;
+$main-dark: #1A4B52;
+$main-yellow-lighten: #fcf1cc;
 
 $white: #fff;
 $grey-light: #ebebeb;
@@ -22,9 +37,13 @@ $grey-text: #999999;
 // $main-dark: #b51c21;
 
 $font-art: 'Signika', sans-serif;
-$font-header: 'Montserrat', sans-serif;;
-$font-body: 'Noticia Text', serif;;
+// $font-header: 'Montserrat', sans-serif;;
+// $font-body: 'Noticia Text', serif;;
 
+// ALTERNATIVE FONT SCHEME 1:
+// $font-art: 'garablack', sans-serif;
+$font-header: 'Sintony', sans-serif;;
+$font-body: 'Crimson Text', sans-serif;
 
 // --------- GLOBAL
 
@@ -42,9 +61,16 @@ html {
 }
 
 body {
-  background-image: url('../images/bg-retina-dust.png');
+  background-image: url('../images/bg-ticks.png');
   font-family: $font-body, sans-serif;
   color: $main-turq;
+}
+
+h1.strike span {
+  	background-image: url('../images/bg-ticks.png');
+	padding: 0 60px;
+	position: relative;
+	z-index: 5;
 }
 
 .full-width {
@@ -57,11 +83,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	color: $main-turq;
 	font-family: $font-header;
+	font-weight: 700;
 }
 
 h1, h2, h4, h5, {
 	text-transform: uppercase;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 h1 {
@@ -69,12 +96,13 @@ h1 {
 	text-align: center;
 	margin: 60px 0 40px 0;
 	position: relative;
+	color: $main-dark;
 }
 
 h1.strike:before {
    	content: "";
     display: block;
-    border-top: solid 1px $main-turq;
+    border-top: solid 2px $main-dark;
     width: 100%;
     height: 1px;
     position: absolute;
@@ -82,32 +110,26 @@ h1.strike:before {
     z-index: 1;
 }
 
-h1.strike span {
-  	background-image: url('../images/bg-retina-dust.png');
-	padding: 0 60px;
-	position: relative;
-	z-index: 5;
-}
-
 
 h2 {
 	font-size: 1.25rem;
 	text-align: center;
+	color: $main-dark;
 }
 
 h3 {
 	font-family: $font-art !important;
 	font-weight: 600;
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	line-height: 1.7rem;
 }
 
 h4 {
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 }
 
 h5 {
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 }
 
 h6 {
@@ -117,12 +139,12 @@ h6 {
 }
 
 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	line-height: 1.2rem;
 }
 
 p.text-block, li {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	line-height: 1.7rem;
 }
 
@@ -130,7 +152,7 @@ span.subheader {
 	font-family: $font-header;
 	max-width: 500px;
 	margin: 0 auto;
-	color: $main-dark;
+	color: $main-turq;
 	display: block;
 	text-align: center;
 	font-weight: bold;
@@ -138,6 +160,23 @@ span.subheader {
 
 .font-art {
 	font-family: $font-art;
+}
+
+
+// CHINESE FONT
+
+// body:lang(zh-Hant) {
+// https://www.google.com/fonts/earlyaccess#Noto+Sans+SC
+body:lang(zh) {
+	font-family: "cwTeXMing", "cwTeXHei", "cwTeXKai", "Microsoft Yahei", "微软雅黑", sans-serif;
+}
+
+h3.artist-name {
+	text-transform: uppercase;
+}
+
+h3.artwork-name {
+	font-size: 1.1rem;
 }
 
 h4.subheader-strike {
@@ -169,19 +208,27 @@ h4.blue-header {
 	color: $white;
 	margin: 0 auto;
 	display: block;
-	padding: 2px 40px;
 	text-align: center;
-	margin-bottom: 40px;
-	max-width: 80%;
+	margin-bottom: 35px;
+	max-width: 75%;
+	font-size: 0.9rem;
 }
 
-h3.artist-name {
-	text-transform: uppercase;
+#corporates h4.blue-header {
+	padding: 5px 40px 6px;
+}
+
+#artists h4.blue-header {
+	padding: 7px 40px 4px;
+}
+
+h5.district-name {
+	padding-top: 5px
 }
 
 .text-section p.primary-desc {
 	font-weight: bold;
-	font-size: 1rem;
+	font-size: 1.1rem;
 	text-align: center;
 	line-height: 1rem;
 	margin-bottom: 0.5rem;
@@ -192,6 +239,7 @@ h3.artist-name {
 	font-style: italic;
 	line-height: 1.25rem;
 	margin-bottom: 5px;
+	font-size: 1rem;
 }
 
 .partner-info p.secondary-desc:last-child {
@@ -228,6 +276,7 @@ span.text-pipe::before {
 	font-style: italic;
 	color: $white;
 	font-weight: 700;
+	font-size: 1.1rem;
 }
 
 ol.custom-counter {
@@ -240,6 +289,7 @@ ol li {
 	position: relative;
 	padding-left: 55px;
 	margin-bottom: 20px;
+	font-size: 1.05rem;
 }
 
 ol.custom-counter li:before {
@@ -276,6 +326,7 @@ span.letter-list {
 	border-top-style: double;
 	background-color: $white;
 	border-bottom-style: double;
+	border-color: $main-dark;
 	.name {
 		margin-top: -2px;
 	}
@@ -283,13 +334,13 @@ span.letter-list {
 
 .logo {
 	height: calc(3.8rem - 2px);
-	background-color: $main-turq;
+	background-color: $main-dark;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
 	height: calc(3.8rem - 6px);
 	padding: 0.45rem 0.9rem;
-	border-right: 1px solid $main-turq;
+	border-right: 1px solid $main-dark;
 	background-color: $white;
 	color: $main-turq;
 }
@@ -313,7 +364,7 @@ span.letter-list {
     		transition: background-color 0.4s;
   			-webkit-transition: background-color 0.4s;    	
     	&:hover {
-    		background-color: $main-dark;
+    		background-color: $main-yellow-lighten;
     		transition: background-color 0.4s;
   			-webkit-transition: background-color 0.4s;
     	}
@@ -366,11 +417,11 @@ span.letter-list {
 
 span.frame-line {
 	display: inline-block;
-	margin-top: 40px;
+	margin-top: 30px;
 	margin-bottom: 20px;
 	margin-left: 10px;
 	border-bottom: 2px solid $main-turq;
-	width: 60px;
+	width: 50px;
 	color: $white;
 }
 
@@ -381,6 +432,7 @@ span.frame-line {
 	padding-bottom: 40px;
 	padding-top: 40px;
 	border-style: double;
+	border-color: $main-dark;
 }
 
 .text-section {
@@ -400,6 +452,11 @@ span.frame-line {
 	}
 }
 
+.tier-2-image {
+	margin-bottom: 15px;
+}
+
+
 a.button.cta {
 	background-color: $main-yellow;
 	border-left: 7px solid $main-dark;
@@ -414,7 +471,7 @@ a.button.cta {
 	color: $main-dark;
 	font-family: $font-header;
 	font-weight: bold;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	border-radius: 15px;
 	&:hover {
 		background-color: $main-turq;
@@ -432,6 +489,15 @@ a.cta.inner-button {
 
 #project-detail .project-action-bar {
 	margin-top: 60px; 
+}
+
+div.project-thumbnail-container {
+	height: 250px;
+	margin-bottom: 20px;
+	background-color: $main-turq;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 .ui-text-overlay {
@@ -467,7 +533,7 @@ a.cta.inner-button {
 }
 
 .block-icon {
-	max-height: 50px;
+	max-height: 70px;
 }
 
 .corporate-cta {
@@ -515,7 +581,6 @@ footer {
 #project-detail {
 	.inner-page-banner {
 		height: 75vh;
-		background-image: url(../images/tier-1-img.jpg);
 		position: relative;
 		.project-controls {
 			position: absolute;
@@ -593,12 +658,20 @@ footer {
 	.tier-2-image {
 		background-color: $white;
 		p.image-caption {
-			font-family: $font-header;
 			color: $grey-text;
 			font-size: 0.8rem;
 			padding: 5px 10px 15px;
+			margin-bottom: 0;
+			font-family: $font-body;
+			&:empty {
+				display: none;
+			}	
 		}
 	}
+}
+
+p.image-caption {
+
 }
 
 #project-detail .project-images-column.tier-3 {
@@ -609,7 +682,7 @@ footer {
 .inner-page-banner {
 	border: 6px solid $main-turq;
 	height: 280px;
-	background-image: url(../images/banner-inner-1.jpg);
+	background-color: $main-turq;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -637,13 +710,12 @@ footer {
 	}
 	h3.artist-name {
 		color: $white;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		padding-bottom: 0px;
 		letter-spacing: 1px;
 	}
 	h3.artwork-name {
 		color: white;
-		font-size: 1.6rem;
 		margin-bottom: 0;
 		color: $white;
 	}
@@ -668,12 +740,13 @@ footer {
 	}
 }
 
-.explanatory-block {
+.explanatory-blocks {
 	h4 {
 		display: block;
 		margin: 0 auto;
 	}
 	overflow: auto;
+	clear: both;
 }
 
 #support {
@@ -691,6 +764,7 @@ footer {
 			color: $white;
 			padding: 7px;
 			font-size: 0.9rem;
+			margin-top: 0;
 		}
 		p {
 			padding: 30px 17px;
@@ -723,16 +797,67 @@ footer {
 	}
 }
 
+#artists {
+	.text-section {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.custom-counter {
+		margin-bottom: 30px;
+		li {
+			font-weight: bold;
+			font-size: 0.9rem;
+		}
+	}
+	.inner-page-banner {
+		margin-top: 35px;
+		height: 350px;
+	}
+
+}
+
+.partner-card.card.row {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	.partner-card-project-right {
+		height: 100%;
+		width: 52.5%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		&.column {
+			margin-right: -15px;
+		}
+	}
+	.partner-card-project-left {
+		height: 100%;
+		width: 52.5%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		&.column {
+			margin-left: -15px;
+		}
+	}
+	.featured-project-vertical {
+		width: 100%;
+		height: 100%;
+		background-color: $main-turq;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+}
+
 .client-logos { 
+	margin-bottom: 30px;
 	img {
 		display: inline-block;
 		max-width: 160px;
 		margin: 0 auto;
 		padding: 10px;
 	}
-}
-
-.featured-project-vertical {
 }
 
 
@@ -748,8 +873,9 @@ footer {
 
 .filter-button {
   display: inline-block;
-  padding: 0.4rem 1.2rem;
-  background: $grey-light;
+  line-height: 0.9rem;
+  padding: 0.5rem 1.2rem 0.4rem;
+  background: transparent;
   color: $main-turq;
   font-family: $font-header;
   font-size: 0.8rem;
@@ -758,13 +884,19 @@ footer {
   font-weight: bold;
   border: 1px solid $main-turq;
   border-radius: 15px;
+  transition: padding 0.4s;
+  -webkit-transition: padding 0.4s;
+  &:focus {
+  	background-color: $main-yellow;	
+  }
 }
 
 .filter-button:hover {
-  background-color: $main-yellow;
   color: $main-turq;
-  transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
+  background-color: $main-yellow;
+  padding: 0.5rem 2rem 0.4rem;
+  transition: padding 0.4s;
+  -webkit-transition: padding 0.4s;
 }
 
 .filter-button:active,
@@ -774,10 +906,28 @@ footer {
   font-weight: 700;
 }
 
-
 .filter-button:active {
   box-shadow: inset 0 1px 5px $main-yellow;
 }
+
+
+.project-tags {
+  display: inline-block;
+  line-height: 0.9rem;
+  padding: 0.4rem 1.2rem 0.3rem;
+  font-family: $font-header;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+  border: 1px solid $main-turq;
+  border-radius: 15px;
+}
+
+div.project-tags {
+	margin-right: 5px;
+	margin-top: 15px;
+}
+
 
 /* ---- button-group ---- */
 
@@ -803,7 +953,7 @@ footer {
 }
 
 .isotope {
-	border: 1px solid $main-turq;
+	// border: 1px solid $main-turq;
 	img {
 		width: 100%;
 	}
@@ -838,6 +988,10 @@ footer {
   background: $white;
   color: #262524;
   overflow: auto;
+  &:hover {
+  	border: 10px solid $main-yellow;
+  	padding: 0px;
+  }
 }
 
 .grid-item > * {
@@ -879,8 +1033,8 @@ footer {
 		background-color: white;
 		transition: background-color 0.4s;
   		-webkit-transition: background-color 0.4s;
-		transition: padding 0.4s;
-  		-webkit-transition: padding 0.4s;
+		transition: padding 0.5s;
+  		-webkit-transition: padding 0.5s;
 	}		
 	.top-bar-section li:not(.has-form) a:not(.button):hover {
 		background-color: $main-yellow;
@@ -888,8 +1042,8 @@ footer {
 		padding: 0.45rem 40px;
 		transition: background-color 0.4s;
   		-webkit-transition: background-color 0.4s;
-		transition: padding 0.4s;
-  		-webkit-transition: padding 0.4s;
+		transition: padding 0.5s;
+  		-webkit-transition: padding 0.5s;
 	}
 }
 
@@ -907,7 +1061,7 @@ footer {
 
 @media #{$large-up} {
 	.explanatory-block-2 a.cta.inner-button-3 {
-		margin-top: 48px;
+		margin-top: 25px;
 	}
 
 	.grid-item {

@@ -1,30 +1,47 @@
-<div class="row page-title">
-  <h1 class="strike"><span>Projects</span></h1>
+<?php  
+$params = array ('limit' => -1);
+$pods = pods('projects', $params);
+
+?><div class="row page-title">
+  <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "項目" : "Projects" ; ?></span></h1>
 </div>
 
 <div class="row">
-  <h4>Filter projects by</h4>
+  <h4><?php echo qtranxf_getLanguage() === "zh" ? "篩選" : "Filter projects by" ; ?></h4>
   <div id="filters" class="filter-button-group">
-    <a href="#" class="filter-button is-checked" data-filter="*">ALL</a>
-    <a href="#" class="filter-button" data-filter=".metal">LOCAL</a>
-    <a href="#" class="filter-button" data-filter=".transition">INTERNATIONAL</a>
-    <a href="#" class="filter-button" data-filter=".alkali, .alkaline-earth">INDOOR</a>
-    <a href="#" class="filter-button" data-filter=":not(.transition)">OUTDOOR</a>
-    <a href="#" class="filter-button" data-filter=".metal:not(.transition)">WALL-MOUNTED</a>
-    <a href="#" class="filter-button" data-filter="numberGreaterThan50">FREE-STANDING</a>
+    <button class="filter-button is-checked" data-filter="*"><?php if (qtranxf_getLanguage() === "zh") {echo "全部";}else{echo "ALL";} ?></button>
+    <button class="filter-button" data-filter=".local"><?php if (qtranxf_getLanguage() === "zh") {echo "香港";}else{echo "LOCAL";} ?></button>
+    <button class="filter-button" data-filter=".international"><?php if (qtranxf_getLanguage() === "zh") {echo "國際";}else{echo "INTERNATIONAL";} ?></button>
+    <button class="filter-button" data-filter=".indoor"><?php if (qtranxf_getLanguage() === "zh") {echo "室內";}else{echo "INDOOR";} ?></button>
+    <button class="filter-button" data-filter=".outdoor"><?php if (qtranxf_getLanguage() === "zh") {echo "室外";}else{echo "OUTDOOR";} ?></button>
+    <button class="filter-button" data-filter=".wall-mounted"><?php if (qtranxf_getLanguage() === "zh") {echo "掛牆";}else{echo "WALL-MOUNTED";} ?></button>
+    <button class="filter-button" data-filter="free-standing"><?php if (qtranxf_getLanguage() === "zh") {echo "立體";}else{echo "FREE-STANDING";} ?></button>
   </div>
 </div>
 
 <div class="row">
-<div class="isotope">
-<?php $params = array ('limit' => -1);
-$pods = pods('projects', $params);
+<div class="isotope"><?php 
+if ( get_query_var('paged') ) {
+    $paged = get_query_var('paged');
+} else if ( get_query_var('page') ) {
+    $paged = get_query_var('page');
+} else {
+    $paged = 1;
+}
+
+$args = array(
+  'post_type' =>  'projects',
+  'paged' =>  $paged,
+  'posts_per_page'  =>  30
+);
+
+$wp_query = new WP_Query( $args ); 
 
 if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 
 
   if (has_post_thumbnail()) {
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id());
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
     $image = $image[0];
   }else{
     $image = get_bloginfo('template_directory')."/assets/images/black.png";
@@ -33,21 +50,37 @@ while ( have_posts() ) : the_post();
   $class = "";
 
   $project_terms = wp_get_post_terms (get_the_ID(), 'projectcategory');
-  foreach ($project_terms as $abc) {
-    $class = $class . " " . $abc->slug;
+  foreach ($project_terms as $category_term) {
+    $class = $class . " " . $category_term->slug;
   } ?>
 
   <a href="<?php the_permalink(); ?>" class="grid-item <?php echo $class ?>" data-category="transition">
-    <div><img src="<?php echo $image; ?>" /></div>
-    <?php if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
+    <div class="project-thumbnail-container" style="background-image:url(<?php echo $image; ?>)"></div>
+    <h5 class="district-name"><?php if ( qtranxf_getLanguage() === "zh" && $pods->field('location_zh') != '' ) {
       echo pods_field_display ('projects', get_the_ID(), 'location_zh');
     } else {
       echo pods_field_display ('projects', get_the_ID(), 'location');
-    } ?>
-
-    <h6><?php echo pods_field_display ('projects', get_the_ID(), 'display_from'); ?> -
-    <?php echo pods_field_display ('projects', get_the_ID(), 'display_until'); ?></h6>
-
+    } ?></h5>
+    <h6><?php 
+      if (qtranxf_getLanguage() === "zh") {
+        $temp = date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+        echo display_chinese_year( $temp );
+        echo "." . date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) )."月";
+      } else {
+        echo date_i18n( 'M Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+      } ?> - <?php
+      if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+        echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+      } else {
+        if (qtranxf_getLanguage() === "zh") {
+          $temp = date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+          echo display_chinese_year($temp);
+          echo "." . date_i18n( 'M', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) )."月";
+        } else {
+          echo date_i18n( 'M Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+        }
+      }
+    ?></h6>
     <h3 class="artist-name"><?php if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
       echo pods_field_display ('projects', get_the_ID(), 'artist_name_zh');
     } else {
@@ -56,17 +89,16 @@ while ( have_posts() ) : the_post();
 
     <h3 class="artwork-name"><?php the_title(); ?></h3>
   </a>
-
 <?php endwhile;
-      endif; ?>
-
+endif; ?>
 </div>
 </div>
-
-<?php /* Display navigation to next/previous pages when applicable */ ?>
-<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
-	<nav id="post-nav">
-		<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-		<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
-	</nav>
+<?php 
+  // echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]'); ?>
+<?php /* Display navigation to next/previous pages when applicable */
+if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
+  <nav id="post-nav">
+    <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+    <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+  </nav>
 <?php } ?>

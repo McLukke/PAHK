@@ -19,9 +19,11 @@
 get_header();
 
 if ( "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == get_home_url() || "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == get_home_url()."/" ) {
-	// paste carousel here
-	echo "CAROUSEL";
+	putRevSlider("slider1");
 }
 
 require_once('templates/list_projects.php');
+// Restore original Post Data
+wp_reset_postdata();
+wp_reset_query();
 get_footer(); ?>
