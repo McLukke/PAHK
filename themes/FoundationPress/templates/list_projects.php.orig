@@ -1,8 +1,4 @@
-<?php  
-$params = array ('limit' => -1);
-$pods = pods('projects', $params);
-
-?><div class="row page-title">
+<div class="row page-title">
   <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "項目" : "Projects" ; ?></span></h1>
 </div>
 
@@ -20,25 +16,38 @@ $pods = pods('projects', $params);
 </div>
 
 <div class="row">
-<div class="isotope"><?php 
-if ( get_query_var('paged') ) {
-    $paged = get_query_var('paged');
-} else if ( get_query_var('page') ) {
-    $paged = get_query_var('page');
-} else {
-    $paged = 1;
-}
+<div class="isotope">
+<?php 
+// $mycustomquery = (get_query_var('paged')) ? get_query_var('paged') : 1;
+// query_posts('posts_per_page=6&paged=' . $paged);
 
-$args = array(
-  'post_type' =>  'projects',
-  'paged' =>  $paged,
-  'posts_per_page'  =>  6
-);
+$params = array ('limit' => -1);
+$pods = pods('projects', $params);
 
-$wp_query = new WP_Query( $args ); 
+$myCompleteSearch = new WP_Query(array(
+  'post_type' => 'Projects',
+  'posts_per_page'=>6,
+  's'=>$s,
+  'meta_key'=>'display_from',
+  'orderby'=>'meta_value_num',
+  'order'=>'desc',
+  'meta_query'=>array(
+    'relation'=>'OR',
+    array(
+        'key'=>'artist_name',
+        'value'=>$s,
+        'compare' => '=='
+    ),
+    array(
+        'key'=>'artist_name_zh',
+        'value'=>$s,
+        'compare' => '=='
+    )
+  )
+));
 
-if ( have_posts() ) :
-while ( have_posts() ) : the_post(); 
+if ( $myCompleteSearch->have_posts() ) :
+while ( $myCompleteSearch->have_posts() ) : $myCompleteSearch->the_post(); 
 
   if (has_post_thumbnail()) {
     $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
@@ -89,15 +98,27 @@ while ( have_posts() ) : the_post();
 
     <h3 class="artwork-name"><?php the_title(); ?></h3>
   </a>
+
+<<<<<<< Updated upstream
+<?php 
+
+endwhile;
+endif;  ?>
+</div>
+</div>
+ <?php    //echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
+=======
 <?php endwhile;
 endif; ?>
 </div>
 </div>
 <?php 
   // echo do_shortcode('[ajax_load_more post_type="projects" scroll="true" offset="6" posts_per_page="3" pause="true" pause_override="true" transition="fade" container_type="div" css_classes="isotope"]');
+>>>>>>> Stashed changes
 ?>
-<?php /* Display navigation to next/previous pages when applicable */
-if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
+
+<?php /* Display navigation to next/previous pages when applicable */ ?>
+<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
   <nav id="post-nav">
     <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
     <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>

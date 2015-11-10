@@ -343,10 +343,11 @@ foreach ($project_terms as $category_term) {
 			        <?php } ?>
 		        </a>
 		        </div>
-    			<?php $counter++; } ?>
+    				<?php $counter++; 
+    			} ?>
 	      </div>
 	    </div>
-	    <?php } ?>
+	  	<?php } ?>
 
 	    <?php if ( $additionalPicsArray != "" ) { ?>
 	    <div class="row project-images-column tier-3">
