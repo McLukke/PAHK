@@ -147,4 +147,14 @@ function make_unique($array, $ignore)
     return $array;
 }
 
+// function add_isotope() {
+//     wp_register_script( 'isotope', get_template_directory_uri().'/assets/javascript/custom/isotope.pkgd.js', array('jquery'),  true );
+//     wp_register_script( 'isotope-init', get_template_directory_uri().'/assets/javascript/custom/app.js', array('jquery', 'isotope'),  true );
+//     wp_register_style( 'isotope-css', get_stylesheet_directory_uri() . '/assets/scss/app.scss' );
+ 
+//     wp_enqueue_script('isotope-init');
+//     wp_enqueue_style('isotope-css');
+// }
+// add_action( 'wp_enqueue_scripts', 'add_isotope' );
+
 ?>
