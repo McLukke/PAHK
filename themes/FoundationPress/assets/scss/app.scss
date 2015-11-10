@@ -289,6 +289,7 @@ ol li {
 	position: relative;
 	padding-left: 55px;
 	margin-bottom: 20px;
+	font-size: 1.05rem;
 }
 
 ol.custom-counter li:before {
@@ -739,12 +740,13 @@ p.image-caption {
 	}
 }
 
-.explanatory-block {
+.explanatory-blocks {
 	h4 {
 		display: block;
 		margin: 0 auto;
 	}
 	overflow: auto;
+	clear: both;
 }
 
 #support {
@@ -762,6 +764,7 @@ p.image-caption {
 			color: $white;
 			padding: 7px;
 			font-size: 0.9rem;
+			margin-top: 0;
 		}
 		p {
 			padding: 30px 17px;
@@ -1058,7 +1061,7 @@ div.project-tags {
 
 @media #{$large-up} {
 	.explanatory-block-2 a.cta.inner-button-3 {
-		margin-top: 48px;
+		margin-top: 25px;
 	}
 
 	.grid-item {

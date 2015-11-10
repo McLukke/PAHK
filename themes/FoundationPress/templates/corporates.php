@@ -279,15 +279,15 @@ get_header(); ?>
       <h2><?php echo qtranxf_getLanguage() === "zh" ? "為何與PAHK合作?" : "Why PAHK?" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row explanatory-blocks">
-        <div class="column large-4 medium-6 text-center">
+        <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "能觸及的藝術" : "Art for all" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "藝術應為每一個人所能觸及, 多年來PAHK與不同類型的機構及企業合作, 將藝術帶到香港的公共以及私有空間。" : "We proactively partner with a range of organizations to bring art to private and public spaces in Hong Kong." ; ?></p>
         </div>
-        <div class="column large-4 medium-6 text-center">
+        <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "獨一無二的項目" : "Tailor-made" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "PAHK 顧問會為你打造獨一無二的方案，將藝術家的創意連同你的概念帶進你的空間。" : "Our consultants spark exclusive projects that weaves your vision, artist’s talent and the site’s uniqueness to infuse your space with art." ; ?></p>
         </div>
-        <div class="column large-4 medium-6 text-center">
+        <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "連接香港及國際的平台" : "Local & Global network" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "PAHK 的平台鏈接不同的社區, 讓你接觸更多香港及國際的藝術家!" : "We are here to connect you with local and international artist! Our comprehensive database is well-connected to different art industries." ; ?></p>
         </div>
