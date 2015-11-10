@@ -60,7 +60,7 @@ $titleSearch = new WP_Query(array(
 	'meta_key'=>'display_from',
   'orderby'=>'meta_value',
   'order'=>'asc',
-	'posts_per_page'=>6,
+	'posts_per_page'=>30,
 	's'=>$s
 ));
 
@@ -69,7 +69,7 @@ $artistSearch = new WP_Query(array(
 	'meta_key'=>'display_from',
   'orderby'=>'meta_value',
   'order'=>'asc',
-	'posts_per_page'=>6,
+	'posts_per_page'=>30,
   'meta_query'=>array(
     'relation'=>'OR',
     array(

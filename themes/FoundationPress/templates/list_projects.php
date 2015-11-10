@@ -32,7 +32,7 @@ if ( get_query_var('paged') ) {
 $args = array(
   'post_type' =>  'projects',
   'paged' =>  $paged,
-  'posts_per_page'  =>  6
+  'posts_per_page'  =>  30
 );
 
 $wp_query = new WP_Query( $args ); 
