@@ -283,7 +283,7 @@ foreach ($project_terms as $category_term) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
 	              		echo '<td class="metadata-key">';
-	              		echo qtranxf_getLanguage() === "zh" ? "委約機構" : "Co-presenters" ;
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('copresenters_title_zh') : $pods->display('copresenters_title') ;
 	              		echo '</td>';
 	              	}
 	              	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
@@ -309,7 +309,7 @@ foreach ($project_terms as $category_term) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
 	              		echo '<td class="metadata-key">';
-	              		echo qtranxf_getLanguage() === "zh" ? "鳴謝" : "Acknowledge" ;
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledge_title_zh') : $pods->display('acknowledge_title') ;
 	              		echo '</td>';
 	              	}
 	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
