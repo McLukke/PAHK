@@ -113,5 +113,48 @@ function display_chinese_year ($input_year) {
     return $year_zh;
 }
 
+// function add_join_wpse_99849($joins) {
+//   global $wpdb;
+//   return $joins . " INNER JOIN {$wpdb->postmeta} ON ({$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
+// }
+
+// function alter_search_wpse_99849($search,$qry) {
+//   global $wpdb;
+
+//   $add = $wpdb->prepare("({$wpdb->postmeta}.meta_key = 'artist_name' AND CAST({$wpdb->postmeta}.meta_value AS CHAR) LIKE '%%%s%%')",$qry->get('s'));
+//   $pat = '|\(\((.+)\)\)|';
+//   $search = preg_replace($pat,'(($1 OR '.$add.'))',$search);
+  
+//   $add = $wpdb->prepare("({$wpdb->postmeta}.meta_key = 'artist_name_zh' AND CAST({$wpdb->postmeta}.meta_value AS CHAR) LIKE '%%%s%%')",$qry->get('s'));
+//   $search = preg_replace($pat,'(($1 OR '.$add.'))',$search);
+//   return $search;
+// }
+
+function make_unique($array, $ignore)
+{
+    while($values = each($array))
+    {
+        if(!in_array($values[1], $ignore))
+        {
+            $dupes = array_keys($array, $values[1]);
+            unset($dupes[0]);
+            foreach($dupes as $rmv)
+            {
+                unset($array[$rmv]);
+            }            
+        }
+    }
+    return $array;
+}
+
+// function add_isotope() {
+//     wp_register_script( 'isotope', get_template_directory_uri().'/assets/javascript/custom/isotope.pkgd.js', array('jquery'),  true );
+//     wp_register_script( 'isotope-init', get_template_directory_uri().'/assets/javascript/custom/app.js', array('jquery', 'isotope'),  true );
+//     wp_register_style( 'isotope-css', get_stylesheet_directory_uri() . '/assets/scss/app.scss' );
+ 
+//     wp_enqueue_script('isotope-init');
+//     wp_enqueue_style('isotope-css');
+// }
+// add_action( 'wp_enqueue_scripts', 'add_isotope' );
 
 ?>

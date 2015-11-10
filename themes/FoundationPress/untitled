@@ -1,0 +1,57 @@
+COMPOSED
+
+"SELECT   
+	wp_posts.* 
+FROM wp_posts  
+INNER JOIN wp_postmeta ON (wp_posts.ID = wp_postmeta.post_id) 
+WHERE 1=1  
+AND (
+	(
+		(wp_posts.post_title LIKE '%test%') 
+		OR (wp_posts.post_content LIKE '%test%') 
+		OR (wp_postmeta.meta_key = 'artist_name' AND CAST(wp_postmeta.meta_value AS CHAR) LIKE '%test%') 
+		OR (wp_postmeta.meta_key = 'artist_name_zh' AND CAST(wp_postmeta.meta_value AS CHAR) LIKE '%test%')
+	)
+)  
+
+AND wp_posts.post_type = 'projects' 
+AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private')  
+ORDER BY wp_posts.post_title LIKE '%test%' DESC, wp_posts.post_date DESC "
+
+
+
+
+
+
+
+
+
+GENERATED
+
+SELECT   
+	wp_posts.* 
+FROM wp_posts  
+INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id ) 
+WHERE 1=1  
+AND (
+	(
+		(wp_posts.post_title LIKE '%test%') 
+		OR (wp_posts.post_content LIKE '%test%')
+	) 
+	AND (
+		(wp_posts.post_title LIKE '%2%') 
+		OR (wp_posts.post_content LIKE '%2%')
+	
+	)
+)  
+
+AND ( 
+  ( wp_postmeta.meta_key = 'artist_name' AND CAST(wp_postmeta.meta_value AS CHAR) LIKE ('test','2') ) 
+  OR ( wp_postmeta.meta_key = 'artist_name_zh' AND CAST(wp_postmeta.meta_value AS CHAR) LIKE ('test','2') )
+) 
+
+AND wp_posts.post_type = 'projects' 
+AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') 
+GROUP BY wp_posts.ID 
+ORDER BY (CASE WHEN wp_posts.post_title LIKE '%test 2%' THEN 1 WHEN wp_posts.post_title LIKE '%test%' 
+AND wp_posts.post_title LIKE '%2%' THEN 2 WHEN wp_posts.post_title LIKE '%test%' OR wp_posts.post_title LIKE '%2%' THEN 3 WHEN wp_posts.post_content LIKE '%test 2%' THEN 4 ELSE 5 END), wp_posts.post_date DESC "
