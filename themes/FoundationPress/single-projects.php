@@ -385,7 +385,6 @@ foreach ($project_terms as $category_term) {
 	      </div>
 	    </div>
 	    <?php } ?>
-	  	<span class="frame-line">_</span>
 			<br>	
 		  <?php foreach ($project_categories as $category) {
 		  	echo '<div class="project-tags">' . $category . "</div>";

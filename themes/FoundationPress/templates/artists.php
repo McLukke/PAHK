@@ -8,7 +8,7 @@ get_header(); ?>
 
   <div class="row page-title">
     <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "藝術家徵集" : "For Artists" ; ?></span></h1>
-    <span class="subheader"><?php echo qtranxf_getLanguage() === "zh" ? "PAHK提供機會讓本地及國際藝術家在更大的空間發揮創造力" : "TO THE ARTISTICALLY INCLINDED.<br />Why PAHK and the partnership process." ; ?></span>
+    <span class="subheader"><?php echo qtranxf_getLanguage() === "zh" ? "PAHK提供機會讓本地及國際藝術家在更大的空間發揮創造力" : "TO THE ARTISTICALLY INCLINED.<br />Why PAHK and the partnership process." ; ?></span>
   </div>
 
   <div class="row"><?php
