@@ -1,22 +1,21 @@
 // @import "config/settings";
 // @import "foundation";
 
-.fixed {
-	top: 30px;
-}
-
 @import url(https://fonts.googleapis.com/css?family=Signika:400,600,700,300);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Sintony:400,700);
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700,600italic,700italic,400italic);
 
+.fixed {
+	top: 30px;
+}
 
 // Chinese fonts
 
-@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
-@import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
-@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
 
 // --------- VARIABLES
 
@@ -44,6 +43,7 @@ $font-art: 'Signika', sans-serif;
 // $font-art: 'garablack', sans-serif;
 $font-header: 'Sintony', sans-serif;;
 $font-body: 'Crimson Text', sans-serif;
+
 
 // --------- GLOBAL
 
@@ -167,12 +167,78 @@ span.subheader {
 
 // body:lang(zh-Hant) {
 // https://www.google.com/fonts/earlyaccess#Noto+Sans+SC
+
 body:lang(zh) {
 	font-family: "cwTeXMing", "cwTeXHei", "cwTeXKai", "Microsoft Yahei", "微软雅黑", sans-serif;
 }
 
+p:lang(zh) {
+	font-family: sans-serif !important;
+	font-style: normal !important;
+	font-size: 1.05rem !important;
+	line-height: 30px !important;
+	letter-spacing: 0.5px !important;
+	margin-bottom: 0.5rem !important;
+}
+
+h1:lang(zh) {
+	font-size: 1.7rem !important;
+	letter-spacing: 1px !important;
+
+}
+
+h2:lang(zh) {
+	font-size: 1.5rem !important;
+	letter-spacing: 1px !important;
+
+}
+
+h3:lang(zh) {
+	font-size: 1.4rem !important;
+}
+
+h4:lang(zh) {
+	font-size: 1.2rem !important;
+	letter-spacing: 1px !important;
+}
+
+h5:lang(zh) {}
+
+h6:lang(zh) {
+	font-size: 0.9rem;
+}
+
+.top-bar-section ul li > a:lang(zh) {
+	font-size: 1rem;
+	letter-spacing: 1px !important;
+}
+
+.subheader:lang(zh) {
+	font-size: 1.3rem;
+	letter-spacing: 1px;
+}
+
+a.button.cta:lang(zh) {
+	font-size: 1.1rem;
+}
+
+p.primary-desc:lang(zh) {
+	color: $main-dark;
+	font-size: 1.1rem !important;
+}
+
+.inner-artwork-overview h6:lang(zh) {
+	padding-bottom: 10px;
+}
+
+// Custom
+
+
 h3.artist-name {
 	text-transform: uppercase;
+	&::after {
+		content: ":";
+	}
 }
 
 h3.artwork-name {
@@ -418,7 +484,6 @@ span.letter-list {
 .tp-mask-wrap {
 	background-color: rgba(0,0,0,0.6);
     border-top: 4px solid #fae596; 
-
 }
 
 .carousel_yellow {
@@ -1168,3 +1233,4 @@ div.project-tags {
 		min-height: 220px;
 	}
 } 
+
