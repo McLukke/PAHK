@@ -117,7 +117,7 @@ foreach ($project_terms as $category_term) {
 
 	    <div class="row project-action-bar">
 	      <div class="column large-6">
-	        <a href="#" class="button cta button-single"><?php echo qtranxf_getLanguage() === "zh" ? "諮詢" : "INQUIRE" ; ?></a>
+	        <a href="<?php echo get_home_url() . "/support"; ?>" class="button cta button-single"><?php echo qtranxf_getLanguage() === "zh" ? "諮詢" : "INQUIRE" ; ?></a>
 	      </div>
 	      <div class="column large-6">
 					<a href="mailto:?subject=I wanted you to see this project by PAHK&amp;body=Check it out at <?php echo the_permalink(); ?>." title="Share by Email">

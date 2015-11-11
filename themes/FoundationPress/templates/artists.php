@@ -105,8 +105,8 @@ get_header(); ?>
         </div>
 
         <div class="column corporate-cta">
-          <a href="#" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "立刻加入" : "Sign up now" ; ?></a>
-          <a href="#" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "了解更多" : "Learn more" ; ?></a>
+          <a href="<?php echo get_home_url() . "/support"; ?>" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "立刻加入" : "Sign up now" ; ?></a>
+          <a href="<?php echo get_home_url(); ?>/projects" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "了解更多" : "Learn more" ; ?></a>
         </div>
       </div>
     </div>
