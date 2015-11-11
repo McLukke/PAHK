@@ -262,7 +262,8 @@ foreach ($project_terms as $category_term) {
 	      <div class="column large-12 large-offset-0 medium-8 medium-offset-2">
 	        <table>
 	          <tbody>
-              <?php if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
+              <?php // Acknowledgements Section 1
+              if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
               					qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
@@ -291,7 +292,8 @@ foreach ($project_terms as $category_term) {
 	              } // foreach
 	            } // endif ?>
 
-              <?php if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
+              <?php // Acknowledgements Section 2
+              if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
               					qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
@@ -310,6 +312,60 @@ foreach ($project_terms as $category_term) {
 	              	if ($i == 0) {
 	              		echo '<td class="metadata-key">';
 	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledge_title_zh') : $pods->display('acknowledge_title') ;
+	              		echo '</td>';
+	              	}
+	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
+	              	$i++;
+	              } // foreach
+              } // endif ?>
+
+              <?php // Acknowledgements Section 3
+              if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledgements3') != "" || 
+              					qtranxf_getLanguage() === "zh" && $pods->field('acknowledgements3_zh') != "") {
+	              $i = 0;
+	              $temp_string = "";
+	              $temp_var = "";
+	              if (qtranxf_getLanguage() === "zh") {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements3_zh'));
+	              } else {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements3'));
+	              }
+	              // foreach ($temp_string as $value) {
+	              // 	$temp_var = $temp_var . $value;
+	              // }
+	              $acknowledgements3 = explode(";", $temp_string);
+	              foreach ($acknowledgements3 as $acknowledge) {
+	              	echo "<tr>";
+	              	if ($i == 0) {
+	              		echo '<td class="metadata-key">';
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledgements3_title_zh') : $pods->display('acknowledgements3_title') ;
+	              		echo '</td>';
+	              	}
+	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
+	              	$i++;
+	              } // foreach
+              } // endif ?>
+
+              <?php // Acknowledgements Section 4
+              if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledgements4') != "" || 
+              					qtranxf_getLanguage() === "zh" && $pods->field('acknowledgements4_zh') != "") {
+	              $i = 0;
+	              $temp_string = "";
+	              $temp_var = "";
+	              if (qtranxf_getLanguage() === "zh") {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements4_zh'));
+	              } else {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements4'));
+	              }
+	              // foreach ($temp_string as $value) {
+	              // 	$temp_var = $temp_var . $value;
+	              // }
+	              $acknowledgements4 = explode(";", $temp_string);
+	              foreach ($acknowledgements4 as $acknowledge) {
+	              	echo "<tr>";
+	              	if ($i == 0) {
+	              		echo '<td class="metadata-key">';
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledgements4_title_zh') : $pods->display('acknowledgements4_title') ;
 	              		echo '</td>';
 	              	}
 	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
@@ -349,7 +405,7 @@ foreach ($project_terms as $category_term) {
 	    </div>
 	  	<?php } ?>
 
-	    <?php if ( $additionalPicsArray != "" ) { ?>
+	    <?php if ( count($additionalPicsArray) > 0 ) { ?>
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row"><?php $counter = 0;
