@@ -69,7 +69,7 @@ while ( have_posts() ) : the_post();
       } else {
         echo date_i18n( 'M Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
       } ?> - <?php
-      if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+      if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
         echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
       } else {
         if (qtranxf_getLanguage() === "zh") {

@@ -44,7 +44,7 @@ get_header(); ?>
 
               // echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
               // echo " - "; 
-              // if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+              // if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
               //   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
               // } else {
               //   if (qtranxf_getLanguage() === "zh") {
@@ -61,10 +61,10 @@ get_header(); ?>
                 echo display_chinese_year( $temp );
                 echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
               } else {
-                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                echo date_i18n( 'F Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
               }
               echo " - ";
-              if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+              if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
                 echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
               } else {
                 if (qtranxf_getLanguage() === "zh") {
