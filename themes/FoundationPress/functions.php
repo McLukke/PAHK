@@ -116,22 +116,22 @@ function display_chinese_year ($input_year) {
 function chinese_filter_tags ($input_tag) {
     switch($input_tag) {
         case "free-standing":
-            return "free-standing-chinese";
+            return "立體";
             break;
         case "local":
-            return "local-chinese";
+            return "香港";
             break;
         case "international":
-            return "international-chinese";
+            return "國際";
             break;
         case "wall-mounted":
-            return "wall-mounted-chinese";
+            return "掛牆";
             break;
         case "indoors":
-            return "indoors-chinese";
+            return "室內";
             break;
         case "outdoors":
-            return "outdoors";
+            return "室外";
             break;
     }
 }
