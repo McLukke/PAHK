@@ -387,10 +387,22 @@ foreach ($project_terms as $category_term) {
 	    <?php } ?>
 	  	<span class="frame-line">_</span>
 			<br>	
-		  <?php foreach ($project_categories as $category) {
-		  	echo '<div class="project-tags">' . $category . "</div>";
+		  <?php foreach ($project_categories as $category_tag) {
+		  	if (qtranxf_getLanguage() == "zh") {
+		  		echo '<div class="project-tags">' . chinese_filter_tags($category_tag) . "</div>"; 
+		  	} else {
+			  	echo '<div class="project-tags">' . $category_tag . "</div>";
+			  }
 	  	} ?>
-	  </div><?php //column for entire left side of page ?>
+	  </div>
+
+
+
+
+<?php //RIGHT HALF OF PAGE BEGINS NOW ?>
+
+
+
 
 	  <?php if ( $tier2Array != "") { ?>
 	  <div class="column large-6 medium-12">

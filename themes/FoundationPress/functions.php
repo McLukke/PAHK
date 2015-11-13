@@ -113,6 +113,29 @@ function display_chinese_year ($input_year) {
     return $year_zh;
 }
 
+function chinese_filter_tags ($input_tag) {
+    switch($input_tag) {
+        case "free-standing":
+            return "free-standing-chinese";
+            break;
+        case "local":
+            return "local-chinese";
+            break;
+        case "international":
+            return "international-chinese";
+            break;
+        case "wall-mounted":
+            return "wall-mounted-chinese";
+            break;
+        case "indoors":
+            return "indoors-chinese";
+            break;
+        case "outdoors":
+            return "outdoors";
+            break;
+    }
+}
+
 // function add_join_wpse_99849($joins) {
 //   global $wpdb;
 //   return $joins . " INNER JOIN {$wpdb->postmeta} ON ({$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
