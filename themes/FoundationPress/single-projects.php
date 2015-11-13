@@ -60,19 +60,39 @@ foreach ($project_terms as $category_term) {
 	      	}
 	      ?></h5>
 			<h6><?php 
-	      echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-	    ?> - <?php 
-	    	if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
-	    		echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
-	    	} else {
-	    		if (qtranxf_getLanguage() === "zh") {
-		      	echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
-		      	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
-						echo display_chinese_year( $temp );
-		      } else {
-		      	echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
-		      }
-	    	}
+				// old display format Month - Month Year
+
+	    	// echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+	    	// echo " - "; 
+	    	// if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+	    	// 	echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+	    	// } else {
+	    	// 	if (qtranxf_getLanguage() === "zh") {
+		    //   	echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+		    //   	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+						// echo display_chinese_year( $temp );
+		    //   } else {
+		    //   	echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+		    //   }
+	    	// }
+
+				if (qtranxf_getLanguage() === "zh") {
+	        $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+	        echo display_chinese_year( $temp );
+	        echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+	      } else {
+	        echo date_i18n( 'F Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+	      }
+	      echo " - ";
+	      if (pods_field_display ('projects', get_the_ID(), 'ongoing') === "Yes") {
+	        echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+	      } else {
+	        if (qtranxf_getLanguage() === "zh") {
+	          echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+	        } else {
+	          echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+	        }
+	      }
 	    ?></h6>
 			<h3 class="artist-name"><?php
 			if ( qtranxf_getLanguage() === "zh" && $pods->field('artist_name_zh') != '' ) {
@@ -126,25 +146,47 @@ foreach ($project_terms as $category_term) {
 	            <tr>
 	              <td class="metadata-key"><?php echo qtranxf_getLanguage() === "zh" ? "展期" : "On Display" ; ?></td>
 	              <td class="metadata-value"><?php 
-		              if (qtranxf_getLanguage() === "zh") {
-						      	echo date_i18n( 'F j ', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
-						      	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_from')) );
+	              	// old display format Month Day Year - Month Day Year
+
+									// if (qtranxf_getLanguage() === "zh") {
+									// 	echo date_i18n( 'F j ', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+									// 	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_from')) );
+									// 	echo display_chinese_year( $temp );
+									// } else {
+									// 	echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+									// }
+									// echo " - "; 
+									// if (pods_field_display ('projects', get_the_ID(), 'ongoing')=="Yes") {
+									// 	echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+									// } else {
+									// 	if (qtranxf_getLanguage() === "zh") {
+									//   	echo date_i18n( 'F j ', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+									//   	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+									// 		echo display_chinese_year( $temp );
+									//   } else {
+									//   	echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+									//   }
+									// }
+
+	              	if (qtranxf_getLanguage() === "zh") {
+										$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_from')) );
 										echo display_chinese_year( $temp );
-						      } else {
-						      	echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
-						      }
-						    ?> - <?php 
-						    	if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
-						    		echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
-						    	} else {
-						    		if (qtranxf_getLanguage() === "zh") {
-							      	echo date_i18n( 'F j ', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
-							      	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+										echo "." . date_i18n( 'F j ', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+									} else {
+										echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_from')) );
+									}
+									echo " - "; 
+									if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+										echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+									} else {
+										if (qtranxf_getLanguage() === "zh") {
+									  	$temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
 											echo display_chinese_year( $temp );
-							      } else {
-							      	echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
-							      }
-						    	}
+											echo "." . date_i18n( 'F j ', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+									  } else {
+									  	echo date_i18n( 'F j Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+									  }
+									}
 						    ?></td>
 	            </tr>
 
@@ -187,10 +229,10 @@ foreach ($project_terms as $category_term) {
 	        <span class="frame-line">_</span>
 	        <p class="project-description-text"><?php
 		      	if ( qtranxf_getLanguage() === "zh" ) {
-			        echo $pods->field('about_project_zh');
-			    } else {
-			        echo $pods->field('about_project');
-			    }
+			        echo $pods->display('about_project_zh');
+				    } else {
+			        echo $pods->display('about_project');
+				    }
 	        ?></p>
 	      </div>          
 	      <div class="column">
@@ -198,9 +240,9 @@ foreach ($project_terms as $category_term) {
 	        <span class="frame-line">_</span>
 	        <p class="project-description-text"><?php
 		      	if ( qtranxf_getLanguage() === "zh" ) {
-		        	echo $pods->field('about_artist_zh');
+		        	echo $pods->display('about_artist_zh');
 		        } else {
-		        	echo $pods->field('about_artist');
+		        	echo $pods->display('about_artist');
 		        }
 					?></p>
 	      </div>
@@ -208,7 +250,7 @@ foreach ($project_terms as $category_term) {
 
 	    <?php if ( $pods->field('embed_video_link') != '' || $pods->field('embed_video_link') != 'undefined' ) { ?>
 		    <div class="project_video">
-		    	<?php echo $pods->field('embed_video_link'); ?>
+		    	<?php echo $pods->display('embed_video_link'); ?>
 		    </div>
 		  <?php } ?>
 
@@ -216,11 +258,19 @@ foreach ($project_terms as $category_term) {
               	qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "" || 
               	qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
               	qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") { ?>
-	    <div class="row project-metadata project-metadata-footer">
+
+
+
+	    <div class="row project-metadata project-metadata-footer project-description">
+	      <div class="column">
+	        <h4><?php echo qtranxf_getLanguage() === "zh" ? "認知" : "Acknowledgements" ; ?></h4>
+	        <span class="frame-line">_</span>
+	      </div>          
 	      <div class="column large-12 large-offset-0 medium-8 medium-offset-2">
 	        <table>
 	          <tbody>
-              <?php if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
+              <?php // Acknowledgements Section 1
+              if (qtranxf_getLanguage() != "zh" && $pods->field('copresenters') != "" || 
               					qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
@@ -241,15 +291,16 @@ foreach ($project_terms as $category_term) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
 	              		echo '<td class="metadata-key">';
-	              		echo qtranxf_getLanguage() === "zh" ? "委約機構" : "Co-presenters" ;
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('copresenters_title_zh') : $pods->display('copresenters_title') ;
 	              		echo '</td>';
 	              	}
 	              	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
 	              	$i++;
 	              } // foreach
-	            } // endif ?>
+	            } // endif Section 1 ?>
 
-              <?php if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
+              <?php // Acknowledgements Section 2
+              if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
               					qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") {
 	              $i = 0;
 	              $temp_string = "";
@@ -267,13 +318,67 @@ foreach ($project_terms as $category_term) {
 	              	echo "<tr>";
 	              	if ($i == 0) {
 	              		echo '<td class="metadata-key">';
-	              		echo qtranxf_getLanguage() === "zh" ? "鳴謝" : "Acknowledge" ;
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledge_title_zh') : $pods->display('acknowledge_title') ;
 	              		echo '</td>';
 	              	}
 	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
 	              	$i++;
 	              } // foreach
-              } // endif ?>
+              } // endif Section 2 ?>
+
+              <?php // Acknowledgements Section 3
+              if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledgements3') != "" || 
+              					qtranxf_getLanguage() === "zh" && $pods->field('acknowledgements3_zh') != "") {
+	              $i = 0;
+	              $temp_string = "";
+	              $temp_var = "";
+	              if (qtranxf_getLanguage() === "zh") {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements3_zh'));
+	              } else {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements3'));
+	              }
+	              // foreach ($temp_string as $value) {
+	              // 	$temp_var = $temp_var . $value;
+	              // }
+	              $acknowledgements3 = explode(";", $temp_string);
+	              foreach ($acknowledgements3 as $acknowledge) {
+	              	echo "<tr>";
+	              	if ($i == 0) {
+	              		echo '<td class="metadata-key">';
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledgements3_title_zh') : $pods->display('acknowledgements3_title') ;
+	              		echo '</td>';
+	              	}
+	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
+	              	$i++;
+	              } // foreach
+              } // endif Section 3 ?>
+
+              <?php // Acknowledgements Section 4
+              if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledgements4') != "" || 
+              					qtranxf_getLanguage() === "zh" && $pods->field('acknowledgements4_zh') != "") {
+	              $i = 0;
+	              $temp_string = "";
+	              $temp_var = "";
+	              if (qtranxf_getLanguage() === "zh") {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements4_zh'));
+	              } else {
+	              	$temp_string = preg_replace( "/\r|\n/", "", $pods->field('acknowledgements4'));
+	              }
+	              // foreach ($temp_string as $value) {
+	              // 	$temp_var = $temp_var . $value;
+	              // }
+	              $acknowledgements4 = explode(";", $temp_string);
+	              foreach ($acknowledgements4 as $acknowledge) {
+	              	echo "<tr>";
+	              	if ($i == 0) {
+	              		echo '<td class="metadata-key">';
+	              		echo qtranxf_getLanguage() === "zh" ? $pods->display('acknowledgements4_title_zh') : $pods->display('acknowledgements4_title') ;
+	              		echo '</td>';
+	              	}
+	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
+	              	$i++;
+	              } // foreach
+              } // endif Section 4 ?>
 
 	          </tbody>
 	        </table>
@@ -282,10 +387,22 @@ foreach ($project_terms as $category_term) {
 	    <?php } ?>
 	  	<span class="frame-line">_</span>
 			<br>	
-		  <?php foreach ($project_categories as $category) {
-		  	echo '<div class="project-tags">' . $category . "</div>";
+		  <?php foreach ($project_categories as $category_tag) {
+		  	if (qtranxf_getLanguage() == "zh") {
+		  		echo '<div class="project-tags">' . chinese_filter_tags($category_tag) . "</div>"; 
+		  	} else {
+			  	echo '<div class="project-tags">' . $category_tag . "</div>";
+			  }
 	  	} ?>
-	  </div><?php //column for entire left side of page ?>
+	  </div>
+
+
+
+
+<?php //RIGHT HALF OF PAGE BEGINS NOW ?>
+
+
+
 
 	  <?php if ( $tier2Array != "") { ?>
 	  <div class="column large-6 medium-12">
@@ -301,12 +418,13 @@ foreach ($project_terms as $category_term) {
 			        <?php } ?>
 		        </a>
 		        </div>
-    			<?php $counter++; } ?>
+    				<?php $counter++; 
+    			} ?>
 	      </div>
 	    </div>
-	    <?php } ?>
+	  	<?php } ?>
 
-	    <?php if ( $additionalPicsArray != "" ) { ?>
+	    <?php if ( count($additionalPics) > 0 ) { ?>
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row"><?php $counter = 0;
@@ -314,7 +432,8 @@ foreach ($project_terms as $category_term) {
         			<div class="column tier-3-image-column small-6">
 		            <div class="tier-3-image" style="background-image:url(<?php echo $picture; ?>)"></div>
 		          </div>
-        		<?php $counter++; } ?>
+        			<?php $counter++; 
+        		} ?>
 	        </div>
 	      </div>
 	    </div>

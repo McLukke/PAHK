@@ -35,17 +35,37 @@ get_header(); ?>
         $top_banner_image = $artist_pod->display('top_banner') ? $artist_pod->display('top_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
         <div class="inner-page-banner" style="background-image:url(<?php echo $top_banner_image; ?>)">
           <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-4 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-            <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+            <p class="artwork-quote"><?php echo qtranxf_getLanguage() === "zh"? pods_field_display('projects', get_the_ID(), 'quote_zh') : pods_field_display('projects', get_the_ID(), 'quote') ; ?></p>
             <h6><?php 
-              echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-            ?> - <?php 
-              if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+              // old display format Month - Month Year
+
+              // echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              // echo " - "; 
+              // if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+              //   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+              // } else {
+              //   if (qtranxf_getLanguage() === "zh") {
+              //     echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+              //     $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+              //     echo display_chinese_year( $temp );
+              //   } else {
+              //     echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+              //   }
+              // }
+
+              if (qtranxf_getLanguage() === "zh") {
+                $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                echo display_chinese_year( $temp );
+                echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              } else {
+                echo date_i18n( 'F Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+              }
+              echo " - ";
+              if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
                 echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
               } else {
                 if (qtranxf_getLanguage() === "zh") {
-                  echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
-                  $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
-                  echo display_chinese_year( $temp );
+                  echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                 } else {
                   echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                 }
@@ -107,17 +127,37 @@ get_header(); ?>
           $join_network_banner = $artist_pod->display('join_network_banner') ? $artist_pod->display('join_network_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
           <div class="featured-project-vertical" style="background-image: url(<?php echo $join_network_banner; ?>);">
             <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-              <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+              <p class="artwork-quote"><?php echo qtranxf_getLanguage() === "zh"? pods_field_display('projects', get_the_ID(), 'quote_zh') : pods_field_display('projects', get_the_ID(), 'quote') ; ?></p>
               <h6><?php 
-                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-              ?> - <?php 
-                if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+                // old display format Month - Month Year
+
+                // echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                // echo " - ";
+                // if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+                //   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+                // } else {
+                //   if (qtranxf_getLanguage() === "zh") {
+                //     echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+                //     $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                //     echo display_chinese_year( $temp );
+                //   } else {
+                //     echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+                //   }
+                // }
+
+                if (qtranxf_getLanguage() === "zh") {
+                  $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                  echo display_chinese_year( $temp );
+                  echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                } else {
+                  echo date_i18n( 'F Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                }
+                echo " - ";
+                if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
                   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
                 } else {
                   if (qtranxf_getLanguage() === "zh") {
-                    echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
-                    $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
-                    echo display_chinese_year( $temp );
+                    echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                   } else {
                     echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                   }
@@ -184,17 +224,37 @@ get_header(); ?>
           $call_artists_banner = $artist_pod->display('call_artists_banner') ? $artist_pod->display('call_artists_banner') : pods_field_display('projects', get_the_ID(), 'banner_image'); ?>
           <div class="featured-project-vertical" style="background-image:url(<?php echo $call_artists_banner; ?>)">
             <a href="<?php echo the_permalink(); ?>" class="inner-artwork-overview large-7 large-offset-1 medium-6 medium-offset-1 show-for-medium-up">
-              <p class="artwork-quote"><?php echo pods_field_display('projects', get_the_ID(), 'quote') ?></p>
+              <p class="artwork-quote"><?php echo qtranxf_getLanguage() === "zh"? pods_field_display('projects', get_the_ID(), 'quote_zh') : pods_field_display('projects', get_the_ID(), 'quote') ; ?></p>
               <h6><?php 
-                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
-              ?> - <?php 
-                if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
+                // old display format Month - Month Year
+
+                // echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                // echo " - "; 
+                // if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+                //   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
+                // } else {
+                //   if (qtranxf_getLanguage() === "zh") {
+                //     echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
+                //     $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                //     echo display_chinese_year( $temp );
+                //   } else {
+                //     echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+                //   }
+                // }
+
+                if (qtranxf_getLanguage() === "zh") {
+                  $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
+                  echo display_chinese_year( $temp );
+                  echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                } else {
+                  echo date_i18n( 'F Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                }
+                echo " - ";
+                if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
                   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
                 } else {
                   if (qtranxf_getLanguage() === "zh") {
-                    echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) ) . ".";
-                    $temp = date_i18n( 'Y', strtotime(pods_field_display ('proxjects', get_the_ID(), 'display_until')) );
-                    echo display_chinese_year( $temp );
+                    echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                   } else {
                     echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
                   }
@@ -219,18 +279,18 @@ get_header(); ?>
 
   <div class="card row">
     <div class="text-section how-it-works column large-10 large-offset-1">
-      <h2>Why PAHK?</h2>
+      <h2><?php echo qtranxf_getLanguage() === "zh" ? "為何與PAHK合作?" : "Why PAHK?" ; ?></h2>
       <span class="frame-line">_</span>
       <div class="row explanatory-blocks">
-        <div class="column large-4 medium-6 text-center">
+        <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "全力支持" : "With full support" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "從創作概念開始, 預算, 批文到項目宣傳, 我們會諮詢各方專家、贊助夥伴與你一同見證藝術品的誕生。" : "From design concept, budgeting, legal issues and marketing. We engage with sponsors, partners and vendors to carve out a new artwork with you!" ; ?></p>
         </div>
-        <div class="column large-4 medium-6 text-center">
+        <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "燃點創意" : "Live your passion" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "燃點你的創意及才能，讓我們將為你的創意增加收入。" : "Fan your passion into flames, we provide a platform where you can earn an income with your talent." ; ?></p>
         </div>
-        <div class="column large-4 medium-6 text-center">
+        <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "增加曝光率" : "Visibility" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "從2005年開始, 我們已與多達100位藝術家合作，與我們攜手將藝術帶到香港不同的角落!" : "We have presented more than a 100 artists since 2005, join our mission to bring art into the city space!" ; ?></p>
         </div>
@@ -240,4 +300,7 @@ get_header(); ?>
 
 </div>
 
-<?php get_footer(); ?>
+<?php // Restore original Post Data
+wp_reset_postdata();
+wp_reset_query();
+get_footer(); ?>

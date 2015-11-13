@@ -27,7 +27,7 @@
                 <li><a href="<?php echo get_home_url()."/support"; ?>"><?php echo qtranxf_getLanguage() === "zh" ? "支持我們" : "Join & Support"; ?></a></li>
                 <?php $my_current_url = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
                 if ( qtranxf_getLanguage() === "zh" ) { ?>
-                    <li><a href="<?php echo str_replace("/zh", "/en", $my_current_url ); ?>" hreflang="en" title="English">English</a></li>
+                    <li><a href="<?php echo str_replace("/zh", "/en", $my_current_url ); ?>" hreflang="en" title="English">EN</a></li>
                 <?php } else { ?>
                     <?php if ( strpos($my_current_url,'/en/') !== false ) { ?>
                         <li><a href="<?php echo str_replace("/en", "/zh", $my_current_url ); ?>" hreflang="zh" title="Chinese">中文</a></li>
