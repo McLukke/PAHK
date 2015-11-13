@@ -258,7 +258,14 @@ foreach ($project_terms as $category_term) {
               	qtranxf_getLanguage() === "zh" && $pods->field('copresenters_zh') != "" || 
               	qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
               	qtranxf_getLanguage() === "zh" && $pods->field('acknowledge_zh') != "") { ?>
-	    <div class="row project-metadata project-metadata-footer">
+
+
+
+	    <div class="row project-metadata project-metadata-footer project-description">
+	      <div class="column">
+	        <h4><?php echo qtranxf_getLanguage() === "zh" ? "認知" : "Acknowledgements" ; ?></h4>
+	        <span class="frame-line">_</span>
+	      </div>          
 	      <div class="column large-12 large-offset-0 medium-8 medium-offset-2">
 	        <table>
 	          <tbody>

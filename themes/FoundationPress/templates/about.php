@@ -44,7 +44,7 @@ get_header(); ?>
 
               // echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
               // echo " - "; 
-              // if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+              // if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
               //   echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
               // } else {
               //   if (qtranxf_getLanguage() === "zh") {
@@ -61,10 +61,10 @@ get_header(); ?>
                 echo display_chinese_year( $temp );
                 echo "." . date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
               } else {
-                echo date_i18n( 'F Y', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
+                echo date_i18n( 'F', strtotime( pods_field_display ('projects', get_the_ID(), 'display_from')) );
               }
               echo " - ";
-              if (pods_field_display ('projects', get_the_ID(), 'ongoing')==="Yes") {
+              if (pods_field_display ('projects', get_the_ID(), 'ongoing')) {
                 echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
               } else {
                 if (qtranxf_getLanguage() === "zh") {
@@ -166,6 +166,8 @@ get_header(); ?>
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "藝術品委託" : "Artwork Commission" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "與PAHK一同經歷將一個藝術概念實現的過程。我們的顧問與你一同委託藝術家創作配合你的空間及概念的藝術品。諮詢各方技術專家，以保障作品裝置的安全、穩固和維修事宜。" : "We enable you to experience the excitement of bringing an art concept to life. Our consultants work with you to commission artists to create an artwork that interact visually with the environment of your space as well as your vision." ; ?></p>
         </div>
+      </div>
+      <div class="row explanatory-blocks">
         <div class="column medium-7 large-4 medium-centered large-uncentered text-center">
           <h4><?php echo qtranxf_getLanguage() === "zh" ? "導賞團" : "Docent Tours" ; ?></h4>
           <p><?php echo qtranxf_getLanguage() === "zh" ? "為了讓公眾可從多角度瞭解公共藝術，香港藝術中心的導賞員帶領參加者探索公共藝術製作過程以及香港藝術中心一些不為人知的故事。" : "Art education is important to us. Together with our partner we offer specially designed free docent tours for you to enjoy the artistic journey and behind-the-scene stories at the Hong Kong Arts Centre." ; ?></p>
@@ -193,5 +195,5 @@ get_header(); ?>
 
 <?php // Restore original Post Data
 wp_reset_postdata();
-wp_reset_query();
+
 get_footer(); ?>
