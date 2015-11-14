@@ -113,6 +113,29 @@ function display_chinese_year ($input_year) {
     return $year_zh;
 }
 
+function chinese_filter_tags ($input_tag) {
+    switch($input_tag) {
+        case "free-standing":
+            return "立體";
+            break;
+        case "local":
+            return "香港";
+            break;
+        case "international":
+            return "國際";
+            break;
+        case "wall-mounted":
+            return "掛牆";
+            break;
+        case "indoors":
+            return "室內";
+            break;
+        case "outdoors":
+            return "室外";
+            break;
+    }
+}
+
 // function add_join_wpse_99849($joins) {
 //   global $wpdb;
 //   return $joins . " INNER JOIN {$wpdb->postmeta} ON ({$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";

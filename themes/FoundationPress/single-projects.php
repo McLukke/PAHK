@@ -229,10 +229,10 @@ foreach ($project_terms as $category_term) {
 	        <span class="frame-line">_</span>
 	        <p class="project-description-text"><?php
 		      	if ( qtranxf_getLanguage() === "zh" ) {
-			        echo $pods->field('about_project_zh');
-			    } else {
-			        echo $pods->field('about_project');
-			    }
+			        echo $pods->display('about_project_zh');
+				    } else {
+			        echo $pods->display('about_project');
+				    }
 	        ?></p>
 	      </div>          
 	      <div class="column">
@@ -240,9 +240,9 @@ foreach ($project_terms as $category_term) {
 	        <span class="frame-line">_</span>
 	        <p class="project-description-text"><?php
 		      	if ( qtranxf_getLanguage() === "zh" ) {
-		        	echo $pods->field('about_artist_zh');
+		        	echo $pods->display('about_artist_zh');
 		        } else {
-		        	echo $pods->field('about_artist');
+		        	echo $pods->display('about_artist');
 		        }
 					?></p>
 	      </div>
@@ -250,7 +250,7 @@ foreach ($project_terms as $category_term) {
 
 	    <?php if ( $pods->field('embed_video_link') != '' || $pods->field('embed_video_link') != 'undefined' ) { ?>
 		    <div class="project_video">
-		    	<?php echo $pods->field('embed_video_link'); ?>
+		    	<?php echo $pods->display('embed_video_link'); ?>
 		    </div>
 		  <?php } ?>
 
@@ -297,7 +297,7 @@ foreach ($project_terms as $category_term) {
 	              	echo '<td class="metadata-value">'.$copresenter."</td></tr>";
 	              	$i++;
 	              } // foreach
-	            } // endif ?>
+	            } // endif Section 1 ?>
 
               <?php // Acknowledgements Section 2
               if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledge') != "" || 
@@ -324,7 +324,7 @@ foreach ($project_terms as $category_term) {
 	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
 	              	$i++;
 	              } // foreach
-              } // endif ?>
+              } // endif Section 2 ?>
 
               <?php // Acknowledgements Section 3
               if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledgements3') != "" || 
@@ -351,7 +351,7 @@ foreach ($project_terms as $category_term) {
 	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
 	              	$i++;
 	              } // foreach
-              } // endif ?>
+              } // endif Section 3 ?>
 
               <?php // Acknowledgements Section 4
               if (qtranxf_getLanguage() != "zh" && $pods->field('acknowledgements4') != "" || 
@@ -378,7 +378,7 @@ foreach ($project_terms as $category_term) {
 	              	echo '<td class="metadata-value">'.$acknowledge."</td></tr>";
 	              	$i++;
 	              } // foreach
-              } // endif ?>
+              } // endif Section 4 ?>
 
 	          </tbody>
 	        </table>
@@ -386,10 +386,22 @@ foreach ($project_terms as $category_term) {
 	    </div>
 	    <?php } ?>
 			<br>	
-		  <?php foreach ($project_categories as $category) {
-		  	echo '<div class="project-tags">' . $category . "</div>";
+		  <?php foreach ($project_categories as $category_tag) {
+		  	if (qtranxf_getLanguage() == "zh") {
+		  		echo '<div class="project-tags">' . chinese_filter_tags($category_tag) . "</div>"; 
+		  	} else {
+			  	echo '<div class="project-tags">' . $category_tag . "</div>";
+			  }
 	  	} ?>
-	  </div><?php //column for entire left side of page ?>
+	  </div>
+
+
+
+
+<?php //RIGHT HALF OF PAGE BEGINS NOW ?>
+
+
+
 
 	  <?php if ( $tier2Array != "") { ?>
 	  <div class="column large-6 medium-12">
@@ -411,7 +423,7 @@ foreach ($project_terms as $category_term) {
 	    </div>
 	  	<?php } ?>
 
-	    <?php if ( count($additionalPicsArray) > 0 ) { ?>
+	    <?php if ( count($additionalPics) > 0 ) { ?>
 	    <div class="row project-images-column tier-3">
 	      <div class="column large-12 large-offset-0 medium-10 medium-offset-1">
 	        <div class="row"><?php $counter = 0;
@@ -419,7 +431,8 @@ foreach ($project_terms as $category_term) {
         			<div class="column tier-3-image-column small-6">
 		            <div class="tier-3-image" style="background-image:url(<?php echo $picture; ?>)"></div>
 		          </div>
-        		<?php $counter++; } ?>
+        			<?php $counter++; 
+        		} ?>
 	        </div>
 	      </div>
 	    </div>

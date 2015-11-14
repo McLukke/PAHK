@@ -2,8 +2,7 @@
 /*
 Template Name: Search Page
 */
-get_header(); ?>
-
-<?php get_search_form(); ?>
+get_header(); 
+get_search_form(); ?>
 
 <?php get_footer(); ?>
