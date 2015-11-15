@@ -1,8 +1,10 @@
-<?php
-/*
-Template Name: Search Page
-*/
-get_header(); 
-get_search_form(); ?>
+<div id="search-page">
+	<?php
+	/*
+	Template Name: Search Page
+	*/
+	get_header(); 
+	get_search_form(); ?>
 
-<?php get_footer(); ?>
+	<?php get_footer(); ?>
+</div>

@@ -53,13 +53,22 @@ html {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*::selection {
+	background: $main-yellow;
+	color: $main-dark;
+}
+
+*::-moz-selection {
+	background: $main-yellow;
+	color: $main-dark;
 }
 
 body {
@@ -483,7 +492,7 @@ span.letter-list {
 	background-color: $main-yellow;
 }
 
-// Carousel
+// CAROUSEL
 
 .tp-mask-wrap {
 	background-color: rgba(0,0,0,0.6);
@@ -538,7 +547,8 @@ a.carousel_action {
 }
 
 
-// 
+
+// SECTION UI
 
 span.frame-line {
 	display: inline-block;
@@ -581,7 +591,8 @@ span.frame-line {
 	margin-bottom: 15px;
 }
 
-// Buttons
+
+// BUTTONS
 
 a.button.cta {
 	background-color: $main-yellow;
@@ -681,56 +692,38 @@ div.project-thumbnail-container {
 	}
 }
 
-footer, 
-footer:lang(zh) {
-	background-color: $main-yellow;
-	padding: 20px 0;
-	margin-top: 50px;
-	img {
-		max-height: 90px;
-		max-width: 285px;
-		width: auto;
-		vertical-align: middle;
-	}
-	h6 {
-		text-transform: uppercase;
-		color: $main-turq;
-		font-size: 0.7rem;
-		margin: 30px 0 15px;
-		line-height: 1.2rem;
-	}
-	p {
-		font-family: $font-header;
-		font-size: 0.7rem;
-		color: $grey-dark;
-		margin-bottom: 0;
-	}
-	.attribution {
-		margin-bottom: 20px;
-	}
-}
-
-footer:lang(zh) {
-	h6 {
-		font-size: 0.9rem;
-	}
-	.attribution h6 {
-		font-size: 0.7rem;
-	}
-	p {
-		font-size: 0.8rem !important;
-    	line-height: 1.5rem !important;
-
-	}
-}
-
-
-.relative-position {
-	position: relative;
-}
-
 
 // --------- PAGES
+
+#search-page {
+	#search-form {
+		min-height: 50vh;
+		.card {
+			margin-top: 0;
+		}
+	}
+	footer {
+		min-height: 45vh;
+	}
+	input {
+		margin: 20px 0;
+		background-color: $main-yellow;
+		border: none;
+    	box-shadow: inset 0 -2px 2px rgba(0,0,0,0.1);
+    	font-family: $font-header;
+    	font-size: 0.8rem;
+    	padding: 0 30px 0 45px;
+    	color: $main-dark;
+	}
+	input[type="text"]:focus {
+		background-color: $main-turq-lighten;
+	}
+	.icon-search {
+		position: absolute;
+	    left: 17px;
+	    top: 12px;
+	}
+}
 
 .full-width .inner-page-banner {
 	border: none;
@@ -829,9 +822,6 @@ footer:lang(zh) {
 	}
 }
 
-p.image-caption {
-
-}
 
 #project-detail .project-images-column.tier-3 {
 	margin-top: 10px;
@@ -1059,6 +1049,54 @@ p.image-caption {
 }
 
 
+footer, 
+footer:lang(zh) {
+	background-color: $main-yellow;
+	padding: 20px 0;
+	margin-top: 50px;
+	img {
+		max-height: 90px;
+		max-width: 285px;
+		width: auto;
+		vertical-align: middle;
+	}
+	h6 {
+		text-transform: uppercase;
+		color: $main-turq;
+		font-size: 0.65rem;
+		margin: 30px 0 15px;
+		line-height: 1.2rem;
+	}
+	p {
+		font-family: $font-header;
+		font-size: 0.65rem;
+		color: $grey-dark;
+		margin-bottom: 0;
+	}
+	.attribution {
+		margin-bottom: 20px;
+	}
+}
+
+footer:lang(zh) {
+	h6 {
+		font-size: 0.9rem;
+	}
+	.attribution h6 {
+		font-size: 0.65rem;
+	}
+	p {
+		font-size: 0.8rem !important;
+    	line-height: 1.5rem !important;
+
+	}
+}
+
+.relative-position {
+	position: relative;
+}
+
+
 // --------- ISOTOPE FILTER 
 
 
@@ -1220,7 +1258,11 @@ div.project-tags {
 	.grid-item {
 	  width: calc(100% - 20px);
 	}
-
+	#search-page {
+		h1.strike span {
+			padding: 0px 20px;
+		}
+	}
 }
 
 
@@ -1302,7 +1344,7 @@ div.project-tags {
 } 
 
 @media only screen and (min-width: 1025px) and (max-width: 1139px) { 
-	#support .explanatory-text{
+	#support .explanatory-text {
 		min-height: 220px;
 	}
 } 
