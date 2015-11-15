@@ -24,7 +24,7 @@
 
 					<div class="small-11 small-centered medium-6 columns">
 						<div>
-						<img class="icon-search" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></div>
+						<img class="icon-search search-bar" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.png"></div>
 						<?php if (qtranxf_getLanguage() === "zh") { ?>
 							<input type="text" value="" name="s" id="s" placeholder="<?php esc_attr_e( '在此输入搜索词', 'foundationpress' ); ?>">
 						<?php } else { ?>

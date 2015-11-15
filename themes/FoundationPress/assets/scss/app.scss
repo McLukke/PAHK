@@ -151,7 +151,7 @@ h6 {
 
 p {
 	font-size: 1rem;
-	line-height: 1.2rem;
+	line-height: 1.5rem;
 }
 
 p.text-block, li {
@@ -253,6 +253,10 @@ h3.artist-name {
 	}
 }
 
+h3.artist-name:lang(zh) {
+	line-height: 2rem;
+}
+
 h3.artwork-name {
 	font-size: 1.1rem;
 }
@@ -302,6 +306,11 @@ h4.blue-header {
 
 h5.district-name {
 	padding-top: 5px
+}
+
+h5.district-name:lang(zh) {
+	font-size: 1rem;
+	letter-spacing: 1px;
 }
 
 .text-section p.primary-desc {
@@ -667,6 +676,11 @@ div.project-thumbnail-container {
 	padding: 8px 15px;
 }
 
+.ui-text:lang(zh),
+.ui-text-overlay:lang(zh) {
+	font-size: 1rem;
+}
+
 .social-icons {
 	background-color: $main-yellow;
 	width: 36px;
@@ -718,7 +732,7 @@ div.project-thumbnail-container {
 	input[type="text"]:focus {
 		background-color: $main-turq-lighten;
 	}
-	.icon-search {
+	.icon-search.search-bar {
 		position: absolute;
 	    left: 17px;
 	    top: 12px;
@@ -798,6 +812,11 @@ div.project-thumbnail-container {
 	&.project-metadata-footer {
 		margin-top: 0px;
 	}
+}
+
+#project-detail .project-metadata table td:lang(zh) {
+	font-size: 1rem;
+	padding: 10px 10px 10px 0 !important;
 }
 
 #project-detail .project-images-column {
@@ -1072,6 +1091,7 @@ footer:lang(zh) {
 		font-size: 0.65rem;
 		color: $grey-dark;
 		margin-bottom: 0;
+		line-height: 1.2rem;
 	}
 	.attribution {
 		margin-bottom: 20px;
@@ -1127,6 +1147,10 @@ footer:lang(zh) {
   }
 }
 
+.filter-button:lang(zh) {
+	font-size: 1rem;
+}
+
 .filter-button:hover {
   color: $main-turq;
   background-color: $main-yellow;
@@ -1157,6 +1181,12 @@ footer:lang(zh) {
   font-weight: bold;
   border: 1px solid $main-turq-lighten;
   border-radius: 11px;
+}
+
+.project-tags:lang(zh) {
+	font-size: 1rem;
+	padding: 6px 16px;
+	border-radius: 13px;
 }
 
 div.project-tags {
