@@ -673,7 +673,18 @@ div.project-thumbnail-container {
 	font-size: 0.8rem;
 	font-weight: bold;
 	float: right;
+	text-transform: uppercase;
 	padding: 8px 15px;
+}
+
+.ui-text-default {
+	color: $main-turq;
+	display: block;
+	font-size: 0.75rem;
+	font-family: $font-header;
+	font-weight: bold;
+	display: inline-block;
+	margin-right: 20px;
 }
 
 .ui-text:lang(zh),
