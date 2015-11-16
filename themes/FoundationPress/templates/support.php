@@ -16,7 +16,7 @@ get_header(); ?>
       <span class="subheader"><?php echo qtranxf_getLanguage() === "zh" ? "一個非牟利組織，旨於推廣公共藝術在香港的發展" : "is a nonprofit organization that relies on various funding sources for public art programmes" ; ?></span>
       <span class="frame-line">_</span>
       <p class="text-block column large-6 medium-8 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "支持香港公共藝術!是你的支持讓我們持續將公共藝術帶到不同的地方。你可以從以下四種方式支持我們:" : "YES for supporting Public Arts Hong Kong! Your great help ensures that we have the resources needed to present outstanding programmes and enriching educational projects. To support us through any of the four ways below,  please email:" ; ?></p>
-      <a href="#" class="button cta button-single">support@pahk.org.hk</a>
+      <a class="button cta button-single inactive-link">support@publicart.org.hk</a>
 
 
       <div class="row explanatory-block">
@@ -57,8 +57,8 @@ get_header(); ?>
           <div class="explanatory-text">
             <h4><?php echo qtranxf_getLanguage() === "zh" ? "企業" : "Corporates" ; ?></h4>
             <p><?php echo qtranxf_getLanguage() === "zh" ? "洽詢PAHK客戶支援團隊，與我們分享你的新想法! 讓PAHK深入研究, 帶給你驚喜!" : "We are excited to kick-start our project with you, let us know your thoughts, we will be in touch very soon." ; ?></p>
-            <div>
-              <a href="#" class="button cta inner-button">corporates@pahk.org.hk</a>
+            <div class="inner-button">
+              <a href="" class="button cta inactive-link">corporates@publicart.org.hk</a>
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@ get_header(); ?>
           <div class="explanatory-text">
             <h4><?php echo qtranxf_getLanguage() === "zh" ? "藝術家" : "Artists" ; ?></h4>
             <p><?php echo qtranxf_getLanguage() === "zh" ? "我們迫不及待欣賞你的作品！將你的作品集及項目想法電郵給我們，有合適的機會時，我們立刻聯絡你。" : "We can’t wait to see your work! Send us your ideas and portfolio and we will contact you when an opportunity arise!" ; ?></p>
-            <div>
-              <a href="#" class="button cta inner-button">artists@pahk.org.hk</a>
+            <div class="inner-button">
+              <a href="" class="button cta inactive-link">artists@publicart.org.hk</a>
             </div>
           </div>
         </div>       
@@ -77,8 +77,8 @@ get_header(); ?>
           <div class="explanatory-text">
             <h4><?php echo qtranxf_getLanguage() === "zh" ? "諮詢" : "Inquiries" ; ?></h4>
             <p><?php echo qtranxf_getLanguage() === "zh" ? "有任何問題，請立刻聯絡PAHK客戶支援團隊。" : "Got questions? <br> Let us know." ; ?></p>
-            <div>
-              <a href="#" class="button cta inner-button inner-button-3">info@pahk.org.hk</a>
+            <div class="inner-button">
+              <a href="" class="button cta inactive-link">info@publicart.org.hk</a>
             </div>
           </div>
         </div>

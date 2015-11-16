@@ -200,7 +200,7 @@ get_header(); ?>
           <p class="secondary-desc column large-8 medium-10 text-center small-centered"><?php echo qtranxf_getLanguage() === "zh" ? "無論你想贊助公共藝術項目、捐贈藝術品讓更多的公眾能夠在社區享受藝術氣息。PAHK能夠跟你一起尋找最適合的方式。" : "Support us by donating money*, artwork or volunteering <br>*Donations are tax deductible." ; ?></p>
         </div>
         <div class="column corporate-cta">
-          <a href="<?php echo get_home_url() . "/corporates"; ?>" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "了解更多" : "Find out how" ; ?></a>
+          <a href="<?php echo get_home_url() . "/support"; ?>" class="button cta"><?php echo qtranxf_getLanguage() === "zh" ? "了解更多" : "Find out how" ; ?></a>
         </div>
       </div>
     </div>
