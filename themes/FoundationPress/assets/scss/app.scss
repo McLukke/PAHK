@@ -503,10 +503,19 @@ span.letter-list {
 
 // CAROUSEL
 
+// Carousel general
+
+.tp-parallax-wrap {
+	left: 0px;
+	bottom: 0px;
+	height: auto;
+}
+
 .tp-mask-wrap {
 	// background-color: rgba(0,0,0,0.6);
 	background-color: $main-turq;
     border-top: 4px solid #fae596; 
+    transform: translateY(-100%);
 }
 
 .carousel_yellow {
@@ -562,6 +571,8 @@ a.carousel_action {
 	color: $white;
 	text-align: center;
 }
+
+// Carousel - first slide
 
 .carousel_yellow_1 {
 	text-align: center;
