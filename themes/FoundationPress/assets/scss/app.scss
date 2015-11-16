@@ -598,12 +598,12 @@ a.carousel_action {
 }
 
 .carousel_action_1_button {
-    display: block;
-    margin: 0 auto;
-    padding-bottom: 20px;
     margin-right: 10px;
     margin-left: 10px;
     width: 158px;
+    display: block !important;
+    margin: 0 auto !important;
+    padding-bottom: 20px !important;
 }
 
 
