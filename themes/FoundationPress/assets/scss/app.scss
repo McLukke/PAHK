@@ -560,19 +560,42 @@ a.carousel_action {
 	font-size: 40px;
 	color: $white;
 	text-align: center;
-
 }
 
-.carousel_yellow:first-child {
+.carousel_yellow_1 {
 	text-align: center;
-	font-family: $font-header;
-	font-size: 18px;
+    font-family: 'Sintony', sans-serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    color: #fae596;
 }
 
-.tp-mask-wrap:first-child {
-	background-color: transparent;
-	border-top: none;
+.carousel_content_1 {
+	font-family: 'Signika';
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+    text-transform: uppercase;
 }
+
+.carousel_action_1 {
+	font-family: 'Sintony', sans-serif;
+    text-transform: uppercase;
+    color: #1A4B52;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    background-color: #fae596;
+    padding: 8px 20px 6px 20px;
+}
+
+.carousel_action_1_button {
+	margin: 0 auto;
+    display: block;
+    width: 158px;
+}
+
 
 
 // SECTION UI
