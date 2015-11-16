@@ -386,7 +386,7 @@ foreach ($project_terms as $category_term) {
 	    </div>
 	    <?php } ?>
 			<br>
-			<span class="ui-text-default"><?php echo qtranxf_getLanguage() === "zh" ? "Project tags" : "Project tags:" ; ?></span>
+			<span class="ui-text-default"><?php echo qtranxf_getLanguage() === "zh" ? "Project tags Chinese:" : "Project tags:" ; ?></span>
 
 		  <?php foreach ($project_categories as $category_tag) {
 		  	if (qtranxf_getLanguage() == "zh") {
