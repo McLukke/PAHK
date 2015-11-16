@@ -12,7 +12,7 @@
 	//do_action( 'foundationpress_before_searchform' ); ?>
 
 	<div class="row page-title">
-	  <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "Chinese text SEARCH FOR PROJECTS HERE" : "SEARCH FOR PROJECTS HERE" ; ?></span></h1>
+	  <h1 class="strike"><span><?php echo qtranxf_getLanguage() === "zh" ? "Chinese text SEARCH" : "SEARCH" ; ?></span></h1>
 	</div>
 
 	<div class="row">

@@ -422,7 +422,7 @@ span.letter-list {
 
 .logo {
 	height: calc(3.8rem - 2px);
-	background-color: $main-dark;
+	background-color: $main-turq;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
@@ -555,6 +555,24 @@ a.carousel_action {
     letter-spacing: 0px;
 }
 
+.carousel_content {
+	font-family: $font-art;
+	font-size: 40px;
+	color: $white;
+	text-align: center;
+
+}
+
+.carousel_yellow:first-child {
+	text-align: center;
+	font-family: $font-header;
+	font-size: 18px;
+}
+
+.tp-mask-wrap:first-child {
+	background-color: transparent;
+	border-top: none;
+}
 
 
 // SECTION UI
