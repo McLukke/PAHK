@@ -434,9 +434,10 @@ span.letter-list {
 }
 
 .top-bar-section ul li > a {
-	font-family: $font-art;
+	font-family: $font-header;
 	font-weight: 700;
 	text-transform: uppercase;
+	letter-spacing: 0.5px;
 }
 
 #aside-bar-section {
@@ -530,7 +531,7 @@ span.letter-list {
 	line-height: 1rem;
 	padding: 7px 30px;
 	font-size: 0.8rem;
-	color: white;
+	color: $main-dark;
 }
 
 .carousel_date {
