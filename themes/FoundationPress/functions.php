@@ -127,10 +127,10 @@ function chinese_filter_tags ($input_tag) {
         case "wall-mounted":
             return "掛牆";
             break;
-        case "indoors":
+        case "indoor":
             return "室內";
             break;
-        case "outdoors":
+        case "outdoor":
             return "室外";
             break;
     }
