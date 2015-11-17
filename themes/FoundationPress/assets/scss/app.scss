@@ -568,15 +568,15 @@ span.letter-list {
 	margin-right: 30px;
 }
 
-.carousel_action a {
-	font-size: 1rem;
-    background-color: #fae596;
-    font-family: $font-header;
-    text-transform: uppercase;
-    color: $main-dark;
-    padding: 5px 30px;
-    letter-spacing: 0px;
-    margin-left: 30px;
+.carousel_action {
+	font-size: 1rem !important;
+    background-color: #fae596 !important;
+    font-family: $font-header !important;
+    text-transform: uppercase !important;
+    color: $main-dark !important;
+    padding: 5px 30px !important;
+    letter-spacing: 0px !important;
+    margin-left: 30px !important;
 }
 
 .carousel_content {
