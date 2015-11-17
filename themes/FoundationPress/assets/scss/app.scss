@@ -577,7 +577,7 @@ span.letter-list {
     padding: 5px 30px !important;
     letter-spacing: 0px !important;
     height: 30px !important;
-    width: 144px !important;
+    width: 142px !important;
     margin-left: 30px !important;
     margin-top: 28px !important;
     margin-bottom: 30px !important;
@@ -628,9 +628,11 @@ span.letter-list {
     background-color: #fae596;
     padding: 0px 19px 0px;
     line-height: 34px;
-    display: inline-block;
     text-align: center;
     width: 100%;
+    display: block;
+    margin-top: 22px;
+    margin-bottom: 13px;
 }
 
 .carousel_action_1_button {
