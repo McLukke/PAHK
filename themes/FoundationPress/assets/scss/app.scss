@@ -645,6 +645,14 @@ span.letter-list {
 }
 
 
+.custom.tparrows {
+	background-color: $main-turq !important;
+}
+
+.custom.tparrows:before {
+	font-size: 20px;
+	font-weight: bold;
+}
 
 // SECTION UI
 
