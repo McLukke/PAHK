@@ -88,6 +88,8 @@ foreach ($project_terms as $category_term) {
 	        echo qtranxf_getLanguage() === "zh" ? "持續" : "Ongoing" ;
 	      } else {
 	        if (qtranxf_getLanguage() === "zh") {
+	          echo date_i18n( 'Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
+	          echo ".";
 	          echo date_i18n( 'F', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
 	        } else {
 	          echo date_i18n( 'F Y', strtotime(pods_field_display ('projects', get_the_ID(), 'display_until')) );
